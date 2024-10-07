@@ -1,0 +1,84 @@
+---
+title: Characters
+description: 'API reference for characters'
+icon: 'code'
+---
+
+## Events
+
+This event is triggered when a player has successfully selected a character and joined the server. It provides an opportunity to execute custom logic or initialize player-specific data based on the chosen character. The event is fired on both the client and server side
+
+<Note>Client Side</Note>
+
+```lua SelectedCharacter
+RegisterNetEvent("vorp:SelectedCharacter", function(charid)
+   print(charid)
+end)
+```
+<Note>Server Side</Note>
+
+```lua SelectedCharacter
+AddEventHandler("vorp:SelectedCharacter",function(source,character)
+    print(character)
+end)
+```
+
+This event is triggered when a player has created a new character for the server. Example Usage Case: Someone might use this to create/select a first spawn location for a character.
+
+<Note>Client Side</Note>
+```lua initNewCharacter
+AddEventHandler("vorp:initNewCharacter", function()
+    print("New Character Created")
+end)
+```
+
+## Functions
+
+This function retrieves all components in the player's cache. It is useful for updating or modifying the player's appearance based on the components stored in the cache.
+
+<Note>Client Side</Note>
+
+<Accordion icon="keyboard" iconType= "duotone" title="GetAllPlayerComponents">
+
+<ParamField body="return" type="table">
+    The components in the player's cache.
+</ParamField>
+
+```lua
+local result = exports.vorp_character:GetAllPlayerComponents()
+```
+</Accordion>
+
+<Accordion icon="keyboard" iconType= "duotone" title="GetPlayerComponent">
+
+<ParamField body="category" type="string" required>
+    The category of the component to retrieve.
+</ParamField>
+<ParamField body="return" type="string">
+    The components in the player's cache.
+</ParamField>
+
+```lua
+local result = exports.vorp_character:GetPlayerComponent(category)
+```
+</Accordion>
+
+<Accordion icon="keyboard" iconType= "duotone" title="Reload Character">
+refreshes the player skin that is saved in the client cache and clothes
+```lua
+ExecuteCommand("rc")
+```
+</Accordion>
+
+## StateBags
+
+Bandana state you can use this in ohter script to check if player is wearing a bandana on his face using characters bandana commands
+
+```lua
+LocalPlayer.state.IsBandanaOn
+```
+ check if player is in character shops
+```lua
+LocalPlayer.state.PlayerIsInCharacterShops
+```
+

@@ -1,0 +1,35 @@
+---
+title : metabolism
+description : 'metabolism api for vorp'
+icon : 'droplet'
+---
+
+<Note>Client side</Note>
+
+Types are `Metabolism` `Thirst` `Hunger` Minimum value is `0` Maximum value is `1000`
+
+
+Change metabolism value
+```lua
+ TriggerEvent('vorpmetabolism:changeValue', 'Metabolism', 9000)
+```
+
+Set metabolism value
+
+```lua
+ TriggerEvent('vorpmetabolism:setValue', 'Metabolism', 10000)
+```
+
+Get metabolism value
+
+```lua
+ TriggerEvent('vorpmetabolism:getValue', 'Metabolism', function(value)
+    print('metabolism value', value)
+ end)
+```
+
+Set Hud Visibility
+
+```lua
+ TriggerEvent('vorpmetabolism:setHudVisibility', true)
+```

@@ -1,0 +1,378 @@
+---
+title: Menu
+description: 'vorp menu is a library that allows you to create menus in game with a rdr2 style.'
+icon: 'code'
+---
+
+### GetMenuData
+
+<Accordion icon="code" iconType="duotone" title="GetMenuData">
+  on top of your client scripts add this to get the menu data setters and getters
+<ParamField body="return" type="table">
+    The menu data
+</ParamField>
+
+```lua
+local Menu = exports.vorp_menu:GetMenuData()
+```
+</Accordion>
+
+### CloseAll
+
+<Accordion icon="code" iconType="duotone" title="CloseAll">
+  Close all menus
+<ParamField body="return" type="void">
+    The menu data
+</ParamField>
+
+```lua
+MenuData.CloseAll()
+```
+</Accordion>
+
+### Menu Elements
+
+Menu elements are the elements that will be displayed in the menu
+<Tabs>
+
+<Tab title="Default">
+<Accordion icon="code" iconType="duotone" title="Menu Elements">
+   
+<ParamField body="value" type="string" required> 
+    The value of the tab element
+</ParamField>
+<ParamField body="label" type="string" required>
+    The label of the tab element
+</ParamField>
+<ParamField body="desc" type="string" required>
+    The description of the tab element
+</ParamField>
+
+```lua
+ local MenuElements = {
+    {
+        label = "name",
+        value = "value",
+        desc = "description"
+    }
+ }
+```
+</Accordion>
+</Tab>
+<Tab title="Slider">
+<Accordion icon="code" iconType="duotone" title="Slider">
+   
+<ParamField body="value" type="string" required> 
+    The value of the tab element
+</ParamField>
+<ParamField body="label" type="string" required> 
+    The label of the tab element
+</ParamField>   
+<ParamField body="desc" type="string" required>
+    The description of the tab element
+</ParamField>
+<ParamField body="type" type="string" required> 
+    The type of the tab element
+</ParamField>
+<ParamField body="min" type="number">
+    The minimum value of the tab element can also be floats
+</ParamField>
+<ParamField body="max" type="number" required>  
+    The maximum value of the tab element can also be floats
+</ParamField>
+<ParamField body="hop" type="number" required>
+    The hop value of the tab element
+</ParamField>
+
+```lua
+local MenuElements = {
+    {
+        label = "name",
+        value = 0, 
+        desc = "description",
+        type = "slider",
+        min = 0,
+        max = 10,
+        hop = 1
+    }
+}
+```
+</Accordion>
+
+</Tab>
+
+<Tab title="Custom">
+
+<Accordion icon="code" iconType="duotone" title="Custom">
+   
+<ParamField body="value" type="string" required>
+    The value of the tab element
+</ParamField>
+<ParamField body="label" type="string" required>
+    The label of the tab element
+</ParamField>   
+<ParamField body="desc" type="string" required>
+    The description of the tab element
+</ParamField>
+<ParamField body="itemHeight" type="string">
+    The height of the tab element
+</ParamField>
+<ParamField body="any" type="any">
+    Any value ,string,number,table,array,etc.
+</ParamField>
+<ParamField body="table" type="table">
+    table within a table 
+</ParamField>
+
+```lua
+local MenuElements = {
+    {
+        label = "name",
+        value = "value",
+        desc = "description",
+        itemHeight = "4vh",
+        any = any,
+        table = {
+            string = "string",
+            number = 111,
+            table = table,
+        }
+    }
+}
+```
+</Accordion>
+</Tab>
+ 
+ <Tab title="Menu Info">
+<Accordion icon="code" iconType="duotone" title="Menu Info">
+   
+<ParamField body="title" type="string" required>
+    The title of the menu
+</ParamField>
+<ParamField body="subtext" type="string" required>
+    The subtext of the menu
+</ParamField>
+<ParamField body="align" type="string" required>
+    The align of the menu , top-right , top-center , top-left
+</ParamField>
+<ParamField body="elements" type="table" required>
+    The elements for the menu
+</ParamField>
+<ParamField body="lastmenu" type="string">
+    The last menu function name
+</ParamField>
+<ParamField body="itemHeight" type="string">
+    The height of the all menu elements
+</ParamField>
+
+```lua
+local MenuInfo = {
+    title = "menu title",
+    subtext = "menu sub text",
+    align = "top-right", 
+    elements = MenuElements, 
+    lastmenu = "function", -- if you wish to go back to the previous menu , or remove (optional)
+    itemHeight = "4vh", -- set all elements to this height if they are not definded in the element (optional)
+}
+```
+</Accordion>
+ </Tab>
+</Tabs>
+
+## Functions 
+
+update elements ,add ,remove ,get elements runtime
+
+<Tabs>
+
+<Tab title="New">
+
+<Accordion icon="code" iconType="duotone" title="addNewElement">
+ this function will add a new element to the current menu elements by order
+<ParamField body="label" type="string" required>
+    The label of the element
+</ParamField>
+<ParamField body="value" type="string" required>
+    The value of the element
+</ParamField>
+<ParamField body="desc" type="string" required>
+    The description of the element
+</ParamField>
+
+```lua
+menu.addNewElement({
+    label = "label",
+    value = "open",
+    desc = "description"
+})
+```
+refresh menu to show new element
+```lua
+menu.refresh()
+```
+</Accordion>
+</Tab>
+<Tab title = "Get">
+
+<Accordion icon="code" iconType="duotone" title="getElementBy[Value/Index]">
+find an element by value or index 
+```lua
+local element = menu.getElementByValue(value) 
+local element = menu.getElementByIndex(index)
+```
+</Accordion>
+</Tab>
+<Tab title="Update">
+<Accordion icon="code" iconType="duotone" title="setElement">
+ this function will update a specific element variable 
+<ParamField body="index" type="number" required>
+    The index of the menu element to update
+</ParamField>
+<ParamField body="variable" type="string" required>
+    The variable of the menu element to update , label,value,desc, any
+</ParamField>
+<ParamField body="newValue" type="any" required>
+    The new value of the menu element to update
+</ParamField>
+
+```lua
+menu.setElement(index, variable, newValue)
+```              
+refresh menu to show changes
+```lua  
+menu.refresh() 
+```
+</Accordion>
+</Tab> 
+
+Unacessary to use this function as you can edit the elements table directly 
+
+<Tab title="Remove">
+
+<Accordion icon="code" iconType="duotone" title="removeElementBy[Value/Index]">
+ this function will remove a specific element by value or index
+<ParamField body="value" type="string" required>
+    The value of the element to remove
+</ParamField>
+<ParamField body="loop" type="boolean">
+   stop looking at the first element found  can be used  when you loop through several elements and remove all indexes 
+</ParamField>
+
+```lua
+menu.removeElementByIndex(index,loop) 
+menu.removeElementByValue(value,loop)
+```
+refresh menu to show changes
+```lua
+menu.refresh()
+```
+</Accordion>
+</Tab>
+<Tab title="Close">
+<Accordion icon="code" iconType="duotone" title="CloseMenu">
+ this function will close the current menu
+```lua
+menu.close()
+```
+</Accordion>
+</Tab>
+<Tab title="setTitle">
+<Accordion icon="code" iconType="duotone" title="setTitle">
+ this function will set the title of the current menu
+<ParamField body="title" type="string" required>
+    The title of the menu
+</ParamField>
+```lua
+menu.setTitle("title")
+```
+refresh menu to show changes
+```lua
+menu.refresh()
+```
+</Accordion>
+</Tab>
+
+</Tabs>
+
+
+### Menu Example
+
+<Accordion icon="code" iconType="duotone" title="Menu Example">
+```lua
+function OpenMenu()
+
+ Menu.CloseAll()
+
+    MenuElements = {
+
+        { 
+            label = "name",
+            value = "value",
+            desc = "description"
+        }
+        {
+            label = "name",
+            value = 0, 
+            desc = "description",
+            type = "slider",
+            min = 0,
+            max = 10,
+            hop = 1
+        }
+        { 
+            label = "name",
+            value = "value",
+            desc = "description",
+            itemHeight = "4vh" 
+        }
+
+        { 
+            label = "name",
+            value = "value",
+            desc = "description",
+            any = any --(optional)
+            table = { --(optional)
+                string = "string",
+                number = 111,
+                table = table,
+            }
+        }
+    }
+    
+
+    Menu.Open("default",GetCurrentResourceName(),"OpenMenu", -- unique namespace will allow the menu to open where you left off
+
+    {
+        title = "menu title",
+        subtext = "menu sub text",
+        align = "align", -- top-right , top-center , top-left
+        elements = MenuElements, -- elements needed
+        lastmenu = "function name", -- if you wish to go back to the previous menu , or remove (optional)
+        itemHeight = "4vh", -- set all elements to this height if they are not definded in the element (optional)
+    },
+
+
+    function(data, menu)
+        -- to go back to lastmenu if any
+
+        if (data.current == "backup") then --(optional) 
+            return  _G[data.trigger](any,any) -- or the function of the last menu
+        end
+
+        -- get any of the params you definded in the elements
+        if data.current.value == "value" then
+            return
+        end
+
+        if data.current.info == "param" then
+            return menu.close()
+        end
+
+    end,function(data,menu) 
+        -- if theres no previous menu close menu on backspace press
+        menu.close() 
+    end)
+
+end
+```
+</Accordion>
