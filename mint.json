@@ -97,7 +97,8 @@
         "api-reference/inputs",
         "api-reference/progressbar",
         "api-reference/metabolism",
-        "api-reference/animations"
+        "api-reference/animations",
+        "api-reference/lib"
       ]
     }
   ]
