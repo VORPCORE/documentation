@@ -75,7 +75,12 @@
         "name": "CFX.re docs",
         "icon": "github",
         "url": "https://docs.fivem.net/docs/"
-    }
+    },
+    {
+      "name": "Rdr3 Decompile",
+      "icon": "github",
+      "url": "https://github.com/outsider31000/rdr2-scripts-decompiled"
+   }
   ],
 
   "navigation": [
