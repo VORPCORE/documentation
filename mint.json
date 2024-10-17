@@ -52,35 +52,36 @@
       "url": "https://rdr3natives.com"
     },
     {
-        "name" : "CFX Artifacts",
-        "icon" : "stack-overflow",
-        "url" : "https://runtime.fivem.net/artifacts/fivem/build_server_windows/master/"
-    },
-    {
         "name": "RDR3 discoveries",
         "icon": "github",
         "url": "https://github.com/femga/rdr3_discoveries"
     },
     {
-      "name": "LUA compiler",
-      "icon": "code",
-      "url": "https://onecompiler.com/lua"
+      "name": "RDR3 decompiled scripts",
+      "icon": "github",
+      "url": "https://github.com/outsider31000/rdr2-scripts-decompiled"
     },
     {
-        "name": "LUA docs",
-        "icon": "books",
-        "url": "https://www.lua.org/docs.html"
+      "name": "RDR3 native Flags And Enums",
+      "icon": "slack",
+     "url": "https://github.com/Halen84/RDR3-Native-Flags-And-Enums"
     },
     {
-        "name": "CFX.re docs",
+        "name": "CFX.re documentation",
         "icon": "github",
         "url": "https://docs.fivem.net/docs/"
     },
     {
-      "name": "Rdr3 Decompile",
-      "icon": "github",
-      "url": "https://github.com/outsider31000/rdr2-scripts-decompiled"
+      "name" : "CFX artifacts",
+      "icon" : "stack-overflow",
+      "url" : "https://runtime.fivem.net/artifacts/fivem/build_server_windows/master/"
+    },
+    {
+      "name": "LUA documentation",
+      "icon": "books",
+      "url": "https://www.lua.org/docs.html"
    }
+  
   ],
 
   "navigation": [
