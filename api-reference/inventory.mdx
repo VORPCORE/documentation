@@ -12,6 +12,41 @@ icon : 'code'
 
 ---
 
+<Note> These exports are client side only!</Note>
+
+<Tabs>
+  <Tab title="Items">
+
+ ### Getters
+
+<Accordion icon="keyboard" iconType= "duotone" title="getInventoryItems">
+ 
+   <Icon icon="code" iconType="solid"/> get all user inventory items 
+
+    <ParamField body="return" type="table">
+    returns a table containing all the items in the inventory
+    </ParamField>
+    ```lua
+    local result = exports.vorp_inventory:getInventoryItems()
+    ```
+</Accordion>
+<Accordion icon="keyboard" iconType= "duotone" title="getInventoryItem">
+ 
+   <Icon icon="code" iconType="solid"/> get user inventory item
+    <ParamField body="return" type="name">
+     the item name
+    </ParamField>
+    <ParamField body="return" type="table">
+    returns a table containing the item name,label,weight,desc and metadata
+    </ParamField>
+    ```lua
+    local result = exports.vorp_inventory:getInventoryItems()
+    ```
+</Accordion>
+</Tab>
+</Tabs>
+
+
 <Note> These exports are server side only!</Note>
 
 <Tabs>
