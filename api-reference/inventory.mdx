@@ -593,7 +593,7 @@ icon : 'code'
     callback function syncronous or asyncronous
     </ParamField>
     <ParamField body="return" type="table">
-     `{id:number, label:string, name:string, metadata:table, group:number, type:string, count:number, limit:number,canUse:boolean}`
+     `{id:number, label:string, name:string, metadata:table, group:number, type:string, count:number, limit:number,canUse:boolean,percenage:integer,description:string,weight:number}`
     </ParamField>
     ```lua
     exports.vorp_inventory:getItemByMainId(source, mainid, callback)
@@ -617,7 +617,7 @@ icon : 'code'
     item metadata
     </ParamField>
     <ParamField body="return" type="table">
-     `{id:number, label:string, name:string, metadata:table, group:number, type:string, count:number, limit:number,canUse:boolean}`
+     `{id:number, label:string, name:string, metadata:table, group:number, type:string, count:number, limit:number,canUse:boolean,weight:number,desc:string,percentage:integer}`
     </ParamField>
     ```lua
     exports.vorp_inventory:getItem(source, item,callback, metadata)
@@ -691,7 +691,7 @@ icon : 'code'
     item id
     </ParamField>
     <ParamField body="metadata" type="table">
-    `{ description:string?, image:string?}` **description** and **image** are reserved keys if they are not defined they will be ignored, image is the image name to apply
+    `{ description:string?, image:string?,label:string?,weight:number?}` **description** **image** **label** and **weight** are reserved keys if they are not defined they will be ignored, image is the image name to apply
     </ParamField>
     <ParamField body="amount" type="int" required>
     amount of item
@@ -717,7 +717,7 @@ icon : 'code'
     item name
   </ParamField>
     <ParamField body="callback" type="function" required>
-     callback `{source:int, id:number, label:string, name:string, metadata:table, group:number, type:string, count:number, limit:number,canUse:boolean}`
+     callback `{source:int, id:number, label:string, name:string, metadata:table, group:number, type:string, count:number, limit:number,canUse:boolean, mainid: integer, percentage:integer}`
     </ParamField>
     ```lua
     exports.vorp_inventory:registerUsableItem(item, callback)
@@ -1299,5 +1299,14 @@ LocalPlayer.state.IsInvActive
 Player(source).state.IsInvActive
 ```
 
+## GLOBAL STATEBAGS
 
+returns timestamp from server to be used in client
 
+```lua
+local timestamp = GlobalState.TimeNow
+-- Get hours, minutes and seconds from timestamp
+local seconds = GlobalState.TimeNow % 60
+local minutes = math.floor(GlobalState.TimeNow / 60) % 60 
+local hours = math.floor(GlobalState.TimeNow / 3600) % 24
+```
