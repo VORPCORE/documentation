@@ -37,7 +37,7 @@ icon : 'code'
      the item name
     </ParamField>
     <ParamField body="return" type="table">
-    returns a table containing the item name,label,weight,desc and metadata
+    returns a table containing the item name,label,weight,desc metadata, percentage
     </ParamField>
     ```lua
     local result = exports.vorp_inventory:getInventoryItem()
@@ -470,9 +470,9 @@ icon : 'code'
  
    <Icon icon="code" iconType="solid"/> get item amount from player inventory
 
-  <ParamField body="source" type="int" required>
+    <ParamField body="source" type="int" required>
     The player id
-  </ParamField>
+    </ParamField>
     <ParamField body="callback" type="function">
     callback function for syncronous or asyncronous
     </ParamField>
@@ -482,9 +482,13 @@ icon : 'code'
     <ParamField body="metadata" type="table">
     item metadata
     </ParamField>
+    <ParamField body="excludeExpired" type="table">
+     dont included expired items 
+    </ParamField>
     <ParamField body="return" type="int">
     returns the amount of items in the inventory
     </ParamField>
+
     ```lua usage
     exports.vorp_inventory:getItemCount(source, callback, item,metadata)
     ```
@@ -616,9 +620,13 @@ icon : 'code'
     <ParamField body="metadata" type="table">
     item metadata
     </ParamField>
+    <ParamField body="percentage" type="table">
+     get an item only at a certain percentage, if 0 it gets tems expired
+    </ParamField>
     <ParamField body="return" type="table">
      `{id:number, label:string, name:string, metadata:table, group:number, type:string, count:number, limit:number,canUse:boolean,weight:number,desc:string,percentage:integer}`
     </ParamField>
+
     ```lua
     exports.vorp_inventory:getItem(source, item,callback, metadata)
     ```
@@ -644,6 +652,9 @@ icon : 'code'
     </ParamField>
     <ParamField body="callback" type="function">
     callback function syncronous or asyncronous
+    </ParamField>
+    <ParamField body="notallowed" type="function">
+     if true will not trigger the event OnItemCreated
     </ParamField>
     <ParamField body="return" type="boolean">
     returns true if the item was successfully added
