@@ -691,6 +691,27 @@ icon : 'code'
     ```
 </Accordion>
 
+<Accordion icon="keyboard" iconType= "duotone" title="subItemById">
+ 
+    <Icon icon="code" iconType="solid"/> remove item from user inventory by its id exort available on verion 3.9 and up lower versions uses subItemID
+
+    <ParamField body="source" type="int" required>
+    The player id
+    </ParamField>
+    <ParamField body="amount" type="int" required>
+    item id
+    </ParamField>
+    <ParamField body="callback" type="function">
+    callback function syncronous or asyncronous
+    </ParamField>
+    <ParamField body="return" type="boolean">
+    returns true if the item was successfully removed
+    </ParamField>
+    ```lua
+    exports.vorp_inventory:subItemById(source, itemId,callback)
+    ```
+</Accordion>
+
 <Accordion icon="keyboard" iconType= "duotone" title="setItemMetadata">
  
    <Icon icon="code" iconType="solid"/> set item metadata
