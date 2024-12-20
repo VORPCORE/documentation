@@ -482,15 +482,15 @@ icon : 'code'
     <ParamField body="metadata" type="table">
     item metadata
     </ParamField>
-    <ParamField body="excludeExpired" type="table">
-     dont included expired items 
+    <ParamField body="percentage" type="int">
+     allows to control what items to get, if 0 gets all items with no metadata if meta was not passed if 0 gets items expired, anything above 0 or equal will return those item count
     </ParamField>
     <ParamField body="return" type="int">
     returns the amount of items in the inventory
     </ParamField>
 
     ```lua usage
-    exports.vorp_inventory:getItemCount(source, callback, item,metadata)
+    exports.vorp_inventory:getItemCount(source, callback, item,metadata,percentage)
     ```
 </Accordion>
 
@@ -583,15 +583,15 @@ icon : 'code'
 </Accordion>
 
 
-<Accordion icon="keyboard" iconType= "duotone" title="getItemByMainId">
+<Accordion icon="keyboard" iconType= "duotone" title="getItemById">
  
    <Icon icon="code" iconType="solid"/> get item by main id
 
   <ParamField body="source" type="int" required>
     The player id
   </ParamField>
-    <ParamField body="mainid" type="int" required>
-    item main id
+    <ParamField body="id" type="int" required>
+    item id
     </ParamField>
        <ParamField body="callback" type="function">
     callback function syncronous or asyncronous
@@ -600,7 +600,7 @@ icon : 'code'
      `{id:number, label:string, name:string, metadata:table, group:number, type:string, count:number, limit:number,canUse:boolean,percenage:integer,description:string,weight:number}`
     </ParamField>
     ```lua
-    exports.vorp_inventory:getItemByMainId(source, mainid, callback)
+    exports.vorp_inventory:getItemById(source, id, callback)
     ```
 </Accordion>
 
@@ -621,14 +621,14 @@ icon : 'code'
     item metadata
     </ParamField>
     <ParamField body="percentage" type="table">
-     get an item only at a certain percentage, if 0 it gets tems expired
+     get an item only at a certain percentage, if 0 it gets tems expired if nil gets any item if more than 0 gets any item that equals or is above
     </ParamField>
     <ParamField body="return" type="table">
      `{id:number, label:string, name:string, metadata:table, group:number, type:string, count:number, limit:number,canUse:boolean,weight:number,desc:string,percentage:integer}`
     </ParamField>
 
     ```lua
-    exports.vorp_inventory:getItem(source, item,callback, metadata)
+    exports.vorp_inventory:getItem(source, item,callback, metadata,percentage)
     ```
 </Accordion>
 
@@ -653,14 +653,14 @@ icon : 'code'
     <ParamField body="callback" type="function">
     callback function syncronous or asyncronous
     </ParamField>
-    <ParamField body="notallowed" type="function">
+    <ParamField body="event" type="boolean">
      if true will not trigger the event OnItemCreated
     </ParamField>
     <ParamField body="return" type="boolean">
     returns true if the item was successfully added
     </ParamField>
     ```lua
-    exports.vorp_inventory:addItem(source, item, amount, metadata, callback)
+    exports.vorp_inventory:addItem(source, item, amount, metadata, callback,event)
     ```
 </Accordion>
 
@@ -683,11 +683,17 @@ icon : 'code'
     <ParamField body="callback" type="function">
     callback function syncronous or asyncronous
     </ParamField>
+     <ParamField body="event" type="boolean">
+     event OnItemRemoved to be fired, if true it wont be sent, false or nil it will fire the event
+    </ParamField>
+    <ParamField body="percentage" type="int">
+     allows to control percentage of items to remove, if nil removes any, if 0 removes expired items only, if more than 0 it removes anything above or equal
+    </ParamField>
     <ParamField body="return" type="boolean">
     returns true if the item was successfully removed
     </ParamField>
     ```lua
-    exports.vorp_inventory:subItem(source, item, amount, metadata, callback)
+    exports.vorp_inventory:subItem(source, item, amount, metadata, callback,event,percentage)
     ```
 </Accordion>
 
@@ -704,11 +710,18 @@ icon : 'code'
     <ParamField body="callback" type="function">
     callback function syncronous or asyncronous
     </ParamField>
+    </ParamField>
+    <ParamField body="event" type="boolean">
+      event OnItemRemoved to be fired, if true it wont be sent, false or nil it will fire the event
+    </ParamField>
+    <ParamField body="amount" type="int">
+     amount to remove
+    </ParamField>
     <ParamField body="return" type="boolean">
     returns true if the item was successfully removed
     </ParamField>
     ```lua
-    exports.vorp_inventory:subItemById(source, itemId,callback)
+    exports.vorp_inventory:subItemById(source, itemId,callback,event,amount)
     ```
 </Accordion>
 
