@@ -775,6 +775,7 @@ icon : 'code'
     <ParamField body="return" type="boolean">
      `returns` true if the item was successfully added
     </ParamField>
+
     ```lua
     exports.vorp_inventory:addItem(source, item, amount, metadata, callback,event)
     ```
@@ -1238,8 +1239,8 @@ icon : 'code'
     <Icon icon="code" iconType="solid"/> set custom inventory whitelisted weapons, if in registerCustomInventory you set whitelistWeapons true then use this export to set which weapons are whitelisted and their amount
     
     <ParamField body="invId" type="string" required>
-    inventory id
-      </ParamField>
+     inventory id
+    </ParamField>
 
     <ParamField body="weapon" type="string" required>
      weapon name
@@ -1265,7 +1266,7 @@ icon : 'code'
 </Tab>
 <Tab title="Inventory misc">
      ### Getters
-    <Accordion icon="keyboard" iconType= "duotone" title="isCustomInventoryRegistered">
+  <Accordion icon="keyboard" iconType= "duotone" title="isCustomInventoryRegistered">
      
     <Icon icon="code" iconType="solid"/> check if inventory is registered
 
@@ -1284,7 +1285,7 @@ icon : 'code'
     ```lua
     exports.vorp_inventory:isCustomInventoryRegistered(id, callback)
     ```
-</Accordion>
+  </Accordion>
 
 <Accordion icon="keyboard" iconType= "duotone" title="AddCharIdPermissionTakeFromCustom">
      
