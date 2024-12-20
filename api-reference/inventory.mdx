@@ -907,7 +907,7 @@ icon : 'code'
     ```
 </Accordion>
 
-  </Tab>
+</Tab>
   <Tab title="Inventory items">
     ### Getters
 
@@ -959,7 +959,7 @@ icon : 'code'
 
    ### Setters
 
-<Accordion icon="keyboard" iconType= "duotone" title="removeCustomInventoryItemById">
+  <Accordion icon="keyboard" iconType= "duotone" title="removeCustomInventoryItemById">
  
    <Icon icon="code" iconType="solid"/> remove item from custom inventory by item id
 
@@ -982,9 +982,9 @@ icon : 'code'
     ```lua
     exports.vorp_inventory:removeCustomInventoryItemById(invId, item_id, callback)
     ```
-</Accordion>
+  </Accordion>
 
-<Accordion icon="keyboard" iconType= "duotone" title="removeItemFromCustomInventory">
+  <Accordion icon="keyboard" iconType= "duotone" title="removeItemFromCustomInventory">
  
    <Icon icon="code" iconType="solid"/> remove item from custom inventory
 
@@ -1007,10 +1007,10 @@ icon : 'code'
     ```lua
     exports.vorp_inventory:removeItemFromCustomInventory(invid,itemName,callback)
     ```
-</Accordion>
+  </Accordion>
 
 
-<Accordion icon="keyboard" iconType= "duotone" title="updateCustomInventoryItem">
+  <Accordion icon="keyboard" iconType= "duotone" title="updateCustomInventoryItem">
  
    <Icon icon="code" iconType="solid"/> update item in custom inventory
 
@@ -1041,7 +1041,7 @@ icon : 'code'
     ```lua
     exports.vorp_inventory:updateCustomInventoryItem(invId, item_id, metadata, amount, callback)
     ```
-</Accordion>
+  </Accordion>
 
 <Accordion icon="keyboard" iconType= "duotone" title="addItemsToCustomInventory">
  
@@ -1128,7 +1128,30 @@ icon : 'code'
     ```
  </Accordion>
 
+ <Accordion icon="keyboard" iconType= "duotone" title="getCustomInventoryWeaponCount">
+     
+    <Icon icon="code" iconType="solid"/> get custom inventory weapon count
 
+    <ParamField body="invid" type="string" required>
+     inventory id
+    </ParamField>
+
+    <ParamField body="weaponName" type="string" required>
+     weapon name
+    </ParamField>
+
+    <ParamField body="callback" type="function">
+     callback function syncronous or asyncronous
+    </ParamField>
+
+    <ParamField body="return" type="number">
+     `returns` the amount of weapons in the inventory
+    </ParamField>
+
+    ```lua
+    exports.vorp_inventory:getCustomInventoryWeaponCount(invid,weaponName,callback)
+    ```
+ </Accordion>
 
     ### Setter
 
@@ -1140,7 +1163,7 @@ icon : 'code'
      inventory id
     </ParamField>
 
-    ParamField body="weapon_id" type="number" required>
+    <ParamField body="weapon_id" type="number" required>
      weapon id
     </ParamField>
 
@@ -1241,6 +1264,7 @@ icon : 'code'
 </Accordion>
 
 </Tab>
+
 <Tab title="Inventory misc">
      ### Getters
   <Accordion icon="keyboard" iconType= "duotone" title="isCustomInventoryRegistered">
