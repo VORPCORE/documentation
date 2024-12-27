@@ -5,12 +5,12 @@ icon: 'code'
 ---
 
 <Warning>
- This documentation is for developers who are making scripts for vorp core framework
+ This documentation is for developers who are making scripts for VORP Core Framework
 </Warning>
 
 ## Export 
 
-GetCore is a shared export that returns the core table containing all the getters and setters for vorp core.
+GetCore is a shared export that returns the core table containing all the getters and setters for VORP Core.
 some of the getters and setters are client side only and some are server side only.
 
 <Note>Shared</Note>
@@ -1081,7 +1081,7 @@ character.updateInvCapacity(1)
 
 <Accordion icon="user" iconType="duotone" title="setSkills">
 <ParamField body="skillName" type="string" required>
-    The name of the skill to set, these skillNames will be in vorp core config skills
+    The name of the skill to set, these skillNames will be in VORP Core config skills
 </ParamField>
 <ParamField body="value" type="number" required>
     the Exp value to be set to the skillName you passed values are incremental so 1000 exp will be 1000 + what you already have
@@ -1519,7 +1519,7 @@ RegisterNetEvent("vorp_core:Server:OnPlayerDeath",function(killerserverid,causeo
 
 #### onPlayerRevive      
 
-when player is revived through vorp core export this event will trigger
+when player is revived through VORP Core export this event will trigger
 
 ```lua
 --SERVER
@@ -1531,7 +1531,7 @@ RegisterNetEvent("vorp_core:Client:OnPlayerRevive")
 
 #### onPlayerRespawn
 
-when player respawns through vorp core export this event will trigger 
+when player respawns through VORP Core export this event will trigger 
 
 ```lua
 --SERVER
@@ -1543,7 +1543,7 @@ RegisterNetEvent("vorp_core:Client:OnPlayerRespawn")
 
 #### onPlayerHeal
 
-when player is healed through vorp core export this event will trigger
+when player is healed through VORP Core export this event will trigger
 
 ```lua
 --SERVER

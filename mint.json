@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "vorp core",
+  "name": "VORP Core",
   "logo": {
     "dark": "/logo/64416274.png",
     "light": "/logo/64416274.png"
@@ -35,7 +35,7 @@
   },
 
   "topbarCtaButton": {
-    "name": "txAdmin instalation",
+    "name": "txAdmin Installation",
     "url": "https://docs.fivem.net/docs/server-manual/setting-up-a-server-txadmin/"
   },
 
@@ -47,37 +47,37 @@
   ],
   "anchors": [
     {
-      "name": "RDR3 natives",
+      "name": "RDR3 Natives",
       "icon": "slack",
       "url": "https://rdr3natives.com"
     },
     {
-        "name": "RDR3 discoveries",
+        "name": "RDR3 D56820",
         "icon": "github",
         "url": "https://github.com/femga/rdr3_discoveries"
     },
     {
-      "name": "RDR3 decompiled scripts",
+      "name": "RDR3 Decompiled Scripts",
       "icon": "github",
       "url": "https://github.com/outsider31000/rdr2-scripts-decompiled"
     },
     {
-      "name": "RDR3 native Flags And Enums",
+      "name": "RDR3 Native Flags and Enums",
       "icon": "slack",
      "url": "https://github.com/Halen84/RDR3-Native-Flags-And-Enums"
     },
     {
-        "name": "CFX.re documentation",
+        "name": "CFX.re Documentation",
         "icon": "github",
         "url": "https://docs.fivem.net/docs/"
     },
     {
-      "name" : "CFX artifacts",
+      "name" : "CFX Artifacts",
       "icon" : "stack-overflow",
       "url" : "https://runtime.fivem.net/artifacts/fivem/build_server_windows/master/"
     },
     {
-      "name": "LUA documentation",
+      "name": "LUA Documentation",
       "icon": "books",
       "url": "https://www.lua.org/docs.html"
    }
