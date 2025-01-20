@@ -1552,6 +1552,15 @@ AddEventHandler("vorp_core:Server:OnPlayerHeal",function(source) end)
 RegisterNetEvent("vorp_core:Client:OnPlayerHeal")
 ```
 
+#### onPlayerLevelUp
+
+```lua
+--SERVER
+AddEventHandler("vorp_core:Server:OnPlayerLevelUp",function(source,skillName,newLevel,oldLevel) end)
+--CLIENT
+RegisterNetEvent("vorp_core:Client:OnPlayerHeal",function(skillName,newLevel,oldLevel) end)
+```
+
 ## Dataview
 
 call dataview in your script fxmanifest
