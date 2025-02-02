@@ -902,8 +902,27 @@ icon : 'code'
      callback `{source:int, id:number, label:string, name:string, metadata:table, group:number, type:string, count:number, limit:number,canUse:boolean, mainid: integer, percentage:integer}`
     </ParamField>
 
+    
+    <ParamField body="resourceName" type="string">
+     resource name for debug purposes so users can see in what resource this item is registered at
+    </ParamField>
+
     ```lua
-    exports.vorp_inventory:registerUsableItem(item, callback)
+    exports.vorp_inventory:registerUsableItem(item, callback,resourceName)
+    ```
+</Accordion>
+
+<Accordion icon="keyboard" iconType= "duotone" title="unRegisterUsableItem">
+ 
+   <Icon icon="code" iconType="solid"/> un register usable item when you stop a script for example
+   <Note>Items cant be registered twice they must be unique</Note>
+
+    <ParamField body="item" type="string" required>
+     item name
+    </ParamField>
+
+    ```lua
+    exports.vorp_inventory:registerUsableItem(item)
     ```
 </Accordion>
 
