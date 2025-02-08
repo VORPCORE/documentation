@@ -1526,7 +1526,8 @@ Listen to when an item is used
 ```lua
 AddEventHandler("vorp_inventory:Server:OnItemUse",function(data)
     local source = data.source
-    local itemName = data.item
+    local itemName = data.item.name
+    local itemMetadata = data.item.metadata
 end)
 ```
 
