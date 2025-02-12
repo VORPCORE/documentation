@@ -857,7 +857,10 @@ icon : 'code'
 
 <Accordion icon="keyboard" iconType= "duotone" title="setItemMetadata">
  
-   <Icon icon="code" iconType="solid"/> set item metadata
+   <Icon icon="code" iconType="solid"/>
+    - Split a stack and modify only some items (amount must be less than the current stack)
+    - Merge with an existing stack that has matching metadata (amount must be more or equal than the current stack)
+    - Modify the entire stack's metadata (amount must be more or equal than the current stack) this only applies if metadata is the same as current stack
 
     <ParamField body="source" type="int" required>
      The player id
@@ -872,7 +875,7 @@ icon : 'code'
     </ParamField>
 
     <ParamField body="amount" type="int" required>
-     amount of item
+     amount of item to remove from current stack if less, if more it will remove from here and add to another stack if metadata matches, if not then it updates the entire stack with new meta
     </ParamField>
 
     <ParamField body="callback" type="function">
