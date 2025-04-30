@@ -1096,6 +1096,23 @@ icon : 'code'
     ```
  </Accordion>
 
+ <Accordion icon="keyboard" iconType= "duotone" title="getCustomInventorySlots">
+ 
+   <Icon icon="code" iconType="solid"/> get cached inventory slots
+
+    <ParamField body="invId" type="string" required>
+     inventory id
+    </ParamField>
+
+    <ParamField body="callback" type="function">
+     callback function syncronous or asyncronous
+    </ParamField>
+
+    ```lua
+    exports.vorp_inventory:getCustomInventorySlots(invId,callback)
+    ```
+</Accordion>
+
     ### Setter
 
  <Accordion icon="keyboard" iconType= "duotone" title="removeCustomInventoryWeaponById">
@@ -1374,6 +1391,7 @@ icon : 'code'
     exports.vorp_inventory:updateCustomInventorySlots(invId, slots)
     ```
 </Accordion>
+
 
 <Accordion icon="keyboard" iconType= "duotone" title="openInventory">
  
