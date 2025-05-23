@@ -1554,11 +1554,22 @@ RegisterNetEvent("vorp_core:Client:OnPlayerHeal")
 
 #### onPlayerLevelUp
 
+triggered when a player has leveled up or down
+
 ```lua
 --SERVER
 AddEventHandler("vorp_core:Server:OnPlayerLevelUp",function(source,skillName,newLevel,oldLevel) end)
 --CLIENT
 RegisterNetEvent("vorp_core:Client:OnPlayerLevelUp",function(skillName,newLevel,oldLevel) end)
+```
+
+#### onPlayerSpawned
+
+triggered when a player has fully spawned after teleportation and loading screens
+
+```lua
+--CLIENT
+AddEventHandler("vorp_core:Client:OnPlayerSpawned",function()end)
 ```
 
 ## Dataview
