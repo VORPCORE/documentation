@@ -353,6 +353,9 @@ function OpenMenu()
 
 
     function(data, menu)
+
+    print("current key of MenuElements is " .. data.current.index)
+    print("current value of MenuElements is " .. data.current.value)
         -- to go back to lastmenu if any
 
         if (data.current == "backup") then --(optional) 
