@@ -804,7 +804,8 @@ update elements ,add ,remove ,get elements runtime
                 menu.displayInput({
                     inputType = 'text',
                     header = 'Enter your name',
-                    placeholder = 'Type here...',
+                    placeholder = 'Type here...', -- not for input type yesno
+                    description = 'Are you sure you want to archive this bill?', -- for input type yesno only
                     buttons = { confirm = "Confirm", cancel = "Cancel" },
                     maxLength = 50,
                     pattern = 'letters',
@@ -815,7 +816,7 @@ update elements ,add ,remove ,get elements runtime
                 end, 
                 function()
                     -- On cancel
-                     print("User cancelled")
+                     print("User cancelled pressed ESC")
                 end)
             ```
         </Accordion>    
