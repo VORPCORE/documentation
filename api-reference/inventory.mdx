@@ -792,7 +792,15 @@ icon : 'code'
     </ParamField>
 
     <ParamField body="metadata" type="table">
-     `{ description:string?, image:string?,label:string?,weight:number?}` **description** **image** **label** and **weight** are reserved keys if they are not defined they will be ignored, image is the image name to apply
+     reserved keys are:
+
+     - `description` the description of the item to replace
+     - `image` the image of the item to replace must exist in item folder.
+     - `label` the label of the item to replace
+     - `weight` the weight of the item to replace
+     - `tolltip` add extra text to the tooltip 
+     - `context` add context buttons to the item 
+
     </ParamField>
 
     <ParamField body="amount" type="int" required>
@@ -808,8 +816,28 @@ icon : 'code'
     </ParamField>
 
     ```lua
+
+    -- for context buttons use this format
+    local metadata = {
+      context = { -- key word for context buttons
+        { -- array supporting multiple buttons
+              text = "BUTTON", -- label shown in menu
+              close = true, -- close inv on use
+              event = {
+                  client = "contextevent", -- client event to trigger
+                  server = "contextevent" -- server event to trigger
+              },
+              arguments = { -- arguments to pass to the event if needed
+                  "any",
+              }
+          }
+      }
+    }
+
     exports.vorp_inventory:setItemMetadata(source, itemId, metadata, amount, callback)
     ```
+
+
 </Accordion>
 
 
