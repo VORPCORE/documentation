@@ -65,6 +65,10 @@ Menu elements are the elements that will be displayed in the menu
         <ParamField body="isNotSelectable" type="boolean">
             If true the element will not be selectable, meaning the red square will not be shown
         </ParamField>
+
+        <ParamField body="isDisabled" type="boolean">
+            If true the element will not be clickable
+        </ParamField>
         
         <ParamField body="image" type="string">
             The image name from vorp_inventory items folder, useful to create the grid menu
@@ -752,8 +756,26 @@ update elements ,add ,remove ,get elements runtime
             ```lua
             menu.refresh()
             ```
-        </Accordion>
-    </Tab>
+            </Accordion>
+            </Tab>
+
+            <Tab title="setSubtext">
+            <Accordion icon="code" iconType="duotone" title="setSubtext">
+             this function will set the subtext of the current menu
+            
+            <ParamField body="title" type="string" required>
+                The subtext of the menu
+            </ParamField>
+            
+            ```lua
+            menu.setSubtext("subtext")
+            ```
+            refresh menu to show changes
+            ```lua
+            menu.refresh()
+            ```
+            </Accordion>
+            </Tab>
             
     <Tab title="Display Input">
             
