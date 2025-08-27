@@ -65,6 +65,10 @@ Menu elements are the elements that will be displayed in the menu
         <ParamField body="isNotSelectable" type="boolean">
             If true the element will not be selectable, meaning the red square will not be shown
         </ParamField>
+
+        <ParamField body="isDisabled" type="boolean">
+            If true the element will not be clickable
+        </ParamField>
         
         <ParamField body="image" type="string">
             The image name from vorp_inventory items folder, useful to create the grid menu
@@ -752,8 +756,26 @@ update elements ,add ,remove ,get elements runtime
             ```lua
             menu.refresh()
             ```
-        </Accordion>
-    </Tab>
+            </Accordion>
+            </Tab>
+
+            <Tab title="setSubtext">
+            <Accordion icon="code" iconType="duotone" title="setSubtext">
+             this function will set the subtext of the current menu
+            
+            <ParamField body="title" type="string" required>
+                The subtext of the menu
+            </ParamField>
+            
+            ```lua
+            menu.setSubtext("subtext")
+            ```
+            refresh menu to show changes
+            ```lua
+            menu.refresh()
+            ```
+            </Accordion>
+            </Tab>
             
     <Tab title="Display Input">
             
@@ -840,7 +862,7 @@ function OpenMenu()
             label = "name",
             value = "value",
             desc = "description"
-        }
+        },
         {
             label = "name",
             value = 0, 
@@ -849,7 +871,7 @@ function OpenMenu()
             min = 0,
             max = 10,
             hop = 1
-        }
+        },
         { 
             label = "name",
             value = "value",
@@ -886,7 +908,7 @@ function OpenMenu()
 
         function(data,menu) -- cancel callback THIS IS OPTIONAL
             -- when menu closes if lastmenu isn't defined
-            menu.close(true, true) 
+            Menu.Close(true, true) 
         end,
 
         function(data, menu) -- change callback THIS IS OPTIONAL 
@@ -896,9 +918,8 @@ function OpenMenu()
 
         function(data,menu) -- close callback THIS IS OPTIONAL
             -- when menu closes if lastmenu isnt defined
-           -- menu.close(showRadar, soundClose) 
-        end,
-    )
+           -- Menu.Close(showRadar, soundClose) 
+        end)
 end
 ```
 </Accordion>
