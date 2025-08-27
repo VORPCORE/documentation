@@ -127,10 +127,6 @@ To import modules to your script you must add the following to the script fxmani
             <Accordion icon="keyboard" iconType="duotone" title="streaming">
                this module contains methods that allows you to call to load several game assets like anim dics models etc
             </Accordion>
-
-            <Accordion icon="keyboard" iconType="duotone" title="class">
-               this module contains methods that allows you to create classes with inheritance and more
-            </Accordion>
         </Accordion>
     </Tab>
     <Tab title="server">
@@ -2640,9 +2636,217 @@ was inspired by JavaScript classes
                     </Accordion>
                 </Tab>
             </Tabs>
+
         </Accordion>
     </Tab>
 </Tabs>
+
+### Functions
+
+utility classes for control flow, timing, and conditional execution
+provides Switch-case patterns, repeating intervals, and one-time timeouts with full control over execution state
+shared between server and client environments
+
+<Tabs>
+    <Tab title="Functions">
+        <Accordion icon="code" iconType="duotone" title="Control Flow & Timing">
+            use these utilities for advanced control flow and timing operations
+            
+            <Accordion icon="code" iconType="duotone" title="Switch">
+                <ParamField body="value" type="any"> 
+                    The value to match against cases
+                </ParamField>
+
+                creates a switch-case control structure that allows chaining case statements and default handling inspired by JS
+
+                ```lua
+                    -- Import the functions module
+                    local Lib = Import 'functions' --[[@as FUNCTIONS]]
+                    
+                    -- Basic switch usage
+                    local result = Lib.Switch(playerLevel)
+                        :case(1, function(value) 
+                            return "Beginner" 
+                        end)
+                        :case(2, function(value) 
+                            return "Intermediate" 
+                        end)
+                        :case(3, function(value) 
+                            return "Advanced" 
+                        end)
+                        :default(function(value) 
+                            return "Unknown Level: " .. value 
+                        end)
+                        :execute()
+                    
+                    print(result)
+                ```
+            </Accordion>
+        </Accordion>
+    </Tab>
+
+    <Tab title="Interval">
+        <Accordion icon="code" iconType="duotone" title="SetInterval">
+            <ParamField body="callback" type="function" required> 
+                Function to execute repeatedly
+            </ParamField>
+            <ParamField body="delay" type="integer" required> 
+                Delay between executions in milliseconds
+            </ParamField>
+            <ParamField body="customArgs" type="table"> 
+                Arguments to pass to the callback function
+            </ParamField>
+            <ParamField body="start" type="boolean"> 
+                Whether to start the interval immediately
+            </ParamField>
+            <ParamField body="return" type="Interval" required> 
+                Returns an Interval instance for control
+            </ParamField>
+
+            creates a repeating interval that executes a function at specified intervals
+
+            ```lua
+                -- Import the functions module
+                local Lib = Import 'functions' --[[@as FUNCTIONS]]
+                
+                -- Create an interval that runs every 5 seconds
+                local healthCheck = Lib.SetInterval(function(self, playerId)
+                    local player = GetPlayerPed(playerId)
+                    if player and DoesEntityExist(player) then
+                        local health = GetEntityHealth(player)
+                        print("Player " .. playerId .. " health: " .. health)
+                        self:Destroy() -- destroy the interval
+                    end
+                end, 5000,{GetPlayerServerId(PlayerId())}, true)
+
+            ```
+        </Accordion>
+
+        <Tabs>
+            <Tab title="Getters">
+                <Accordion icon="code" iconType="duotone" title="GetState">
+                    <ParamField body="return" type="boolean"> 
+                        Returns true if interval is running, false if paused
+                    </ParamField>
+
+                    returns the current state of the interval
+
+                    ```lua
+                        local isRunning = healthCheck:GetState()
+                        print("Interval running: " .. tostring(isRunning))
+                    ```
+                </Accordion>
+            </Tab>
+
+            <Tab title="Setters">
+                <Accordion icon="code" iconType="duotone" title="Pause">
+                    <ParamField body="return" type="nil"> 
+                        Pauses the interval execution
+                    </ParamField>
+                </Accordion>
+
+                <Accordion icon="code" iconType="duotone" title="Resume">
+                    <ParamField body="..." type="any"> 
+                        New arguments to pass to the callback 
+                    </ParamField>
+                </Accordion>
+
+                <Accordion icon="code" iconType="duotone" title="Update">
+                    <ParamField body="..." type="any"> 
+                        New arguments to pass to the callback
+                    </ParamField>
+
+                    ```lua
+                        healthCheck:Update(newPlayerId, additionalData)
+                    ```
+                </Accordion>
+
+                <Accordion icon="code" iconType="duotone" title="Destroy">
+                    <ParamField body="return" type="nil"> 
+                        Stops and cleans up the interval completely
+                    </ParamField>
+
+                </Accordion>
+            </Tab>
+        </Tabs>
+    </Tab>
+
+    <Tab title="Timeout">
+        <Accordion icon="code" iconType="duotone" title="SetTimeout">
+            <ParamField body="callback" type="function" required> 
+                Function to execute after delay
+            </ParamField>
+            <ParamField body="delay" type="integer" required> 
+                Delay before execution in milliseconds
+            </ParamField>
+            <ParamField body="customArgs" type="table"> 
+                Arguments to pass to the callback function
+            </ParamField>
+            <ParamField body="return" type="Timeout" required> 
+                Returns a Timeout instance for control
+            </ParamField>
+
+            creates a one-time delayed execution that can be controlled
+
+            ```lua
+                -- Import the functions module
+                local Lib = Import 'functions' --[[@as FUNCTIONS]]
+                
+                -- Create a timeout that executes after 10 seconds
+                local delayedAction = Lib.SetTimeout(function(message, playerId)
+                    print("Delayed message: " .. message)
+                end, 10000, {"Welcome to the server!", PlayerId()})
+            ```
+        </Accordion>
+
+        <Tabs>
+            <Tab title="Getters">
+                <Accordion icon="code" iconType="duotone" title="GetState">
+                    <ParamField body="return" type="boolean"> 
+                        Returns true if timeout is active, false if paused/executed
+                    </ParamField>
+                
+                </Accordion>
+            </Tab>
+
+            <Tab title="Setters">
+                <Accordion icon="code" iconType="duotone" title="Pause">
+                    <ParamField body="return" type="nil"> 
+                        Pauses the timeout, preventing execution
+                    </ParamField>
+                </Accordion>
+
+                <Accordion icon="code" iconType="duotone" title="Resume">
+                    <ParamField body="..." type="any"> 
+                        New arguments to pass to the callback accepts update arguments too like the update method
+                    </ParamField>
+                </Accordion>
+
+                <Accordion icon="code" iconType="duotone" title="Update">
+                    <ParamField body="..." type="any"> 
+                        New arguments to pass to the callback
+                    </ParamField>
+
+                    updates the callback arguments
+
+                    ```lua
+                        delayedAction:Update("Modified message", differentPlayerId)
+                    ```
+                </Accordion>
+
+                <Accordion icon="code" iconType="duotone" title="Destroy">
+                    <ParamField body="return" type="nil"> 
+                        Cancels and cleans up the timeout completely
+                    </ParamField>
+                </Accordion>
+            </Tab>
+        </Tabs>
+    </Tab>
+</Tabs>
+
+
+
+
 
 
 
