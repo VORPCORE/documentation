@@ -2845,6 +2845,498 @@ shared between server and client environments
 </Tabs>
 
 
+### Notify
+
+notification module for displaying various types of notifications to players from the base game
+supports both server and client environments with different method signatures
+
+<Tabs>
+    <Tab title="Client">
+        <Accordion icon="code" iconType="duotone" title="Notify">
+            use these methods below to display notifications on client side
+          
+                    <Accordion icon="code" iconType="duotone" title="Left">
+                        <ParamField body="title" type="string" required> 
+                            Title text for the notification
+                        </ParamField>
+                        <ParamField body="subtitle" type="string" required> 
+                            Subtitle text for the notification
+                        </ParamField>
+                        <ParamField body="dict" type="string" required> 
+                            Texture dictionary name
+                        </ParamField>
+                        <ParamField body="icon" type="string" required> 
+                            Icon name from the dictionary
+                        </ParamField>
+                        <ParamField body="duration" type="integer" default="5000"> 
+                            Duration in milliseconds
+                        </ParamField>
+                        <ParamField body="color" type="string" default="COLOR_WHITE"> 
+                            Color name for the notification
+                        </ParamField>
+                    </Accordion>
+
+                    <Accordion icon="code" iconType="duotone" title="Tip">
+                        <ParamField body="tipMessage" type="string" required> 
+                            Message to display in the tip
+                        </ParamField>
+                        <ParamField body="duration" type="integer" default="5000"> 
+                            Duration in milliseconds
+                        </ParamField>
+                    </Accordion>
+
+                    <Accordion icon="code" iconType="duotone" title="Top">
+                        <ParamField body="message" type="string" required> 
+                            Message text to display
+                        </ParamField>
+                        <ParamField body="location" type="string" required> 
+                            Location identifier for positioning
+                        </ParamField>
+                        <ParamField body="duration" type="integer" default="5000"> 
+                            Duration in milliseconds
+                        </ParamField>
+                    </Accordion>
+
+                    <Accordion icon="code" iconType="duotone" title="RightTip">
+                        <ParamField body="tipMessage" type="string" required> 
+                            Message to display in the right tip
+                        </ParamField>
+                        <ParamField body="duration" type="integer" default="5000"> 
+                            Duration in milliseconds
+                        </ParamField>
+                    </Accordion>
+
+                    <Accordion icon="code" iconType="duotone" title="Objective">
+                        <ParamField body="message" type="string" required> 
+                            Objective message text
+                        </ParamField>
+                        <ParamField body="duration" type="integer" default="5000"> 
+                            Duration in milliseconds
+                        </ParamField>
+                    </Accordion>
+
+                    <Accordion icon="code" iconType="duotone" title="SimpleTop">
+                        <ParamField body="title" type="string" required> 
+                            Title text
+                        </ParamField>
+                        <ParamField body="subtitle" type="string" required> 
+                            Subtitle text
+                        </ParamField>
+                        <ParamField body="duration" type="integer" default="5000"> 
+                            Duration in milliseconds
+                        </ParamField>
+                    </Accordion>
+
+                    <Accordion icon="code" iconType="duotone" title="RightAdvanced">
+                        <ParamField body="text" type="string" required> 
+                            Main text content
+                        </ParamField>
+                        <ParamField body="dict" type="string" required> 
+                            Texture dictionary name
+                        </ParamField>
+                        <ParamField body="icon" type="string" required> 
+                            Icon name from dictionary
+                        </ParamField>
+                        <ParamField body="text_color" type="string" default="COLOR_WHITE"> 
+                            Text color name
+                        </ParamField>
+                        <ParamField body="duration" type="integer" default="5000"> 
+                            Duration in milliseconds
+                        </ParamField>
+                        <ParamField body="quality" type="integer" default="1"> 
+                            Quality level for display
+                        </ParamField>
+                        <ParamField body="showquality" type="boolean"> 
+                            Whether to show quality indicator
+                        </ParamField>
+                    </Accordion>
+
+                    <Accordion icon="code" iconType="duotone" title="BasicTop">
+                        <ParamField body="text" type="string" required> 
+                            Text to display
+                        </ParamField>
+                        <ParamField body="duration" type="integer" default="5000"> 
+                            Duration in milliseconds
+                        </ParamField>
+                    </Accordion>
+
+                    <Accordion icon="code" iconType="duotone" title="Center">
+                        <ParamField body="text" type="string" required> 
+                            Text to display in center
+                        </ParamField>
+                        <ParamField body="duration" type="integer" default="5000"> 
+                            Duration in milliseconds
+                        </ParamField>
+                        <ParamField body="text_color" type="string" default="COLOR_PURE_WHITE"> 
+                            Text color name
+                        </ParamField>
+                    </Accordion>
+
+                    <Accordion icon="code" iconType="duotone" title="BottomRight">
+                        <ParamField body="text" type="string" required> 
+                            Text to display
+                        </ParamField>
+                        <ParamField body="duration" type="integer" default="5000"> 
+                            Duration in milliseconds
+                        </ParamField>
+                    </Accordion>
+
+                    <Accordion icon="code" iconType="duotone" title="Fail">
+                        <ParamField body="title" type="string" required> 
+                            Failure title
+                        </ParamField>
+                        <ParamField body="subtitle" type="string" required> 
+                            Failure subtitle
+                        </ParamField>
+                        <ParamField body="duration" type="integer" default="5000"> 
+                            Duration in milliseconds
+                        </ParamField>
+                    </Accordion>
+
+                    <Accordion icon="code" iconType="duotone" title="Dead">
+                        <ParamField body="title" type="string" required> 
+                            Death message title
+                        </ParamField>
+                        <ParamField body="audioRef" type="string" required> 
+                            Audio reference for sound
+                        </ParamField>
+                        <ParamField body="audioName" type="string" required> 
+                            Audio name for sound
+                        </ParamField>
+                        <ParamField body="duration" type="integer" default="5000"> 
+                            Duration in milliseconds
+                        </ParamField>
+                    </Accordion>
+
+                    <Accordion icon="code" iconType="duotone" title="Update">
+                        <ParamField body="title" type="string" required> 
+                            Update title
+                        </ParamField>
+                        <ParamField body="message" type="string" required> 
+                            Update message
+                        </ParamField>
+                        <ParamField body="duration" type="integer" default="5000"> 
+                            Duration in milliseconds
+                        </ParamField>
+                    </Accordion>
+
+                    <Accordion icon="code" iconType="duotone" title="Warning">
+                        <ParamField body="title" type="string" required> 
+                            Warning title
+                        </ParamField>
+                        <ParamField body="message" type="string" required> 
+                            Warning message
+                        </ParamField>
+                        <ParamField body="audioRef" type="string" required> 
+                            Audio reference for sound
+                        </ParamField>
+                        <ParamField body="audioName" type="string" required> 
+                            Audio name for sound
+                        </ParamField>
+                        <ParamField body="duration" type="integer" default="5000"> 
+                            Duration in milliseconds
+                        </ParamField>
+                    </Accordion>
+
+                    <Accordion icon="code" iconType="duotone" title="LeftRank">
+                        <ParamField body="title" type="string" required> 
+                            Rank title
+                        </ParamField>
+                        <ParamField body="subtitle" type="string" required> 
+                            Rank subtitle
+                        </ParamField>
+                        <ParamField body="dict" type="string" required> 
+                            Texture dictionary
+                        </ParamField>
+                        <ParamField body="texture" type="string" required> 
+                            Texture name
+                        </ParamField>
+                        <ParamField body="duration" type="integer" default="5000"> 
+                            Duration in milliseconds
+                        </ParamField>
+                        <ParamField body="color" type="string" default="COLOR_WHITE"> 
+                            Color name
+                        </ParamField>
+                    </Accordion>
+
+                    <Accordion icon="code" iconType="duotone" title="Test">
+                        <ParamField body="return" type="nil"> 
+                            Displays all notification types for testing
+                        </ParamField>
+                    </Accordion>
+         
+        </Accordion>
+    </Tab>
+
+    <Tab title="Server">
+        <Accordion icon="code" iconType="duotone" title="Notify">
+            use these methods below to send notifications to clients from server
+          
+                    <Accordion icon="code" iconType="duotone" title="Left">
+                        <ParamField body="source" type="integer" required> 
+                            Player server ID to send notification to
+                        </ParamField>
+                        <ParamField body="title" type="string" required> 
+                            Title text for the notification
+                        </ParamField>
+                        <ParamField body="subtitle" type="string" required> 
+                            Subtitle text for the notification
+                        </ParamField>
+                        <ParamField body="dict" type="string" required> 
+                            Texture dictionary name
+                        </ParamField>
+                        <ParamField body="icon" type="string" required> 
+                            Icon name from the dictionary
+                        </ParamField>
+                        <ParamField body="duration" type="integer" default="5000"> 
+                            Duration in milliseconds
+                        </ParamField>
+                        <ParamField body="color" type="string" default="COLOR_WHITE"> 
+                            Color name for the notification
+                        </ParamField>
+                    </Accordion>
+
+                    <Accordion icon="code" iconType="duotone" title="Tip">
+                        <ParamField body="source" type="integer" required> 
+                            Player server ID
+                        </ParamField>
+                        <ParamField body="tipMessage" type="string" required> 
+                            Message to display in the tip
+                        </ParamField>
+                        <ParamField body="duration" type="integer" default="5000"> 
+                            Duration in milliseconds
+                        </ParamField>
+                    </Accordion>
+
+                    <Accordion icon="code" iconType="duotone" title="Top">
+                        <ParamField body="source" type="integer" required> 
+                            Player server ID
+                        </ParamField>
+                        <ParamField body="message" type="string" required> 
+                            Message text to display
+                        </ParamField>
+                        <ParamField body="location" type="string" required> 
+                            Location identifier for positioning
+                        </ParamField>
+                        <ParamField body="duration" type="integer" default="5000"> 
+                            Duration in milliseconds
+                        </ParamField>
+                    </Accordion>
+
+                    <Accordion icon="code" iconType="duotone" title="RightTip">
+                        <ParamField body="source" type="integer" required> 
+                            Player server ID
+                        </ParamField>
+                        <ParamField body="tipMessage" type="string" required> 
+                            Message to display
+                        </ParamField>
+                        <ParamField body="duration" type="integer" default="5000"> 
+                            Duration in milliseconds
+                        </ParamField>
+                    </Accordion>
+
+                    <Accordion icon="code" iconType="duotone" title="Objective">
+                        <ParamField body="source" type="integer" required> 
+                            Player server ID
+                        </ParamField>
+                        <ParamField body="message" type="string" required> 
+                            Objective message text
+                        </ParamField>
+                        <ParamField body="duration" type="integer" default="5000"> 
+                            Duration in milliseconds
+                        </ParamField>
+                    </Accordion>
+
+                    <Accordion icon="code" iconType="duotone" title="SimpleTop">
+                        <ParamField body="source" type="integer" required> 
+                            Player server ID
+                        </ParamField>
+                        <ParamField body="title" type="string" required> 
+                            Title text
+                        </ParamField>
+                        <ParamField body="subtitle" type="string" required> 
+                            Subtitle text
+                        </ParamField>
+                        <ParamField body="duration" type="integer" default="5000"> 
+                            Duration in milliseconds
+                        </ParamField>
+                    </Accordion>
+
+                    <Accordion icon="code" iconType="duotone" title="RightAdvanced">
+                        <ParamField body="source" type="integer" required> 
+                            Player server ID
+                        </ParamField>
+                        <ParamField body="text" type="string" required> 
+                            Main text content
+                        </ParamField>
+                        <ParamField body="dict" type="string" required> 
+                            Texture dictionary name
+                        </ParamField>
+                        <ParamField body="icon" type="string" required> 
+                            Icon name from dictionary
+                        </ParamField>
+                        <ParamField body="text_color" type="string" default="COLOR_WHITE"> 
+                            Text color name
+                        </ParamField>
+                        <ParamField body="duration" type="integer" default="5000"> 
+                            Duration in milliseconds
+                        </ParamField>
+                        <ParamField body="quality" type="integer" default="1"> 
+                            Quality level for display
+                        </ParamField>
+                        <ParamField body="showquality" type="boolean"> 
+                            Whether to show quality indicator
+                        </ParamField>
+                    </Accordion>
+
+                    <Accordion icon="code" iconType="duotone" title="BasicTop">
+                        <ParamField body="source" type="integer" required> 
+                            Player server ID
+                        </ParamField>
+                        <ParamField body="text" type="string" required> 
+                            Text to display
+                        </ParamField>
+                        <ParamField body="duration" type="integer" default="5000"> 
+                            Duration in milliseconds
+                        </ParamField>
+                    </Accordion>
+
+                    <Accordion icon="code" iconType="duotone" title="Center">
+                        <ParamField body="source" type="integer" required> 
+                            Player server ID
+                        </ParamField>
+                        <ParamField body="text" type="string" required> 
+                            Text to display in center
+                        </ParamField>
+                        <ParamField body="duration" type="integer" default="5000"> 
+                            Duration in milliseconds
+                        </ParamField>
+                        <ParamField body="text_color" type="string" default="COLOR_PURE_WHITE"> 
+                            Text color name
+                        </ParamField>
+                    </Accordion>
+
+                    <Accordion icon="code" iconType="duotone" title="BottomRight">
+                        <ParamField body="source" type="integer" required> 
+                            Player server ID
+                        </ParamField>
+                        <ParamField body="text" type="string" required> 
+                            Text to display
+                        </ParamField>
+                        <ParamField body="duration" type="integer" default="5000"> 
+                            Duration in milliseconds
+                        </ParamField>
+                    </Accordion>
+
+                    <Accordion icon="code" iconType="duotone" title="Fail">
+                        <ParamField body="source" type="integer" required> 
+                            Player server ID
+                        </ParamField>
+                        <ParamField body="title" type="string" required> 
+                            Failure title
+                        </ParamField>
+                        <ParamField body="subtitle" type="string" required> 
+                            Failure subtitle
+                        </ParamField>
+                        <ParamField body="duration" type="integer" default="5000"> 
+                            Duration in milliseconds
+                        </ParamField>
+                    </Accordion>
+
+                    <Accordion icon="code" iconType="duotone" title="Dead">
+                        <ParamField body="source" type="integer" required> 
+                            Player server ID
+                        </ParamField>
+                        <ParamField body="title" type="string" required> 
+                            Death message title
+                        </ParamField>
+                        <ParamField body="audioRef" type="string" required> 
+                            Audio reference for sound
+                        </ParamField>
+                        <ParamField body="audioName" type="string" required> 
+                            Audio name for sound
+                        </ParamField>
+                        <ParamField body="duration" type="integer" default="5000"> 
+                            Duration in milliseconds
+                        </ParamField>
+                    </Accordion>
+
+                    <Accordion icon="code" iconType="duotone" title="Update">
+                        <ParamField body="source" type="integer" required> 
+                            Player server ID
+                        </ParamField>
+                        <ParamField body="title" type="string" required> 
+                            Update title
+                        </ParamField>
+                        <ParamField body="message" type="string" required> 
+                            Update message
+                        </ParamField>
+                        <ParamField body="duration" type="integer" default="5000"> 
+                            Duration in milliseconds
+                        </ParamField>
+                    </Accordion>
+
+                    <Accordion icon="code" iconType="duotone" title="Warning">
+                        <ParamField body="source" type="integer" required> 
+                            Player server ID
+                        </ParamField>
+                        <ParamField body="title" type="string" required> 
+                            Warning title
+                        </ParamField>
+                        <ParamField body="message" type="string" required> 
+                            Warning message
+                        </ParamField>
+                        <ParamField body="audioRef" type="string" required> 
+                            Audio reference for sound
+                        </ParamField>
+                        <ParamField body="audioName" type="string" required> 
+                            Audio name for sound
+                        </ParamField>
+                        <ParamField body="duration" type="integer" default="5000"> 
+                            Duration in milliseconds
+                        </ParamField>
+                    </Accordion>
+
+                    <Accordion icon="code" iconType="duotone" title="LeftRank">
+                        <ParamField body="source" type="integer" required> 
+                            Player server ID
+                        </ParamField>
+                        <ParamField body="title" type="string" required> 
+                            Rank title
+                        </ParamField>
+                        <ParamField body="subtitle" type="string" required> 
+                            Rank subtitle
+                        </ParamField>
+                        <ParamField body="dict" type="string" required> 
+                            Texture dictionary
+                        </ParamField>
+                        <ParamField body="texture" type="string" required> 
+                            Texture name
+                        </ParamField>
+                        <ParamField body="duration" type="integer" default="5000"> 
+                            Duration in milliseconds
+                        </ParamField>
+                        <ParamField body="color" type="string" default="COLOR_WHITE"> 
+                            Color name
+                        </ParamField>
+                    </Accordion>
+           
+        </Accordion>
+    </Tab>
+    <Tab title="Usage">
+
+         theres no need to import the module, it  is available in the global scope when you use the LIB
+        ```lua
+          -- CIENT
+          LIB.NOTIFY:Objective("Objective message", 5000)
+        ```
+        ```lua
+          -- SERVER
+          LIB.NOTIFY:Objective(source, "Objective message", 5000)
+        ```
+    </Tab>
+</Tabs>
+
 
 
 
