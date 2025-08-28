@@ -379,12 +379,14 @@ it has a entity tracker if you wish to track the entities from other scripts (se
                          IsNetworked = true,
                          Options = {
                              PlaceOnGround = true,
+                             OutfitPreset = 0,
                          },
                          OnCreate = function(self)
                              print('Ped created use your own logic here, handle: ', self:GetHandle())
                          end,
-                         OnDelete = function(self)
-                             print('Ped deleted use your own logic here, handle: ', self:GetHandle())
+
+                         OnDelete = function(handle, netid)
+                             print('Ped deleted use your own logic here, handle: ', handle, 'netid: ', netid)
                          end
                      })
                      -- methods you can use   
@@ -2648,43 +2650,40 @@ provides Switch-case patterns, repeating intervals, and one-time timeouts with f
 shared between server and client environments
 
 <Tabs>
-    <Tab title="Functions">
-        <Accordion icon="code" iconType="duotone" title="Control Flow & Timing">
+    <Tab title="Switch">
+        <Accordion icon="code" iconType="duotone" title="Switch">
             use these utilities for advanced control flow and timing operations
             
-            <Accordion icon="code" iconType="duotone" title="Switch">
-                <ParamField body="value" type="any"> 
-                    The value to match against cases
-                </ParamField>
+            <ParamField body="value" type="any"> 
+                The value to match against cases
+            </ParamField>
 
-                creates a switch-case control structure that allows chaining case statements and default handling inspired by JS
+            creates a switch-case control structure that allows chaining case statements and default handling inspired by JS
 
-                ```lua
-                    -- Import the functions module
-                    local Lib = Import 'functions' --[[@as FUNCTIONS]]
-                    
-                    -- Basic switch usage
-                    local result = Lib.Switch(playerLevel)
-                        :case(1, function(value) 
-                            return "Beginner" 
-                        end)
-                        :case(2, function(value) 
-                            return "Intermediate" 
-                        end)
-                        :case(3, function(value) 
-                            return "Advanced" 
-                        end)
-                        :default(function(value) 
-                            return "Unknown Level: " .. value 
-                        end)
-                        :execute()
-                    
-                    print(result)
-                ```
-            </Accordion>
+            ```lua
+                 -- Import the functions module
+                 local Lib = Import 'functions' --[[@as FUNCTIONS]]
+                 
+                 -- Basic switch usage
+                 local result = Lib.Switch(playerLevel)
+                    :case(1, function(value) 
+                        return "Beginner" 
+                    end)
+                     :case(2, function(value) 
+                        return "Intermediate" 
+                    end)
+                     :case(3, function(value) 
+                        return "Advanced" 
+                    end)
+                     :default(function(value) 
+                        return "Unknown Level: " .. value 
+                    end)
+                    :execute()
+                 
+                print(result)
+            ```
         </Accordion>
     </Tab>
-
     <Tab title="Interval">
         <Accordion icon="code" iconType="duotone" title="SetInterval">
             <ParamField body="callback" type="function" required> 
@@ -3337,8 +3336,86 @@ supports both server and client environments with different method signatures
     </Tab>
 </Tabs>
 
+# Exports
 
+## Selector
 
+This Selector allows you to select players with a NUI selector that will return the player id that was selected
+
+<Tabs>
+    <Tab title="Usage">
+        ```lua
+            local result <const> = exports.vorp_lib:Select({
+                allow_self = true, -- option to allow self selection
+                amount_of_players = 4, -- amount of players to select allowed to catch
+                distance = 8.0,  -- distance to select players
+                allow_in_vehicle = true, -- option to allow selection of players in vehicles
+                allow_on_horse = true -- option to allow selection of players on horses
+            })
+        ```
+    </Tab>
+</Tabs>
+
+## ProgressBar
+
+Allows you to create a progress bar that will be displayed on screen for a specified amount of time
+
+<Tabs>
+    <Tab title="Usage">
+        ```lua
+
+        local data = {
+            text = 'Some text here',
+            colors = {
+                -- for text
+                startColor = 'white', -- starting color of the text
+                endColor = 'black', -- ending color of the text
+                -- these colors are filters they dont really represent the color that well but its an option if you want to change it
+                -- for background
+                -- https://colorpicker.dev/#21d70d use this website choose hwb and its the first number just add deg to it like this 330deg
+
+                -- backgroundColor = '0deg', -- Changes grey bar to blue-ish
+                --fillColor = '120deg',     -- Changes white bar to green-ish
+            },
+            duration = 5000,
+            type = 'linear',                    -- only linear is avaliable for now
+            position = { top = 90, left = 50 }, -- in % for position on the screen
+            image = 'score_timer_extralong',    -- only png this is optional you can add your own image , images must be in this script images folder
+        }
+
+        -- SYNC
+        local result = exports.vorp_lib:progressStart(data)
+        if not result then
+            print('cancelled')
+        else
+            print('completed')
+        end
+
+        --OR ASYNC
+        exports.vorp_lib:progressStart(data, function(result)
+            if result then
+                print('Progress bar completed')
+            else
+                print('Progress bar cancelled')
+            end
+        end)
+    ```
+
+     cancel the progress bar if you want to
+
+    ```lua
+        exports.vorp_lib:progressCancel()
+    ```
+    </Tab>
+</Tabs>
+
+## Density
+
+ Not yet implemented
+
+## Collector 
+
+Not yet implemented
 
 
 
