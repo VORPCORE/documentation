@@ -3366,11 +3366,11 @@ This Selector allows you to select players with a NUI selector that will return 
                 Allow selection of players on horses
             </ParamField>
 
-            <Accordion icon="code" iconType="duotone" title="Result">
-                <ParamField body="player_id" type="integer"> 
-                    The player id that was selected
-                </ParamField>
-            </Accordion>
+           
+            <ParamField body="playerid" type="integer"> 
+                The player id that was selected
+            </ParamField>
+         
 
             ```lua
             local result <const> = exports.vorp_lib:Select({
