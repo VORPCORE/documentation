@@ -3338,82 +3338,148 @@ supports both server and client environments with different method signatures
 
 # Exports
 
-## Selector
+### Selector
 
 This Selector allows you to select players with a NUI selector that will return the player id that was selected
 
 <Tabs>
     <Tab title="Usage">
-        ```lua
+
+        <Accordion icon="code" iconType="duotone" title="Select">
+            <ParamField body="allow_self" type="boolean"> 
+                Allow self selection
+            </ParamField>
+
+            <ParamField body="amount_of_players" type="integer"> 
+                Amount of players to select
+            </ParamField>
+
+            <ParamField body="distance" type="number"> 
+                Distance to select players
+            </ParamField>
+
+            <ParamField body="allow_in_vehicle" type="boolean"> 
+                Allow selection of players in vehicles
+            </ParamField>
+
+            <ParamField body="allow_on_horse" type="boolean"> 
+                Allow selection of players on horses
+            </ParamField>
+
+            <Accordion icon="code" iconType="duotone" title="Result">
+                <ParamField body="player_id" type="integer"> 
+                    The player id that was selected
+                </ParamField>
+            </Accordion>
+
+            ```lua
             local result <const> = exports.vorp_lib:Select({
-                allow_self = true, -- option to allow self selection
-                amount_of_players = 4, -- amount of players to select allowed to catch
-                distance = 8.0,  -- distance to select players
-                allow_in_vehicle = true, -- option to allow selection of players in vehicles
-                allow_on_horse = true -- option to allow selection of players on horses
+                allow_self = true, 
+                amount_of_players = 4,
+                distance = 8.0,  
+                allow_in_vehicle = true,
+                allow_on_horse = true 
             })
-        ```
+            ```
+        </Accordion>
     </Tab>
 </Tabs>
 
-## ProgressBar
+### ProgressBar
 
 Allows you to create a progress bar that will be displayed on screen for a specified amount of time
 
 <Tabs>
     <Tab title="Usage">
-        ```lua
 
-        local data = {
-            text = 'Some text here',
-            colors = {
-                -- for text
-                startColor = 'white', -- starting color of the text
-                endColor = 'black', -- ending color of the text
-                -- these colors are filters they dont really represent the color that well but its an option if you want to change it
-                -- for background
-                -- https://colorpicker.dev/#21d70d use this website choose hwb and its the first number just add deg to it like this 330deg
+        <Accordion icon="code" iconType="duotone" title="Start">
 
-                -- backgroundColor = '0deg', -- Changes grey bar to blue-ish
-                --fillColor = '120deg',     -- Changes white bar to green-ish
-            },
-            duration = 5000,
-            type = 'linear',                    -- only linear is avaliable for now
-            position = { top = 90, left = 50 }, -- in % for position on the screen
-            image = 'score_timer_extralong',    -- only png this is optional you can add your own image , images must be in this script images folder
-        }
+            <ParamField body="text" type="string" required> 
+                Text to display in the progress bar
+            </ParamField>
 
-        -- SYNC
-        local result = exports.vorp_lib:progressStart(data)
-        if not result then
-            print('cancelled')
-        else
-            print('completed')
-        end
+            <ParamField body="colors" type="table" required> 
+                Table with the colors for the progress bar `startColor` and `endColor` are the colors for the text and `backgroundColor` and `fillColor` are the colors for the background and the fill of the progress bar image
+            </ParamField>
 
-        --OR ASYNC
-        exports.vorp_lib:progressStart(data, function(result)
-            if result then
-                print('Progress bar completed')
+            <ParamField body="duration" type="integer" required> 
+                Duration in `milliseconds` for the progress bar
+            </ParamField>
+
+            <ParamField body="type" type="string" required> 
+                Type of progress bar only `linear` is avaliable for now
+            </ParamField>
+
+            <ParamField body="position" type="table" required> 
+                Table with the position for the progress bar on screen `top` and `left` are the position in `%` for the progress bar
+            </ParamField>
+
+            <ParamField body="image" type="string"> 
+                Image for the progress bar only `png` is avaliable for now
+            </ParamField>
+
+            <ParamField body="callback" type="function"> 
+                Callback function if you want to use it as async
+            </ParamField>
+
+            <ParamField body="return" type="boolean"> 
+                the result of the progress bar `true` or `false` if `false` the progress bar was cancelled
+            </ParamField>
+
+            ```lua
+            local data = {
+                text = 'Some text here',
+                colors = {
+                    -- for text
+                    startColor = 'white', -- starting color of the text
+                    endColor = 'black', -- ending color of the text
+                    -- these colors are filters they dont really represent the color that well but its an option if you want to change it
+                    -- for background
+                    -- https://colorpicker.dev/#21d70d use this website choose hwb and its the first number just add deg to it like this 330deg
+
+                    -- backgroundColor = '0deg', -- Changes grey bar to blue-ish
+                    --fillColor = '120deg',     -- Changes white bar to green-ish
+                },
+                duration = 5000,
+                type = 'linear',                    -- only linear is avaliable for now
+                position = { top = 90, left = 50 }, -- in % for position on the screen
+                image = 'score_timer_extralong',    -- only png this is optional you can add your own image , images must be in this script images folder
+            }
+
+            -- SYNC
+            local result = exports.vorp_lib:progressStart(data)
+            if not result then
+                print('cancelled')
             else
-                print('Progress bar cancelled')
+                print('completed')
             end
-        end)
-    ```
 
-     cancel the progress bar if you want to
+            --OR ASYNC
+            exports.vorp_lib:progressStart(data, function(result)
+                if result then
+                    print('Progress bar completed')
+                else
+                    print('Progress bar cancelled')
+                end
+            end)
+            ```
+    </Accordion>
 
-    ```lua
-        exports.vorp_lib:progressCancel()
-    ```
+    <Accordion icon="code" iconType="duotone" title="Cancel">
+        cancel the progress bar
+
+        ```lua
+            exports.vorp_lib:progressCancel()
+        ```
+    </Accordion>
     </Tab>
 </Tabs>
 
-## Density
+### Density
 
  Not yet implemented
 
-## Collector 
+### Collector 
 
 Not yet implemented
 
