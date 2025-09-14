@@ -20,65 +20,6 @@ To import modules to your script you must add the following to the script fxmani
    shared_script "@vorp_lib/import.lua"
 ```
 
-<Warning>
-    the global variables below will be available for both server and client, so make sure you dont call vorp exports in your script to avoid calling it twice.
-</Warning>
-
-`LIB` is a global variable that contains a table with `CORE` and `NOTIFY` as sub-variables like `LIB.CORE` and `LIB.NOTIFY` to access them easily
-
-<Accordion icon="keyboard" iconType="duotone" title="Variables">
-    <Tabs>
-        <Tab title="server">
-
-            <Accordion icon="keyboard" iconType="duotone" title="CORE">
-                `CORE`  is available for server and client , you wont need to call `exports.vorp_core:GetCore()`
-
-                ```lua
-                 -- just simply use the global variable
-                 LIB.CORE.NotifyObjective(source,"Hello World",5000)
-                 -- callbacks
-                 local result = LIB.CORE.Callback.TriggerAwait("my_callback")
-                ```
-            </Accordion>
-
-
-
-            <Accordion icon="keyboard" iconType="duotone" title="NOTIFY (server)">
-                `NOTIFY` is available for server and client , you wont need to use vorp core notify or even import the notify module
-
-                ```lua
-                 -- just simply use the global variable
-                 LIB.NOTIFY:Objective(source,"Hello World",5000)
-                ```
-            </Accordion>
-
-        </Tab>
-        <Tab title="client">
-
-            <Accordion icon="keyboard" iconType="duotone" title="CORE">
-                `CORE` is available for server and client , you wont need to call `exports.vorp_core:GetCore()`
-
-                ```lua
-                 -- just simply use the global variable
-                 LIB.CORE.NotifyObjective("Hello World",5000)
-                 -- callbacks
-                 local result = LIB.CORE.Callback.TriggerAwait("my_callback")
-                ```
-            </Accordion>
-
-            <Accordion icon="keyboard" iconType="duotone" title="NOTIFY (client)">
-                `NOTIFY` is available for server and client , you wont need to use vorp core notify or even import the notify module
-
-                ```lua
-                 -- just simply use the global variable
-                 LIB.NOTIFY:Objective("Hello World",5000)
-                ```
-            </Accordion>
-
-        </Tab>
-    </Tabs>
-</Accordion>
-
 ## Module Import
 
 <Note>
@@ -2846,6 +2787,10 @@ shared between server and client environments
 
 notification module for displaying various types of notifications to players from the base game
 supports both server and client environments with different method signatures
+
+<Warning>
+    to import the notify module on the server you must also import on the client side, events are registered on the client side so that we can use server side notifications. to just import on the client  no need to import on the server.
+</Warning>
 
 <Tabs>
     <Tab title="Client">
