@@ -309,8 +309,8 @@ it has a entity tracker if you wish to track the entities from other scripts (se
 
                  ```lua
                      -- Example
-                     -- Import the entity module
-                     local Entity = Import 'entity' --[[@as ENTITY]] 
+                     -- Import the entities module
+                     local Entity = Import 'entities' --[[@as ENTITY]]
                      
                      local ped = Entity.Ped:Create({
                          Model = 'A_C_COW',
@@ -381,8 +381,8 @@ it has a entity tracker if you wish to track the entities from other scripts (se
 
                 ```lua
                 -- Example
-                -- Import the entity module
-                local Entity = Import 'entity' --[[@as ENTITY]] 
+                -- Import the entities module
+                local Entity = Import 'entities' --[[@as ENTITY]] 
 
                 local vehicle = Entity.Vehicle:Create({
                     Model = 'wagon01x',
@@ -451,8 +451,8 @@ it has a entity tracker if you wish to track the entities from other scripts (se
 
                ```lua
                -- Example
-               -- Import the entity module
-               local Entity = Import 'entity' --[[@as ENTITY]] 
+               -- Import the entities module
+               local Entity = Import 'entities' --[[@as ENTITY]] 
 
                local object = Entity.Object:Create({
                    Model = 'prop_paper_bag_01',
@@ -927,18 +927,22 @@ when you restart your resource the prompts will be removed for easy development
                             local Game = Import 'prompts' --[[@as PROMPTS]] 
                             
                             local data = {
-                                coords = vector3(2868.43, 480.19, 65.02), -- distance based prompts
-                                distance = 2.0, -- distance from coords
-                                label = 'group label', -- group label
-                                sleep = 700, -- sleep time when not in range
-                                marker = { -- optional marker
-                                    type = 0x94FDAE17,
-                                    color = { r = 0, g = 255, b = 0, a = 96 },
-                                    distance = 4.0,
-                                    scale = { x = 2.0, y = 2.0, z = 0.5 },
+                                locations = {
+                                    {
+                                        coords = vector3(2868.43, 480.19, 65.02), -- distance based prompts
+                                        label = 'group label', -- group label
+                                        distance = 2.0, -- distance from coords
+                                        marker = { -- optional marker
+                                            type = 0x94FDAE17,
+                                            color = { r = 0, g = 255, b = 0, a = 96 },
+                                            distance = 4.0,
+                                            scale = { x = 2.0, y = 2.0, z = 0.5 },
+                                        }
+                                    }
                                 },
+                                sleep = 700, -- sleep time when not in range
                                 prompts = { -- group prompts or single prompt
-                                    { type = 'Press', key = 'G', label = 'press',    mode = 'Standard' },
+                                    { type = 'Press', key = 'G', label = 'press', mode = 'Standard' },
                                     { type = 'Hold',  key = 'E', label = 'press and hold', mode = 'Hold', holdTime = 3000 }
                                 }
                             }
