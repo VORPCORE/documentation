@@ -23,7 +23,8 @@ local Menu = exports.vorp_menu:GetMenuData()
   Close all menus
 
 ```lua
-MenuData.CloseAll()
+-- these params are optional
+MenuData.CloseAll(showRadar, soundClose, fireEventClose)
 ```
 </Accordion>
 
@@ -51,11 +52,11 @@ Menu elements are the elements that will be displayed in the menu
         </ParamField>
         
         <ParamField body="itemHeight" type="string">
-            The height of the tab element example 4vh
+            The height of the tab element example `4vh`
         </ParamField>
         
         <ParamField body="labelPos" type="string">
-            The position of the label left , center only
+            The position of the label `left` or `center`
         </ParamField>
         
         <ParamField body="footerText" type="string">
@@ -67,11 +68,15 @@ Menu elements are the elements that will be displayed in the menu
         </ParamField>
 
         <ParamField body="isDisabled" type="boolean">
-            If true the element will not be clickable
+            If true the element will not be clickable and will be grayed out
         </ParamField>
         
         <ParamField body="image" type="string">
-            The image name from vorp_inventory items folder, useful to create the grid menu
+            The image name from vorp_inventory items folder, for grid menu only
+        </ParamField>
+
+        <ParamField body="skipeOpenEvent" type="boolean">
+            If `true` will not fire the open event by default it will fire the open event
         </ParamField>
         
         ```lua
@@ -82,9 +87,10 @@ Menu elements are the elements that will be displayed in the menu
                 desc = "description",
                 itemHeight = "4vh", -- optional
                 labelPos = "left", -- optional
-                footerText = "any text here" -- optional
-                isNotSelectable = true -- optional
-                image = "image" -- optional
+                footerText = "any text here", -- optional
+                isNotSelectable = true, -- optional
+                image = "image", -- optional
+                skipeOpenEvent = false, -- if true will not fire open event -- optional
             }
          }
         ```
@@ -586,6 +592,10 @@ Menu elements are the elements that will be displayed in the menu
 
                 useful for creating shops
             </ParamField>
+
+            <ParamField body="skipOpenEvent" type="boolean">
+                if `true` will skip the open event by default it will fire the open event
+            </ParamField>
             
             ```lua
                 local MenuInfo = {
@@ -604,7 +614,8 @@ Menu elements are the elements that will be displayed in the menu
                     soundOpen = true,                                      
                     confirmButton = { label = "Confirm", value = "confirm" }, 
                     cancelButton = { label = "Cancel", value = "cancel" },
-                    isGrid = false,                                              
+                    isGrid = false,     
+                    skipOpenEvent = false,
                 }
             ```
         </Accordion>
@@ -665,16 +676,16 @@ update elements ,add ,remove ,get elements runtime
 
     <Tab title="Update">
         <Accordion icon="code" iconType="duotone" title="setElement">
-             this function will update a specific element variable 
+             this function will update a specific `element` variable 
             
             <ParamField body="index" type="number" required>
-                The index of the menu element to update
+                The `index` of the menu element to update
             
                 `data.current.index` is available to use in the menu elements
             </ParamField>
             
             <ParamField body="variable" type="string" required>
-                The variable of the menu element to update , label,value,desc, any
+                The variable of the menu element to update , `label`,`value`,`desc`, any
             </ParamField>
             
             <ParamField body="newValue" type="any" required>
@@ -734,9 +745,14 @@ update elements ,add ,remove ,get elements runtime
             <ParamField body="soundClose" type="boolean">
                 plays the final sound when the menu closes
             </ParamField>
+
+            <ParamField body="fireEventClose" type="boolean">
+                if `true` will fire the close event, this is usefull when you want to final close a menu 
+                by default the events are only fire when using the `backspace`
+            </ParamField>
             
             ```lua
-            menu.close(showRadar, soundClose)
+            menu.close(showRadar, soundClose, fireEventClose)
             ```
             </Accordion>
             </Tab>
@@ -906,6 +922,7 @@ function OpenMenu()
             maxVisibleItems = 6,                                      -- max visible items in the menu
             hideRadar = true,                                         -- hides the radar
             soundOpen = true,                                         -- plays the open sound of the menu
+            skipOpenEvent = false,                                     
 
         },
         function(data, menu) -- submit callback
@@ -925,7 +942,7 @@ function OpenMenu()
             -- when menu closes if lastmenu isn't defined
             Menu.Close(true, true) 
         end,
-
+        -- do not use the below unless you really need, it causes the menu to spike when you press up and down because the submit callback is doing the same thing.
         function(data, menu) -- change callback THIS IS OPTIONAL 
             -- if theres no previous menu close menu on backspace press
            -- is called when scrolling through the elements, also when the type = "slider" is changed i dont know why.
