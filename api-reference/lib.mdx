@@ -928,7 +928,7 @@ when you restart your resource the prompts will be removed for easy development
                             
                             local data = {
                                 locations = {
-                                    {
+                                    { -- index 1
                                         coords = vector3(2868.43, 480.19, 65.02), -- distance based prompts
                                         label = 'group label', -- group label
                                         distance = 2.0, -- distance from coords
@@ -943,19 +943,22 @@ when you restart your resource the prompts will be removed for easy development
                                 sleep = 700, -- sleep time when not in range
                                 prompts = { -- group prompts or single prompt
                                     { type = 'Press', key = 'G', label = 'press', mode = 'Standard' },
-                                    { type = 'Hold',  key = 'E', label = 'press and hold', mode = 'Hold', holdTime = 3000 }
+                                    { type = 'Hold',  key = 'E', label = 'hold',  mode = 'Hold', holdTime = 3000 }
                                 }
                             }
 
-                            local prompt = Game.Prompts:Register(data, function(value, instance)
-                                if value.key == 'G' then
-                                    print('G pressed')
-                                elseif value.key == 'E' then
-                                    print('E held for 3 seconds')
+                            local prompt = Game.Prompts:Register(data, function(prompt, index , self)
+                                -- first array, allows to use one location with multiple prompts
+                                if index == 1 then
+                                    if prompt.key == 'G' then
+                                        print('G pressed')
+                                    elseif prompt.key == 'E' then
+                                        print('E held for 3 seconds')
+                                    end
                                 end
                             end, true) -- auto start on register
 
-                            prompt:Destroy()
+                            prompt:Destroy() -- the lib it self will destroy any prompt on script restart
                         ```
                     </Accordion>
                 </Tab>
