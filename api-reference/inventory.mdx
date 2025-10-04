@@ -15,49 +15,54 @@ icon : 'code'
 <Note> These exports are client side only!</Note>
 
 <Tabs>
-  <Tab title="Items">
+    <Tab title="Items">
 
 ### Getters
 
-<Accordion icon="keyboard" iconType= "duotone" title="getInventoryItems">
+        <Accordion icon="keyboard" iconType= "duotone" title="getInventoryItems">
  
-   <Icon icon="code" iconType="solid"/> get all user inventory items 
+            <Icon icon="code" iconType="solid"/> get all user inventory items 
 
-    <ParamField body="return" type="table">
-     `returns` a table containing all the items in the inventory
-    </ParamField>
+            <ParamField body="return" type="table">
+             `returns` a table containing all the items in the inventory
+            </ParamField>
+            ```lua
+            local result = exports.vorp_inventory:getInventoryItems()
+            ```
+        </Accordion>
+        <Accordion icon="keyboard" iconType= "duotone" title="getInventoryItem">
+            <Icon icon="code" iconType="solid"/> get user inventory item
+            <ParamField body="string" type="name">
+              the item name
+            </ParamField>
 
-    ```lua
-    local result = exports.vorp_inventory:getInventoryItems()
-    ```
-</Accordion>
-<Accordion icon="keyboard" iconType= "duotone" title="getInventoryItem">
- 
-   <Icon icon="code" iconType="solid"/> get user inventory item
-    <ParamField body="string" type="name">
-     the item name
-    </ParamField>
+            <ParamField body="return" type="table">
+              `returns` a table containing the item name,label,weight,desc metadata, percentage
+            </ParamField>
 
-    <ParamField body="return" type="table">
-     `returns` a table containing the item name,label,weight,desc metadata, percentage
-    </ParamField>
+            ```lua
+            local result = exports.vorp_inventory:getInventoryItem()
+            ```
+        </Accordion>
+        <Accordion icon="keyboard" iconType= "duotone" title="getServerItem">
+            <ParamField body="datae" type="string|table">
+                the item name to get or an table of items to get in one single call, returns the data from items database like label,weight,desc,metadata etc
+            </ParamField>
 
-    ```lua
-    local result = exports.vorp_inventory:getInventoryItem()
-    ```
-</Accordion>
-</Tab>
-  <Tab title="Inventory">
-
-    <Accordion icon="keyboard" iconType= "duotone" title="closeInventory">
- 
-   <Icon icon="code" iconType="solid"/> close inventory
-
-    ```lua
-    exports.vorp_inventory:closeInventory()
-    ```
-   </Accordion>
-  </Tab>
+            ```lua
+            local result = exports.vorp_inventory:getServerItem("water")
+            print(result.label)
+            ```
+        </Accordion>
+    </Tab>
+    <Tab title="Inventory">
+        <Accordion icon="keyboard" iconType= "duotone" title="closeInventory">
+            <Icon icon="code" iconType="solid"/> close inventory
+            ```lua
+            exports.vorp_inventory:closeInventory()
+            ```
+        </Accordion>
+    </Tab>
 </Tabs>
 
 
@@ -778,7 +783,7 @@ icon : 'code'
 
 <Accordion icon="keyboard" iconType= "duotone" title="setItemMetadata">
  
-   <Icon icon="code" iconType="solid"/>
+    <Icon icon="code" iconType="solid"/>
     - Split a stack and modify only some items (amount must be less than the current stack)
     - Merge with an existing stack that has matching metadata (amount must be more or equal than the current stack)
     - Modify the entire stack's metadata (amount must be more or equal than the current stack) this only applies if metadata is the same as current stack
@@ -799,7 +804,8 @@ icon : 'code'
      - `label` the label of the item to replace
      - `weight` the weight of the item to replace
      - `tolltip` add extra text to the tooltip 
-     - `context` add context buttons to the item 
+     - `context` add context buttons to the item
+     - `useExpired` if true allows to use expired items overriding the useExpired setting in the item db
 
     </ParamField>
 
@@ -824,8 +830,8 @@ icon : 'code'
               text = "BUTTON", -- label shown in menu
               close = true, -- close inv on use
               event = {
-                  client = "contextevent", -- client event to trigger
-                  server = "contextevent" -- server event to trigger
+                  client = "myscript:contextevent", -- client event to trigger
+                  server = "myscript:contextevent" -- server event to trigger
               },
               arguments = { -- arguments to pass to the event if needed
                   "any",
@@ -835,6 +841,15 @@ icon : 'code'
     }
 
     exports.vorp_inventory:setItemMetadata(source, itemId, metadata, amount, callback)
+
+    -- listen in your scripts client side
+    AddEventHandler("myscript:contextevent", function(args,itemId)
+        
+    end) 
+    -- server side
+    RegisterNetEvent("myscript:contextevent", function(args,itemId)
+
+    end)
     ```
 
 
@@ -1535,6 +1550,14 @@ Listen for inventory state change `(opens or closes)` including custom inventori
 AddEventHandler("vorp_inventory:Client:OnInvStateChange",function(boolean)
     print(boolean)
 end)
+```
+
+Block player inventory from server or client side
+```lua OnInvBlock server
+TriggerClientEvent("vorp_inventory:blockInventory", player_id, true or false)
+```
+```lua OnInvBlock client
+  TriggerEvent("vorp_inventory:blockInventory", true or false)
 ```
 
 ## Statebags

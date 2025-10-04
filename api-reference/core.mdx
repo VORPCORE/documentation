@@ -33,566 +33,663 @@ notifications can also accept -1 as duration to always stay on screen and to cle
 
 <Note>Shared</Note>
 <Tabs>
-  <Tab title="Client">
-<Accordion icon="bell" iconType="duotone" title="NotifyLeft">
+    <Tab title="Client">
+        <Accordion icon="bell" iconType="duotone" title="NotifyLeft">
+        
+            <ParamField body="title" type="string" required>
+                The title of the notification
+            </ParamField>
+            
+            <ParamField body="subtitle" type="string" required>
+                The subtitle of the notification
+            </ParamField>
+            
+            <ParamField body="dict" type="string" required>
+                The dictionary for the icon
+            </ParamField>
+            
+            <ParamField body="icon" type="string" required>
+                The icon name
+            </ParamField>
+            
+            <ParamField body="duration" type="number" required>
+                Duration in milliseconds
+            </ParamField>
+            
+            <ParamField body="color" type="string" required>
+                Color of the notification
+            </ParamField>
+            
+            ```lua
+            Core.NotifyLeft("title", "subtitle", "dict", "icon", 4000, "color")
+            ```
+        </Accordion>
+        <Accordion icon="bell" iconType="duotone" title="NotifyTip">
+            <ParamField body="title" type="string" required>
+                The title of the notification
+            </ParamField>
+            <ParamField body="duration" type="number" required>
+                Duration in milliseconds
+            </ParamField>
+            
+            ```lua
+            Core.NotifyTip("title", 4000)
+            ````
+        </Accordion>
+        <Accordion icon="bell" iconType="duotone" title="NotifyLeft">
+            <ParamField body="title" type="string" required>
+                The title of the notification
+            </ParamField>
+            <ParamField body="subtitle" type="string" required>
+                The subtitle of the notification
+            </ParamField>
+            <ParamField body="dict" type="string" required>
+                The dictionary for the icon
+            </ParamField>
+            <ParamField body="icon" type="string" required>
+                The icon name
+            </ParamField>
+            <ParamField body="duration" type="number" required>
+                Duration in milliseconds
+            </ParamField>
+            <ParamField body="color" type="string" required>
+                Color of the notification
+            </ParamField>
+            
+            ```lua
+            Core.NotifyLeft("title", "subtitle", "dict", "icon", 4000, "color")
+            ````
+        </Accordion>
+        <Accordion icon="bell" iconType="duotone" title="NotifyRightTip">
+            <ParamField body="title" type="string" required>
+                The title of the notification
+            </ParamField>
+            <ParamField body="duration" type="number" required>
+                Duration in milliseconds
+            </ParamField>
+            
+            ```lua
+            Core.NotifyRightTip("title", 4000)
+            ````
+        </Accordion>
+        <Accordion icon="bell" iconType="duotone" title="NotifyObjective">
+            <ParamField body="title" type="string" required>
+                The title of the notification
+            </ParamField>
+            <ParamField body="duration" type="number" required>
+                Duration in milliseconds
+            </ParamField>
+            
+            ```lua
+            Core.NotifyObjective("title", 4000)
+            ````
+        </Accordion>
+            <Accordion icon="bell" iconType="duotone" title="NotifyTop">
+            <ParamField body="title" type="string" required>
+                The title of the notification
+            </ParamField>
+            <ParamField body="location" type="string" required>
+                The location to display
+            </ParamField>
+            <ParamField body="duration" type="number" required>
+                Duration in milliseconds
+            </ParamField>
+            
+            ```lua
+            Core.NotifyTop("title", "location", 4000)
+            ````
+        </Accordion>
+            
+            <Accordion icon="bell" iconType="duotone" title="NotifySimpleTop">
+            <ParamField body="title" type="string" required>
+                The title of the notification
+            </ParamField>
+            <ParamField body="subtitle" type="string" required>
+                The subtitle of the notification
+            </ParamField>
+            <ParamField body="duration" type="number" required>
+                Duration in milliseconds
+            </ParamField>
+            
+            ```lua
+            Core.NotifySimpleTop("title", "subtitle", 4000)
+            ````
+        </Accordion> 
+        <Accordion icon="bell" iconType="duotone" title="NotifyAvanced">
+            <ParamField body="title" type="string" required>
+                The title of the notification
+            </ParamField>
+            <ParamField body="dict" type="string" required>
+                The dictionary for the icon
+            </ParamField>
+            <ParamField body="icon" type="string" required>
+                The icon name
+            </ParamField>
+            <ParamField body="color" type="string" required>
+                Color of the notification
+            </ParamField>
+            <ParamField body="duration" type="number" required>
+                Duration in milliseconds
+            </ParamField>
+            
+            ```lua
+            Core.NotifyAvanced("title", "dict", "icon", "color", 4000)
+            ````
+        </Accordion>
+        <Accordion icon="bell" iconType="duotone" title="NotifyCenter">
+            <ParamField body="title" type="string" required>
+                The title of the notification
+            </ParamField>
+            <ParamField body="duration" type="number" required>
+                Duration in milliseconds
+            </ParamField>
+            
+            ```lua
+            Core.NotifyCenter("title", 4000)
+            ````
+        </Accordion>
+        <Accordion icon="bell" iconType="duotone" title="NotifyBottomRight">
+            <ParamField body="title" type="string" required>
+                The title of the notification
+            </ParamField>
+            <ParamField body="duration" type="number" required>
+                Duration in milliseconds
+            </ParamField>
+            
+            ```lua
+            Core.NotifyBottomRight("title", 4000)
+            ````
+        </Accordion>
+        <Accordion icon="bell" iconType="duotone" title="NotifyFail">
+            <ParamField body="title" type="string" required>
+                The title of the notification
+            </ParamField>
+            <ParamField body="subtitle" type="string" required>
+                The subtitle of the notification
+            </ParamField>
+            <ParamField body="duration" type="number" required>
+                Duration in milliseconds
+            </ParamField>
+            
+            ```lua
+            Core.NotifyFail("title", "subtitle", 4000)
+            ````
+        </Accordion>
+        <Accordion icon="bell" iconType="duotone" title="NotifyDead">
+            <ParamField body="title" type="string" required>
+                The title of the notification
+            </ParamField>
+            <ParamField body="audioref" type="string" required>
+                The audio reference
+            </ParamField>
+            <ParamField body="audioname" type="string" required>
+                The audio name
+            </ParamField>
+            <ParamField body="duration" type="number" required>
+                Duration in milliseconds
+            </ParamField>
+            
+            ```lua
+            Core.NotifyDead("title", "audioref", "audioname", 4000)
+            ````
+        </Accordion>
+        <Accordion icon="bell" iconType="duotone" title="NotifyUpdate">
+            <ParamField body="title" type="string" required>
+                The title of the notification
+            </ParamField>
+            <ParamField body="subtitle" type="string" required>
+                The subtitle of the notification
+            </ParamField>
+            <ParamField body="duration" type="number" required>
+                Duration in milliseconds
+            </ParamField>
+            
+            ```lua
+            Core.NotifyUpdate("title", "subtitle", 4000)
+            ````
+        </Accordion>
+        <Accordion icon="bell" iconType="duotone" title="NotifyWarning">
+            <ParamField body="title" type="string" required>
+                The title of the notification
+            </ParamField>
+            <ParamField body="subtitle" type="string" required>
+                The subtitle of the notification
+            </ParamField>
+            <ParamField body="audioref" type="string" required>
+                The audio reference
+            </ParamField>
+            <ParamField body="audioname" type="string" required>
+                The audio name
+            </ParamField>
+            <ParamField body="duration" type="number" required>
+                Duration in milliseconds
+            </ParamField>
+            
+            ```lua
+            Core.NotifyWarning("title", "subtitle", "audioref", "audioname", 4000)
+            ````
+        </Accordion>
+        <Accordion icon="bell" iconType="duotone" title="NotifyLeftRank">
+            <ParamField body="title" type="string" required>
+                The title of the notification
+            </ParamField>
+            <ParamField body="subtitle" type="string" required>
+                The subtitle of the notification
+            </ParamField>
+            <ParamField body="dict" type="string" required>
+                The dictionary for the icon
+            </ParamField>
+            <ParamField body="icon" type="string" required>
+                The icon name
+            </ParamField>
+            <ParamField body="duration" type="number" required>
+                Duration in milliseconds
+            </ParamField>
+            <ParamField body="color" type="string" required>
+                Color of the notification
+            </ParamField>
+            
+            ```lua
+            Core.NotifyLeftRank("title", "subtitle", "dict", "icon", 4000, "color")
+            ````
+        </Accordion>
+        <Accordion icon="bell" iconType="duotone" title="NotifyOneSimpleTop">
+            <ParamField body="title" type="string" required>
+                The title of the notification
+            </ParamField>
+            <ParamField body="duration" type="number" required>
+                Duration in milliseconds
+            </ParamField>
+            
+            ```lua
+            Core.NotifyOneSimpleTop("title", 4000)
+            `````
+        </Accordion>
+        <Accordion icon="bell" iconType="duotone" title="NotifyThreeSimpleTop"> 
+            <ParamField body="title" type="string" required>
+                The title of the notification
+            </ParamField>
+            <ParamField body="description" type="string" required>
+                The description of the notification
+            </ParamField>
+            <ParamField body="second_description" type="string" required>
+                The second description of the notification
+            </ParamField>
+            <ParamField body="duration" type="number" required>
+                Duration in milliseconds
+            </ParamField>
+            
+            ```lua
+            Core.NotifyThreeSimpleTop("title","description","second_description", 4000)
+            `````
+        </Accordion>
+        <Accordion icon="bell" iconType="duotone" title="NotifyLeftInteractive">
+            <ParamField body="title" type="string" required>
+                The title of the notification
+            </ParamField>
+            <ParamField body="subtitle" type="string" required>
+                The subtitle of the notification
+            </ParamField>
+            <ParamField body="dict" type="string" required>
+                The dictionary for the icon
+            </ParamField>
+            <ParamField body="icon" type="string" required>
+                The icon name
+            </ParamField>
+            <ParamField body="duration" type="number" required>
+                Duration in milliseconds or -1 for infinite
+            </ParamField>
+            <ParamField body="color" type="string" required>
+                Color of the notification
+            </ParamField>
+            
+            ```lua
+            Core.NotifyLeftInteractive("title", "subtitle", "dict", "icon", 4000, "color")
+            `````
+        </Accordion>
+    </Tab>
+    <Tab title="Server">
+        <Accordion icon="bell" iconType="duotone" title="NotifyTip">
+            <ParamField body="source" type="integer" required>
+                The player ID
+            </ParamField>
+            <ParamField body="title" type="string" required>
+                The title of the notification
+            </ParamField>
+            <ParamField body="duration" type="integer" required>
+                Duration in milliseconds
+            </ParamField>
+            
+            ```lua
+            Core.NotifyTip(source, "title", 4000)
+            `````
+        </Accordion>
+        <Accordion icon="bell" iconType="duotone" title="NotifyLeft">
+            <ParamField body="source" type="integer" required>
+                The player ID
+            </ParamField>
+            <ParamField body="title" type="string" required>
+                The title of the notification
+            </ParamField>
+            <ParamField body="subtitle" type="string" required>
+                The subtitle of the notification
+            </ParamField>
+            <ParamField body="dict" type="string" required>
+                The dictionary for the icon
+            </ParamField>
+            <ParamField body="icon" type="string" required>
+                The icon name
+            </ParamField>
+            <ParamField body="duration" type="integer" required>
+                Duration in milliseconds
+            </ParamField>
+            <ParamField body="color" type="string" required>
+                Color of the notification
+            </ParamField>
+            
+            ```lua
+            Core.NotifyLeft(source, "title", "subtitle", "dict", "icon", 4000, "color")
+            `````
+        </Accordion>
+        <Accordion icon="bell" iconType="duotone" title="NotifyRightTip">
+            <ParamField body="source" type="integer" required>
+                The player ID
+            </ParamField>
+            <ParamField body="title" type="string" required>
+                The title of the notification
+            </ParamField>
+            <ParamField body="duration" type="integer" required>
+                Duration in milliseconds
+            </ParamField>
+            
+            ```lua
+            Core.NotifyRightTip(source, "title", 4000)
+            `````
+        </Accordion>
+        <Accordion icon="bell" iconType="duotone" title="NotifyObjective">
+            <ParamField body="source" type="integer" required>
+                The player ID
+            </ParamField>
+            <ParamField body="title" type="string" required>
+                The title of the notification
+            </ParamField>
+            <ParamField body="duration" type="integer" required>
+                Duration in milliseconds
+            </ParamField>
+            
+            ```lua
+            Core.NotifyObjective(source, "title", 4000)
+            `````
+        </Accordion>
+        <Accordion icon="bell" iconType="duotone" title="NotifyTop">
+            <ParamField body="source" type="integer" required>
+                The player ID
+            </ParamField>
+            <ParamField body="title" type="string" required>
+                The title of the notification
+            </ParamField>
+            <ParamField body="location" type="string" required>
+                The location to display
+            </ParamField>
+            <ParamField body="duration" type="integer" required>
+                Duration in milliseconds
+            </ParamField>
+            
+            ```lua
+            Core.NotifyTop(source, "title", "location", 4000)
+            `````
+        </Accordion>
+        <Accordion icon="bell" iconType="duotone" title="NotifySimpleTop">
+            <ParamField body="source" type="integer" required>
+                The player ID
+            </ParamField>
+            <ParamField body="title" type="string" required>
+                The title of the notification
+            </ParamField>
+            <ParamField body="subtitle" type="string" required>
+                The subtitle of the notification
+            </ParamField>
+            <ParamField body="duration" type="integer" required>
+                Duration in milliseconds
+            </ParamField>
+            
+            ```lua
+            Core.NotifySimpleTop(source, "title", "subtitle", 4000)
+            `````
+        </Accordion>
+        <Accordion icon="bell" iconType="duotone" title="NotifyAvanced">
+            <ParamField body="source" type="integer" required>
+                The player ID
+            </ParamField>
+            <ParamField body="title" type="string" required>
+                The title of the notification
+            </ParamField>
+            <ParamField body="dict" type="string" required>
+                The dictionary for the icon
+            </ParamField>
+            <ParamField body="icon" type="string" required>
+                The icon name
+            </ParamField>
+            <ParamField body="color" type="string" required>
+                Color of the notification
+            </ParamField>
+            <ParamField body="duration" type="integer" required>
+                Duration in milliseconds
+            </ParamField>
+            <ParamField body="showQuality" type="boolean" required>
+                Show the quality of the notification
+            </ParamField>
+            <ParamField body="quality" type="number" required>
+                The quality of the notification max 3
+            </ParamField>
 
-<ParamField body="title" type="string" required>
-    The title of the notification
-</ParamField>
-
-<ParamField body="subtitle" type="string" required>
-    The subtitle of the notification
-</ParamField>
-
-<ParamField body="dict" type="string" required>
-    The dictionary for the icon
-</ParamField>
-
-<ParamField body="icon" type="string" required>
-    The icon name
-</ParamField>
-
-<ParamField body="duration" type="number" required>
-    Duration in milliseconds
-</ParamField>
-
-<ParamField body="color" type="string" required>
-    Color of the notification
-</ParamField>
-
-```lua
-Core.NotifyLeft("title", "subtitle", "dict", "icon", 4000, "color")
-```
-
-</Accordion>
-<Accordion icon="bell" iconType="duotone" title="NotifyTip">
-<ParamField body="title" type="string" required>
-    The title of the notification
-</ParamField>
-<ParamField body="duration" type="number" required>
-    Duration in milliseconds
-</ParamField>
-
-```lua
-Core.NotifyTip("title", 4000)
-````
-</Accordion>
-
-<Accordion icon="bell" iconType="duotone" title="NotifyLeft">
-<ParamField body="title" type="string" required>
-    The title of the notification
-</ParamField>
-<ParamField body="subtitle" type="string" required>
-    The subtitle of the notification
-</ParamField>
-<ParamField body="dict" type="string" required>
-    The dictionary for the icon
-</ParamField>
-<ParamField body="icon" type="string" required>
-    The icon name
-</ParamField>
-<ParamField body="duration" type="number" required>
-    Duration in milliseconds
-</ParamField>
-<ParamField body="color" type="string" required>
-    Color of the notification
-</ParamField>
-
-```lua
-Core.NotifyLeft("title", "subtitle", "dict", "icon", 4000, "color")
-````
-</Accordion>
-
-<Accordion icon="bell" iconType="duotone" title="NotifyRightTip">
-<ParamField body="title" type="string" required>
-    The title of the notification
-</ParamField>
-<ParamField body="duration" type="number" required>
-    Duration in milliseconds
-</ParamField>
-
-```lua
-Core.NotifyRightTip("title", 4000)
-````
-</Accordion>
-
-<Accordion icon="bell" iconType="duotone" title="NotifyObjective">
-<ParamField body="title" type="string" required>
-    The title of the notification
-</ParamField>
-<ParamField body="duration" type="number" required>
-    Duration in milliseconds
-</ParamField>
-
-```lua
-Core.NotifyObjective("title", 4000)
-````
-</Accordion>
-
-<Accordion icon="bell" iconType="duotone" title="NotifyTop">
-<ParamField body="title" type="string" required>
-    The title of the notification
-</ParamField>
-<ParamField body="location" type="string" required>
-    The location to display
-</ParamField>
-<ParamField body="duration" type="number" required>
-    Duration in milliseconds
-</ParamField>
-
-```lua
-Core.NotifyTop("title", "location", 4000)
-````
-</Accordion>
-
-<Accordion icon="bell" iconType="duotone" title="NotifySimpleTop">
-<ParamField body="title" type="string" required>
-    The title of the notification
-</ParamField>
-<ParamField body="subtitle" type="string" required>
-    The subtitle of the notification
-</ParamField>
-<ParamField body="duration" type="number" required>
-    Duration in milliseconds
-</ParamField>
-
-```lua
-Core.NotifySimpleTop("title", "subtitle", 4000)
-````
-</Accordion>
-
-<Accordion icon="bell" iconType="duotone" title="NotifyAvanced">
-<ParamField body="title" type="string" required>
-    The title of the notification
-</ParamField>
-<ParamField body="dict" type="string" required>
-    The dictionary for the icon
-</ParamField>
-<ParamField body="icon" type="string" required>
-    The icon name
-</ParamField>
-<ParamField body="color" type="string" required>
-    Color of the notification
-</ParamField>
-<ParamField body="duration" type="number" required>
-    Duration in milliseconds
-</ParamField>
-
-```lua
-Core.NotifyAvanced("title", "dict", "icon", "color", 4000)
-````
-</Accordion>
-
-<Accordion icon="bell" iconType="duotone" title="NotifyCenter">
-<ParamField body="title" type="string" required>
-    The title of the notification
-</ParamField>
-<ParamField body="duration" type="number" required>
-    Duration in milliseconds
-</ParamField>
-
-```lua
-Core.NotifyCenter("title", 4000)
-````
-</Accordion>
-
-<Accordion icon="bell" iconType="duotone" title="NotifyBottomRight">
-<ParamField body="title" type="string" required>
-    The title of the notification
-</ParamField>
-<ParamField body="duration" type="number" required>
-    Duration in milliseconds
-</ParamField>
-
-```lua
-Core.NotifyBottomRight("title", 4000)
-````
-</Accordion>
-
-<Accordion icon="bell" iconType="duotone" title="NotifyFail">
-<ParamField body="title" type="string" required>
-    The title of the notification
-</ParamField>
-<ParamField body="subtitle" type="string" required>
-    The subtitle of the notification
-</ParamField>
-<ParamField body="duration" type="number" required>
-    Duration in milliseconds
-</ParamField>
-
-```lua
-Core.NotifyFail("title", "subtitle", 4000)
-````
-</Accordion>
-
-<Accordion icon="bell" iconType="duotone" title="NotifyDead">
-<ParamField body="title" type="string" required>
-    The title of the notification
-</ParamField>
-<ParamField body="audioref" type="string" required>
-    The audio reference
-</ParamField>
-<ParamField body="audioname" type="string" required>
-    The audio name
-</ParamField>
-<ParamField body="duration" type="number" required>
-    Duration in milliseconds
-</ParamField>
-
-```lua
-Core.NotifyDead("title", "audioref", "audioname", 4000)
-````
-</Accordion>
-
-<Accordion icon="bell" iconType="duotone" title="NotifyUpdate">
-<ParamField body="title" type="string" required>
-    The title of the notification
-</ParamField>
-<ParamField body="subtitle" type="string" required>
-    The subtitle of the notification
-</ParamField>
-<ParamField body="duration" type="number" required>
-    Duration in milliseconds
-</ParamField>
-
-```lua
-Core.NotifyUpdate("title", "subtitle", 4000)
-````
-</Accordion>
-
-<Accordion icon="bell" iconType="duotone" title="NotifyWarning">
-<ParamField body="title" type="string" required>
-    The title of the notification
-</ParamField>
-<ParamField body="subtitle" type="string" required>
-    The subtitle of the notification
-</ParamField>
-<ParamField body="audioref" type="string" required>
-    The audio reference
-</ParamField>
-<ParamField body="audioname" type="string" required>
-    The audio name
-</ParamField>
-<ParamField body="duration" type="number" required>
-    Duration in milliseconds
-</ParamField>
-
-```lua
-Core.NotifyWarning("title", "subtitle", "audioref", "audioname", 4000)
-````
-</Accordion>
-
-<Accordion icon="bell" iconType="duotone" title="NotifyLeftRank">
-<ParamField body="title" type="string" required>
-    The title of the notification
-</ParamField>
-<ParamField body="subtitle" type="string" required>
-    The subtitle of the notification
-</ParamField>
-<ParamField body="dict" type="string" required>
-    The dictionary for the icon
-</ParamField>
-<ParamField body="icon" type="string" required>
-    The icon name
-</ParamField>
-<ParamField body="duration" type="number" required>
-    Duration in milliseconds
-</ParamField>
-<ParamField body="color" type="string" required>
-    Color of the notification
-</ParamField>
-
-```lua
-Core.NotifyLeftRank("title", "subtitle", "dict", "icon", 4000, "color")
-````
-</Accordion>
-</Tab>
-<Tab title="Server">
-<Accordion icon="bell" iconType="duotone" title="NotifyTip">
-<ParamField body="source" type="number" required>
-    The player ID
-</ParamField>
-<ParamField body="title" type="string" required>
-    The title of the notification
-</ParamField>
-<ParamField body="duration" type="number" required>
-    Duration in milliseconds
-</ParamField>
-
-```lua
-Core.NotifyTip(source, "title", 4000)
-`````
-</Accordion>
-
-<Accordion icon="bell" iconType="duotone" title="NotifyLeft">
-<ParamField body="source" type="number" required>
-    The player ID
-</ParamField>
-<ParamField body="title" type="string" required>
-    The title of the notification
-</ParamField>
-<ParamField body="subtitle" type="string" required>
-    The subtitle of the notification
-</ParamField>
-<ParamField body="dict" type="string" required>
-    The dictionary for the icon
-</ParamField>
-<ParamField body="icon" type="string" required>
-    The icon name
-</ParamField>
-<ParamField body="duration" type="number" required>
-    Duration in milliseconds
-</ParamField>
-<ParamField body="color" type="string" required>
-    Color of the notification
-</ParamField>
-
-```lua
-Core.NotifyLeft(source, "title", "subtitle", "dict", "icon", 4000, "color")
-`````
-</Accordion>
-
-<Accordion icon="bell" iconType="duotone" title="NotifyRightTip">
-<ParamField body="source" type="number" required>
-    The player ID
-</ParamField>
-<ParamField body="title" type="string" required>
-    The title of the notification
-</ParamField>
-<ParamField body="duration" type="number" required>
-    Duration in milliseconds
-</ParamField>
-
-```lua
-Core.NotifyRightTip(source, "title", 4000)
-`````
-</Accordion>
-
-<Accordion icon="bell" iconType="duotone" title="NotifyObjective">
-<ParamField body="source" type="number" required>
-    The player ID
-</ParamField>
-<ParamField body="title" type="string" required>
-    The title of the notification
-</ParamField>
-<ParamField body="duration" type="number" required>
-    Duration in milliseconds
-</ParamField>
-
-```lua
-Core.NotifyObjective(source, "title", 4000)
-`````
-</Accordion>
-
-<Accordion icon="bell" iconType="duotone" title="NotifyTop">
-<ParamField body="source" type="number" required>
-    The player ID
-</ParamField>
-<ParamField body="title" type="string" required>
-    The title of the notification
-</ParamField>
-<ParamField body="location" type="string" required>
-    The location to display
-</ParamField>
-<ParamField body="duration" type="number" required>
-    Duration in milliseconds
-</ParamField>
-
-```lua
-Core.NotifyTop(source, "title", "location", 4000)
-`````
-</Accordion>
-
-<Accordion icon="bell" iconType="duotone" title="NotifySimpleTop">
-<ParamField body="source" type="number" required>
-    The player ID
-</ParamField>
-<ParamField body="title" type="string" required>
-    The title of the notification
-</ParamField>
-<ParamField body="subtitle" type="string" required>
-    The subtitle of the notification
-</ParamField>
-<ParamField body="duration" type="number" required>
-    Duration in milliseconds
-</ParamField>
-
-```lua
-Core.NotifySimpleTop(source, "title", "subtitle", 4000)
-`````
-</Accordion>
-
-<Accordion icon="bell" iconType="duotone" title="NotifyAvanced">
-<ParamField body="source" type="number" required>
-    The player ID
-</ParamField>
-<ParamField body="title" type="string" required>
-    The title of the notification
-</ParamField>
-<ParamField body="dict" type="string" required>
-    The dictionary for the icon
-</ParamField>
-<ParamField body="icon" type="string" required>
-    The icon name
-</ParamField>
-<ParamField body="color" type="string" required>
-    Color of the notification
-</ParamField>
-<ParamField body="duration" type="number" required>
-    Duration in milliseconds
-</ParamField>
-
-```lua
-Core.NotifyAvanced(source, "title", "dict", "icon", "color", 4000)
-`````
-</Accordion>
-
-<Accordion icon="bell" iconType="duotone" title="NotifyCenter">
-<ParamField body="source" type="number" required>
-    The player ID
-</ParamField>
-<ParamField body="title" type="string" required>
-    The title of the notification
-</ParamField>
-<ParamField body="duration" type="number" required>
-    Duration in milliseconds
-</ParamField>
-
-```lua
-Core.NotifyCenter(source, "title", 4000)
-`````
-</Accordion>
-
-<Accordion icon="bell" iconType="duotone" title="NotifyBottomRight">
-<ParamField body="source" type="number" required>
-    The player ID
-</ParamField>
-<ParamField body="title" type="string" required>
-    The title of the notification
-</ParamField>
-<ParamField body="duration" type="number" required>
-    Duration in milliseconds
-</ParamField>
-
-```lua
-Core.NotifyBottomRight(source, "title", 4000)
-`````
-</Accordion>
-
-<Accordion icon="bell" iconType="duotone" title="NotifyFail">
-<ParamField body="source" type="number" required>
-    The player ID
-</ParamField>
-<ParamField body="title" type="string" required>
-    The title of the notification
-</ParamField>
-<ParamField body="subtitle" type="string" required>
-    The subtitle of the notification
-</ParamField>
-<ParamField body="duration" type="number" required>
-    Duration in milliseconds
-</ParamField>
-
-```lua
-Core.NotifyFail(source, "title", "subtitle", 4000)
-`````
-</Accordion>
-
-<Accordion icon="bell" iconType="duotone" title="NotifyDead">
-<ParamField body="source" type="number" required>
-    The player ID
-</ParamField>
-<ParamField body="title" type="string" required>
-    The title of the notification
-</ParamField>
-<ParamField body="audioref" type="string" required>
-    The audio reference
-</ParamField>
-<ParamField body="audioname" type="string" required>
-    The audio name
-</ParamField>
-<ParamField body="duration" type="number" required>
-    Duration in milliseconds
-</ParamField>
-
-```lua
-Core.NotifyDead(source, "title", "audioref", "audioname", 4000)
-`````
-</Accordion>
-
-<Accordion icon="bell" iconType="duotone" title="NotifyUpdate">
-<ParamField body="source" type="number" required>
-    The player ID
-</ParamField>
-<ParamField body="title" type="string" required>
-    The title of the notification
-</ParamField>
-<ParamField body="subtitle" type="string" required>
-    The subtitle of the notification
-</ParamField>
-<ParamField body="duration" type="number" required>
-    Duration in milliseconds
-</ParamField>
-
-```lua
-Core.NotifyUpdate(source, "title", "subtitle", 4000)
-`````
-</Accordion>
-
-<Accordion icon="bell" iconType="duotone" title="NotifyWarning">
-<ParamField body="source" type="number" required>
-    The player ID
-</ParamField>
-<ParamField body="title" type="string" required>
-    The title of the notification
-</ParamField>
-<ParamField body="subtitle" type="string" required>
-    The subtitle of the notification
-</ParamField>
-<ParamField body="audioref" type="string" required>
-    The audio reference
-</ParamField>
-<ParamField body="audioname" type="string" required>
-    The audio name
-</ParamField>
-<ParamField body="duration" type="number" required>
-    Duration in milliseconds
-</ParamField>
-
-```lua
-Core.NotifyWarning(source, "title", "subtitle", "audioref", "audioname", 4000)
-`````
-</Accordion>
-
-<Accordion icon="bell" iconType="duotone" title="NotifyLeftRank">
-<ParamField body="source" type="number" required>
-    The player ID
-</ParamField>
-<ParamField body="title" type="string" required>
-    The title of the notification
-</ParamField>
-<ParamField body="subtitle" type="string" required>
-    The subtitle of the notification
-</ParamField>
-<ParamField body="dict" type="string" required>
-    The dictionary for the icon
-</ParamField>
-<ParamField body="icon" type="string" required>
-    The icon name
-</ParamField>
-<ParamField body="duration" type="number" required>
-    Duration in milliseconds
-</ParamField>
-<ParamField body="color" type="string" required>
-    Color of the notification
-</ParamField>
-
-```lua
-Core.NotifyLeftRank(source, "title", "subtitle", "dict", "icon", 4000, "color")
-`````
-</Accordion>
-
-</Tab>
+            ```lua
+            Core.NotifyAvanced(source, "title", "dict", "icon", "color",showQuality,quality, 4000)
+            `````
+        </Accordion>
+        <Accordion icon="bell" iconType="duotone" title="NotifyCenter">
+            <ParamField body="source" type="integer" required>
+                The player ID
+            </ParamField>
+            <ParamField body="title" type="string" required>
+                The title of the notification
+            </ParamField>
+            <ParamField body="duration" type="integer" required>
+                Duration in milliseconds
+            </ParamField>
+            
+            ```lua
+            Core.NotifyCenter(source, "title", 4000)
+            `````
+        </Accordion>
+        <Accordion icon="bell" iconType="duotone" title="NotifyBottomRight">
+            <ParamField body="source" type="integer" required>
+                The player ID
+            </ParamField>
+            <ParamField body="title" type="string" required>
+                The title of the notification
+            </ParamField>
+            <ParamField body="duration" type="integer" required>
+                Duration in milliseconds
+            </ParamField>
+            
+            ```lua
+            Core.NotifyBottomRight(source, "title", 4000)
+            `````
+        </Accordion>
+        <Accordion icon="bell" iconType="duotone" title="NotifyFail">
+            <ParamField body="source" type="integer" required>
+                The player ID
+            </ParamField>
+            <ParamField body="title" type="string" required>
+                The title of the notification
+            </ParamField>
+            <ParamField body="subtitle" type="string" required>
+                The subtitle of the notification
+            </ParamField>
+            <ParamField body="duration" type="integer" required>
+                Duration in milliseconds
+            </ParamField>
+            
+            ```lua
+            Core.NotifyFail(source, "title", "subtitle", 4000)
+            `````
+        </Accordion>
+            
+        <Accordion icon="bell" iconType="duotone" title="NotifyDead">
+            <ParamField body="source" type="integer" required>
+                The player ID
+            </ParamField>
+            <ParamField body="title" type="string" required>
+                The title of the notification
+            </ParamField>
+            <ParamField body="audioref" type="string" required>
+                The audio reference
+            </ParamField>
+            <ParamField body="audioname" type="string" required>
+                The audio name
+            </ParamField>
+            <ParamField body="duration" type="integer" required>
+                Duration in milliseconds
+            </ParamField>
+            
+            ```lua
+            Core.NotifyDead(source, "title", "audioref", "audioname", 4000)
+            `````
+        </Accordion>
+        <Accordion icon="bell" iconType="duotone" title="NotifyUpdate">
+            <ParamField body="source" type="integer" required>
+                The player ID
+            </ParamField>
+            <ParamField body="title" type="string" required>
+                The title of the notification
+            </ParamField>
+            <ParamField body="subtitle" type="string" required>
+                The subtitle of the notification
+            </ParamField>
+            <ParamField body="duration" type="integer" required>
+                Duration in milliseconds
+            </ParamField>
+            
+            ```lua
+            Core.NotifyUpdate(source, "title", "subtitle", 4000)
+            `````
+        </Accordion>
+        <Accordion icon="bell" iconType="duotone" title="NotifyWarning">
+            <ParamField body="source" type="integer" required>
+                The player ID
+            </ParamField>
+            <ParamField body="title" type="string" required>
+                The title of the notification
+            </ParamField>
+            <ParamField body="subtitle" type="string" required>
+                The subtitle of the notification
+            </ParamField>
+            <ParamField body="audioref" type="string" required>
+                The audio reference
+            </ParamField>
+            <ParamField body="audioname" type="string" required>
+                The audio name
+            </ParamField>
+            <ParamField body="duration" type="integer" required>
+                Duration in milliseconds
+            </ParamField>
+            
+            ```lua
+            Core.NotifyWarning(source, "title", "subtitle", "audioref", "audioname", 4000)
+            `````
+        </Accordion>
+        <Accordion icon="bell" iconType="duotone" title="NotifyLeftRank">
+            <ParamField body="source" type="integer" required>
+                The player ID
+            </ParamField>
+            <ParamField body="title" type="string" required>
+                The title of the notification
+            </ParamField>
+            <ParamField body="subtitle" type="string" required>
+                The subtitle of the notification
+            </ParamField>
+            <ParamField body="dict" type="string" required>
+                The dictionary for the icon
+            </ParamField>
+            <ParamField body="icon" type="string" required>
+                The icon name
+            </ParamField>
+            <ParamField body="duration" type="integer" required>
+                Duration in milliseconds
+            </ParamField>
+            <ParamField body="color" type="string" required>
+                Color of the notification
+            </ParamField>
+            
+            ```lua
+            Core.NotifyLeftRank(source, "title", "subtitle", "dict", "icon", 4000, "color")
+            `````
+        </Accordion>
+        <Accordion icon="bell" iconType="duotone" title="NotifyOneSimpleTop">
+            <ParamField body="source" type="integer" required>
+                The player ID
+            </ParamField>
+            <ParamField body="title" type="string" required>
+                The title of the notification
+            </ParamField>
+            <ParamField body="duration" type="integer" required>
+                Duration in milliseconds
+            </ParamField>
+            
+            ```lua
+            Core.NotifyOneSimpleTop(source, "title", 4000)
+            `````
+        </Accordion>
+        <Accordion icon="bell" iconType="duotone" title="NotifyThreeSimpleTop"> 
+            <ParamField body="source" type="integer" required>
+                The player ID
+            </ParamField>
+            <ParamField body="title" type="string" required>
+                The title of the notification
+            </ParamField>
+            <ParamField body="description" type="string" required>
+                The description of the notification
+            </ParamField>
+            <ParamField body="second_description" type="string" required>
+                The second description of the notification
+            </ParamField>
+            <ParamField body="duration" type="integer" required>
+                Duration in milliseconds
+            </ParamField>
+            
+            ```lua
+            Core.NotifyThreeSimpleTop(source, "title","description","second_description", 4000)
+            `````
+        </Accordion>
+        <Accordion icon="bell" iconType="duotone" title="NotifyLeftInteractive">
+            <ParamField body="source" type="integer" required>
+                The player ID
+            </ParamField>
+            <ParamField body="title" type="string" required>
+                The title of the notification
+            </ParamField>
+            <ParamField body="subtitle" type="string" required>
+                The subtitle of the notification
+            </ParamField>
+            <ParamField body="dict" type="string" required>
+                The dictionary for the icon
+            </ParamField>
+            <ParamField body="icon" type="string" required>
+                The icon name
+            </ParamField>
+            <ParamField body="duration" type="integer" required>
+                Duration in milliseconds or -1 for infinite
+            </ParamField>
+            <ParamField body="color" type="string" required>
+                Color of the notification
+            </ParamField>
+            
+            ```lua
+            Core.NotifyLeftInteractive(source, "title", "subtitle", "dict", "icon", 4000, "color")
+            `````
+        </Accordion>
+    </Tab>
 </Tabs>
 
 
@@ -603,676 +700,667 @@ Get the character data to access getters and setters
 <Note>Server</Note>
 
 <Accordion icon="user" iconType="duotone" title="getUsedCharacter">
-<ParamField body="source" type="number" required>
-    The player ID
-</ParamField>
+    <ParamField body="source" type="integer" required>
+        The player ID
+    </ParamField>
 
-```lua
-local user = Core.getUser(source) --[[@as User]]  
-if not user then return end -- is player in session?
-local character = user.getUsedCharacter --[[@as Character]]
-```
+    ```lua
+        local user = Core.getUser(source) --[[@as User]]  
+        if not user then return end -- is player in session?
+        local character = user.getUsedCharacter --[[@as Character]]
+    ```
 </Accordion>
 
 <Tabs>
-  <Tab title="getters">
- <Accordion icon="user" iconType="duotone" title="identifier">
-<ParamField body="return" type="string">
-    The unique identifier of the character
-</ParamField>
-
-```lua
-local identifier = character.identifier
-```
-</Accordion>
-
-<Accordion icon="user" iconType="duotone" title="charIdentifier">
-<ParamField body="return" type="string">
-    The unique character identifier
-</ParamField>
-
-```lua
-local charIdentifier = character.charIdentifier
-```
-</Accordion>
-
-<Accordion icon="user" iconType="duotone" title="group">
-<ParamField body="return" type="string">
-    The group the character belongs to
-</ParamField>
-
-```lua
-local group = character.group
-```
-</Accordion>
-
-<Accordion icon="user" iconType="duotone" title="job">
-<ParamField body="return" type="string">
-    The job of the character
-</ParamField>
-
-```lua
-local job = character.job
-```
-</Accordion>
-
-<Accordion icon="user" iconType="duotone" title="jobGrade">
-<ParamField body="return" type="number">
-    The job grade of the character
-</ParamField>
-
-```lua
-local jobGrade = character.jobGrade
-```
-</Accordion>
-
-<Accordion icon="user" iconType="duotone" title="jobLabel">
-<ParamField body="return" type="string">
-    The job label of the character
-</ParamField>
-
-```lua
-local jobLabel = character.jobLabel
-```
-</Accordion>
-
-<Accordion icon="user" iconType="duotone" title="money">
-<ParamField body="return" type="number">
-    The amount of money the character has
-</ParamField>
-
-```lua
-local money = character.money
-```
-</Accordion>
-
-<Accordion icon="user" iconType="duotone" title="gold">
-<ParamField body="return" type="number">
-    The amount of gold the character has
-</ParamField>
-
-```lua
-local gold = character.gold
-```
-</Accordion>
-
-<Accordion icon="user" iconType="duotone" title="rol">
-<ParamField body="return" type="number">
-    The amount of rol the character has
-</ParamField>
-
-```lua
-local rol = character.rol
-```
-</Accordion>
-
-<Accordion icon="user" iconType="duotone" title="xp">
-<ParamField body="return" type="number">
-    The amount of experience points the character has
-</ParamField>
-
-```lua
-local xp = character.xp
-```
-</Accordion>
-
-<Accordion icon="user" iconType="duotone" title="firstname">
-<ParamField body="return" type="string">
-    The first name of the character
-</ParamField>
-
-```lua
-local firstname = character.firstname
-```
-</Accordion>
-
-<Accordion icon="user" iconType="duotone" title="lastname">
-<ParamField body="return" type="string">
-    The last name of the character
-</ParamField>
-
-```lua
-local lastname = character.lastname
-```
-</Accordion>
-
-<Accordion icon="user" iconType="duotone" title="status">
-<ParamField body="return" type="table">
-    The status of the character
-</ParamField>
-
-```lua
-local status = character.status
-```
-</Accordion>
-
-<Accordion icon="user" iconType="duotone" title="coords">
-<ParamField body="return" type="table">
-    The coordinates of the character
-</ParamField>
-
-```lua
-local coords = character.coords
-```
-</Accordion>
-
-<Accordion icon="user" iconType="duotone" title="isdead">
-<ParamField body="return" type="boolean">
-    Whether the character is dead or not
-</ParamField>
-
-```lua
-local isDead = character.isdead
-```
-</Accordion>
-
-<Accordion icon="user" iconType="duotone" title="skin">
-<ParamField body="return" type="table">
-    The skin details of the character
-</ParamField>
-
-```lua
-local skin = character.skin
-```
-</Accordion>
-
-<Accordion icon="user" iconType="duotone" title="comps">
-<ParamField body="return" type="table">
-    The component details of the character
-</ParamField>
-
-```lua
-local comps = character.comps
-```
-</Accordion>
-
-<Accordion icon="user" iconType="duotone" title="compTints">
-<ParamField body="return" type="table">
-    The component tints of the character
-</ParamField>
-
-```lua
-local compTints = character.compTints
-```
-</Accordion>
-
-<Accordion icon="user" iconType="duotone" title="age">
-<ParamField body="return" type="number">
-    The age of the character
-</ParamField>
-
-```lua
-local age = character.age
-```
-</Accordion>
-
-<Accordion icon="user" iconType="duotone" title="gender">
-<ParamField body="return" type="string">
-    The gender of the character
-</ParamField>
-
-```lua
-local gender = character.gender
-```
-</Accordion>
-
-<Accordion icon="user" iconType="duotone" title="charDescription">
-<ParamField body="return" type="string">
-    The description of the character
-</ParamField>
-
-```lua
-local charDescription = character.charDescription
-```
-</Accordion>
-
-<Accordion icon="user" iconType="duotone" title="nickname">
-<ParamField body="return" type="string">
-    The nickname of the character
-</ParamField>
-
-```lua
-local nickname = character.nickname
-```
-</Accordion>
-
-<Accordion icon="user" iconType="duotone" title="invCapacity">
-<ParamField body="return" type="number">
-    The inventory capacity of the character
-</ParamField>
-
-```lua
-local invCapacity = character.invCapacity
-```
-</Accordion>
-
-<Accordion icon="user" iconType="duotone" title="skills">
-<ParamField body="return" type="table">
-    The skills of the character 
-</ParamField>
-
-```lua
-local skills = character.skills
-local skill = skills.Crafting
-if not skill then return print("skill not found in core config or it doesn't exist") end
-local skillExp = skill.Exp
-local skillLevel = skill.Level
-```
-</Accordion>
-
-</Tab>
-<Tab title="setters">
-
-
-  <Accordion icon="user" iconType="duotone" title="setJob">
-<ParamField body="job" type="string" required>
-    The job name to set
-</ParamField>
-<ParamField body="flag" type="boolean">
-    If true, the job change event won't be triggered
-</ParamField>
-
-```lua
-character.setJob("job", flag)
-```
-</Accordion>
-
-<Accordion icon="user" iconType="duotone" title="setJobGrade">
-<ParamField body="grade" type="number" required>
-    The job grade to set
-</ParamField>
-<ParamField body="flag" type="boolean">
-    If true, the job change event won't be triggered
-</ParamField>
-
-```lua
-character.setJobGrade(1, flag)
-```
-</Accordion>
-
-<Accordion icon="user" iconType="duotone" title="setJobLabel">
-<ParamField body="label" type="string" required>
-    The job label to set
-</ParamField>
-
-```lua
-character.setJobLabel("Label")
-```
-</Accordion>
-
-<Accordion icon="user" iconType="duotone" title="setGroup">
-<ParamField body="group" type="string" required>
-    The group to set
-</ParamField>
-<ParamField body="flag" type="boolean">
-    If true, the group change event won't be triggered
-</ParamField>
-
-```lua
-character.setGroup("admin", false)
-```
-</Accordion>
-
-<Accordion icon="user" iconType="duotone" title="setRol">
-<ParamField body="amount" type="number" required>
-    Set the amount of Rol of the character
-</ParamField>
-
-```lua
-character.setRol(1000)
-```
-</Accordion>
-
-<Accordion icon="user" iconType="duotone" title="setXp">
-<ParamField body="amount" type="number" required>
-    Set the amount of XP of the character
-</ParamField>
-
-```lua
-character.setXp(5000)
-```
-</Accordion>
-
-<Accordion icon="user" iconType="duotone" title="setFirstname">
-<ParamField body="firstname" type="string" required>
-    Set the first name of the character
-</ParamField>
-
-```lua
-character.setFirstname("Sadie")
-```
-</Accordion>
-
-<Accordion icon="user" iconType="duotone" title="setLastname">      
-<ParamField body="lastname" type="string" required>
-    Set the last name of the character
-</ParamField>
-
-```lua
-character.setLastname("Adler")
-```
-</Accordion>
-
-<Accordion icon="user" iconType="duotone" title="updateSkin">
-<ParamField body="comps" type="string" required>
-    The skin in JSON format
-</ParamField>
-
-```lua
-character.updateSkin("skin")
-```
-</Accordion>
-
-<Accordion icon="user" iconType="duotone" title="updateComps">
-<ParamField body="comps" type="string" required>
-    The clothing components in JSON format
-</ParamField>
-
-```lua
-character.updateComps("comps")
-```
-</Accordion>
-
-<Accordion icon="user" iconType="duotone" title="updateCompTints">
-<ParamField body="comps" type="string" required>
-    The clothing components tints in JSON format
-</ParamField>
-
-```lua
-character.updateCompTints("comps")
-```
-</Accordion>
-
-<Accordion icon="user" iconType="duotone" title="addCurrency">
-<ParamField body="type" type="number" required>
-    The currency type (0 = money, 1 = gold, 2 = rol)
-</ParamField>
-<ParamField body="amount" type="number" required>
-    The amount to add to character
-</ParamField>
-
-```lua
-character.addCurrency(0, 1000)
-```
-</Accordion>
-
-<Accordion icon="user" iconType="duotone" title="removeCurrency">
-<ParamField body="type" type="number" required>
-    The currency type (0 = money, 1 = gold, 2 = rol)
-</ParamField>
-<ParamField body="amount" type="number" required>
-    The amount to remove from character
-</ParamField>
-
-```lua
-character.removeCurrency(0, 1000)
-```
-</Accordion>
-
-<Accordion icon="user" iconType="duotone" title="addXp">
-<ParamField body="amount" type="number" required>
-    The amount of XP to add
-</ParamField>
-
-```lua
-character.addXp(100)
-```
-</Accordion>
-
-<Accordion icon="user" iconType="duotone" title="removeXp">
-<ParamField body="amount" type="number" required>
-    The amount of XP to remove
-</ParamField>
-
-```lua
-character.removeXp(100)
-```
-</Accordion>
-
-<Accordion icon="user" iconType="duotone" title="setAge">
-<ParamField body="age" type="number" required>
-    The age to set to the character
-</ParamField>
-
-```lua
-character.setAge(45)
-```
-</Accordion>
-
-<Accordion icon="user" iconType="duotone" title="setCharDescription">
-<ParamField body="description" type="string" required>
-    The character description to set to the character
-</ParamField>
-
-```lua
-character.setCharDescription("string")
-```
-</Accordion>
-
-<Accordion icon="user" iconType="duotone" title="setNickName">
-<ParamField body="nickname" type="string" required>
-    The nickname to set to the character
-</ParamField>
-
-```lua
-character.setNickName("string")
-```
-</Accordion>
-
-<Accordion icon="user" iconType="duotone" title="setGender">
-<ParamField body="gender" type="string" required>
-    The gender to set (male or female)
-</ParamField>
-
-```lua
-character.setGender("string")
-```
-</Accordion>
-
-<Accordion icon="user" iconType="duotone" title="updateInvCapacity">
-<ParamField body="change" type="number" required>
-    The amount to change the inventory capacity by (can be positive or negative) its also incremental so 1000 will be 1000 + what you already have
-</ParamField>
-
-```lua
-character.updateInvCapacity(1) 
-```
-</Accordion>
-
-<Accordion icon="user" iconType="duotone" title="setSkills">
-<ParamField body="skillName" type="string" required>
-    The name of the skill to set, these skillNames will be in VORP Core config skills
-</ParamField>
-<ParamField body="value" type="number" required>
-    the Exp value to be set to the skillName you passed values are incremental so 1000 exp will be 1000 + what you already have
-</ParamField>
-
-```lua
-character.setSkills("skillName", 10) -- skillname exp
-```
-</Accordion>
-
-</Tab>
-</Tabs>
-
-
-## Users
-
-Get the user data to access getters and setters
-
-
-<Accordion icon="user" iconType="duotone" title="getUser">
-<ParamField body="source" type="number" required>
-    The player ID
-</ParamField>
-
-```lua
-local user = Core.getUser(source) --[[@as User]]  
-if not user then return end -- is player in session?
-```
-
-</Accordion>
-
-<Tabs>
-  <Tab title="getters">
-
-<Accordion icon="user" iconType="duotone" title="getUserByCharId">
-<ParamField body="charid" type="number" required>
-    The character ID
-</ParamField>
-
-```lua
-local user = Core.getUserByCharId(charid) --[[@as User]]
-```
-</Accordion>
-
-<Accordion icon="user" iconType="duotone" title="getGroup">
-<ParamField body="return" type="string">
-    The user group (not character group)
-</ParamField>
-
-```lua
-local userGroup = user.getGroup
-```
-</Accordion>
-
-<Accordion icon="user" iconType="duotone" title="source">
-<ParamField body="return" type="integer">
-    The user's source (player ID)
-</ParamField>
-
-```lua
-local userSource = user.source
-```
-</Accordion>
-</Tab>
-
-
-<Tab title="setters">
-<Accordion icon="user" iconType="duotone" title="SetGroup">
-<ParamField body="group" type="string" required>
-    The group to set for the user
-</ParamField>
-
-```lua
-user.SetGroup(group)
-```
-
-</Accordion>
-
-<Accordion icon="user" iconType="duotone" title="getIdentifier">
-<ParamField body="return" type="number">
-    The steam ID of the user
-</ParamField>
-
-```lua
-local steam = user.getIdentifier()
-``````
-
-</Accordion>
-
-<Accordion icon="user" iconType="duotone" title="getUserCharacters">
-<ParamField body="return" type="table">
-    All characters of the user
-</ParamField>
-
-```lua
-local data = user.getUserCharacters()
-```
-
-</Accordion>
-
-<Accordion icon="user" iconType="duotone" title="getPlayerwarnings">
+    <Tab title="getters">
+        <Accordion icon="user" iconType="duotone" title="identifier">
+    <ParamField body="return" type="string">
+        The unique identifier of the character
+    </ParamField>
+    
+    ```lua
+    local identifier = character.identifier
+    ```
+    </Accordion>
+    
+    <Accordion icon="user" iconType="duotone" title="charIdentifier">
+    <ParamField body="return" type="string">
+        The unique character identifier
+    </ParamField>
+    
+    ```lua
+    local charIdentifier = character.charIdentifier
+    ```
+    </Accordion>
+    
+    <Accordion icon="user" iconType="duotone" title="group">
+    <ParamField body="return" type="string">
+        The group the character belongs to
+    </ParamField>
+    
+    ```lua
+    local group = character.group
+    ```
+    </Accordion>
+    
+    <Accordion icon="user" iconType="duotone" title="job">
+    <ParamField body="return" type="string">
+        The job of the character
+    </ParamField>
+    
+    ```lua
+    local job = character.job
+    ```
+    </Accordion>
+    
+    <Accordion icon="user" iconType="duotone" title="jobGrade">
+    <ParamField body="return" type="integer">
+        The job grade of the character
+    </ParamField>
+    
+    ```lua
+    local jobGrade = character.jobGrade
+    ```
+    </Accordion>
+    
+    <Accordion icon="user" iconType="duotone" title="jobLabel">
+    <ParamField body="return" type="string">
+        The job label of the character
+    </ParamField>
+    
+    ```lua
+    local jobLabel = character.jobLabel
+    ```
+    </Accordion>
+    
+    <Accordion icon="user" iconType="duotone" title="money">
     <ParamField body="return" type="number">
-    The warning status of the user
-</ParamField>
-
-```lua
-local warnstatus = user.getPlayerwarnings()
-```
-</Accordion>
-
-  </Tab>
+        The amount of money the character has
+    </ParamField>
+    
+    ```lua
+    local money = character.money
+    ```
+    </Accordion>
+    
+    <Accordion icon="user" iconType="duotone" title="gold">
+    <ParamField body="return" type="number">
+        The amount of gold the character has
+    </ParamField>
+    
+    ```lua
+    local gold = character.gold
+    ```
+    </Accordion>
+    
+    <Accordion icon="user" iconType="duotone" title="rol">
+    <ParamField body="return" type="number">
+        The amount of rol the character has
+    </ParamField>
+    
+    ```lua
+    local rol = character.rol
+    ```
+    </Accordion>
+    
+    <Accordion icon="user" iconType="duotone" title="xp">
+    <ParamField body="return" type="number">
+        The amount of experience points the character has
+    </ParamField>
+    
+    ```lua
+    local xp = character.xp
+    ```
+    </Accordion>
+    
+    <Accordion icon="user" iconType="duotone" title="firstname">
+    <ParamField body="return" type="string">
+        The first name of the character
+    </ParamField>
+    
+    ```lua
+    local firstname = character.firstname
+    ```
+    </Accordion>
+    
+    <Accordion icon="user" iconType="duotone" title="lastname">
+    <ParamField body="return" type="string">
+        The last name of the character
+    </ParamField>
+    
+    ```lua
+    local lastname = character.lastname
+    ```
+    </Accordion>
+    
+    <Accordion icon="user" iconType="duotone" title="status">
+    <ParamField body="return" type="table">
+        The status of the character
+    </ParamField>
+    
+    ```lua
+    local status = character.status
+    ```
+    </Accordion>
+    
+    <Accordion icon="user" iconType="duotone" title="coords">
+    <ParamField body="return" type="table">
+        The coordinates of the character
+    </ParamField>
+    
+    ```lua
+    local coords = character.coords
+    ```
+    </Accordion>
+    
+    <Accordion icon="user" iconType="duotone" title="isdead">
+    <ParamField body="return" type="boolean">
+        Whether the character is dead or not
+    </ParamField>
+    
+    ```lua
+    local isDead = character.isdead
+    ```
+    </Accordion>
+    
+    <Accordion icon="user" iconType="duotone" title="skin">
+    <ParamField body="return" type="table">
+        The skin details of the character
+    </ParamField>
+    
+    ```lua
+    local skin = character.skin
+    ```
+    </Accordion>
+    
+    <Accordion icon="user" iconType="duotone" title="comps">
+    <ParamField body="return" type="table">
+        The component details of the character
+    </ParamField>
+    
+    ```lua
+    local comps = character.comps
+    ```
+    </Accordion>
+    
+    <Accordion icon="user" iconType="duotone" title="compTints">
+    <ParamField body="return" type="table">
+        The component tints of the character
+    </ParamField>
+    
+    ```lua
+    local compTints = character.compTints
+    ```
+    </Accordion>
+    
+    <Accordion icon="user" iconType="duotone" title="age">
+    <ParamField body="return" type="number">
+        The age of the character
+    </ParamField>
+    
+    ```lua
+    local age = character.age
+    ```
+    </Accordion>
+    
+    <Accordion icon="user" iconType="duotone" title="gender">
+    <ParamField body="return" type="string">
+        The gender of the character
+    </ParamField>
+    
+    ```lua
+    local gender = character.gender
+    ```
+    </Accordion>
+    
+    <Accordion icon="user" iconType="duotone" title="charDescription">
+    <ParamField body="return" type="string">
+        The description of the character
+    </ParamField>
+    
+    ```lua
+    local charDescription = character.charDescription
+    ```
+    </Accordion>
+    
+    <Accordion icon="user" iconType="duotone" title="nickname">
+    <ParamField body="return" type="string">
+        The nickname of the character
+    </ParamField>
+    
+    ```lua
+    local nickname = character.nickname
+    ```
+    </Accordion>
+    
+    <Accordion icon="user" iconType="duotone" title="invCapacity">
+    <ParamField body="return" type="number">
+        The inventory capacity of the character
+    </ParamField>
+    
+    ```lua
+    local invCapacity = character.invCapacity
+    ```
+    </Accordion>
+    
+    <Accordion icon="user" iconType="duotone" title="skills">
+    <ParamField body="return" type="table">
+        The skills of the character 
+    </ParamField>
+    
+    ```lua
+    local skills = character.skills
+    local skill = skills.Crafting
+    if not skill then return print("skill not found in core config or it doesn't exist") end
+    local skillExp = skill.Exp
+    local skillLevel = skill.Level
+    ```
+    </Accordion>
+    
+    </Tab>
+    <Tab title="setters">
+    
+    
+      <Accordion icon="user" iconType="duotone" title="setJob">
+    <ParamField body="job" type="string" required>
+        The job name to set
+    </ParamField>
+    <ParamField body="flag" type="boolean">
+        If true, the job change event won't be triggered
+    </ParamField>
+    
+    ```lua
+    character.setJob("job", flag)
+    ```
+    </Accordion>
+    
+    <Accordion icon="user" iconType="duotone" title="setJobGrade">
+    <ParamField body="grade" type="number" required>
+        The job grade to set
+    </ParamField>
+    <ParamField body="flag" type="boolean">
+        If true, the job change event won't be triggered
+    </ParamField>
+    
+    ```lua
+    character.setJobGrade(1, flag)
+    ```
+    </Accordion>
+    
+    <Accordion icon="user" iconType="duotone" title="setJobLabel">
+    <ParamField body="label" type="string" required>
+        The job label to set
+    </ParamField>
+    
+    ```lua
+    character.setJobLabel("Label")
+    ```
+    </Accordion>
+    
+    <Accordion icon="user" iconType="duotone" title="setGroup">
+    <ParamField body="group" type="string" required>
+        The group to set
+    </ParamField>
+    <ParamField body="flag" type="boolean">
+        If true, the group change event won't be triggered
+    </ParamField>
+    
+    ```lua
+    character.setGroup("admin", false)
+    ```
+    </Accordion>
+    
+    <Accordion icon="user" iconType="duotone" title="setRol">
+    <ParamField body="amount" type="number" required>
+        Set the amount of Rol of the character
+    </ParamField>
+    
+    ```lua
+    character.setRol(1000)
+    ```
+    </Accordion>
+    
+    <Accordion icon="user" iconType="duotone" title="setXp">
+    <ParamField body="amount" type="number" required>
+        Set the amount of XP of the character
+    </ParamField>
+    
+    ```lua
+    character.setXp(5000)
+    ```
+    </Accordion>
+    
+    <Accordion icon="user" iconType="duotone" title="setFirstname">
+    <ParamField body="firstname" type="string" required>
+        Set the first name of the character
+    </ParamField>
+    
+    ```lua
+    character.setFirstname("Sadie")
+    ```
+    </Accordion>
+    
+    <Accordion icon="user" iconType="duotone" title="setLastname">      
+    <ParamField body="lastname" type="string" required>
+        Set the last name of the character
+    </ParamField>
+    
+    ```lua
+    character.setLastname("Adler")
+    ```
+    </Accordion>
+    
+    <Accordion icon="user" iconType="duotone" title="updateSkin">
+    <ParamField body="comps" type="string" required>
+        The skin in JSON format
+    </ParamField>
+    
+    ```lua
+    character.updateSkin("skin")
+    ```
+    </Accordion>
+    
+    <Accordion icon="user" iconType="duotone" title="updateComps">
+    <ParamField body="comps" type="string" required>
+        The clothing components in JSON format
+    </ParamField>
+    
+    ```lua
+    character.updateComps("comps")
+    ```
+    </Accordion>
+    
+    <Accordion icon="user" iconType="duotone" title="updateCompTints">
+    <ParamField body="comps" type="string" required>
+        The clothing components tints in JSON format
+    </ParamField>
+    
+    ```lua
+    character.updateCompTints("comps")
+    ```
+    </Accordion>
+    
+    <Accordion icon="user" iconType="duotone" title="addCurrency">
+    <ParamField body="type" type="number" required>
+        The currency type (0 = money, 1 = gold, 2 = rol)
+    </ParamField>
+    <ParamField body="amount" type="number" required>
+        The amount to add to character
+    </ParamField>
+    
+    ```lua
+    character.addCurrency(0, 1000)
+    ```
+    </Accordion>
+    
+    <Accordion icon="user" iconType="duotone" title="removeCurrency">
+    <ParamField body="type" type="number" required>
+        The currency type (0 = money, 1 = gold, 2 = rol)
+    </ParamField>
+    <ParamField body="amount" type="number" required>
+        The amount to remove from character
+    </ParamField>
+    
+    ```lua
+    character.removeCurrency(0, 1000)
+    ```
+    </Accordion>
+    
+    <Accordion icon="user" iconType="duotone" title="addXp">
+    <ParamField body="amount" type="number" required>
+        The amount of XP to add
+    </ParamField>
+    
+    ```lua
+    character.addXp(100)
+    ```
+    </Accordion>
+    
+    <Accordion icon="user" iconType="duotone" title="removeXp">
+    <ParamField body="amount" type="number" required>
+        The amount of XP to remove
+    </ParamField>
+    
+    ```lua
+    character.removeXp(100)
+    ```
+    </Accordion>
+    
+    <Accordion icon="user" iconType="duotone" title="setAge">
+    <ParamField body="age" type="number" required>
+        The age to set to the character
+    </ParamField>
+    
+    ```lua
+    character.setAge(45)
+    ```
+    </Accordion>
+    
+    <Accordion icon="user" iconType="duotone" title="setCharDescription">
+    <ParamField body="description" type="string" required>
+        The character description to set to the character
+    </ParamField>
+    
+    ```lua
+    character.setCharDescription("string")
+    ```
+    </Accordion>
+    
+    <Accordion icon="user" iconType="duotone" title="setNickName">
+    <ParamField body="nickname" type="string" required>
+        The nickname to set to the character
+    </ParamField>
+    
+    ```lua
+    character.setNickName("string")
+    ```
+    </Accordion>
+    
+    <Accordion icon="user" iconType="duotone" title="setGender">
+    <ParamField body="gender" type="string" required>
+        The gender to set (male or female)
+    </ParamField>
+    
+    ```lua
+    character.setGender("string")
+    ```
+    </Accordion>
+    
+    <Accordion icon="user" iconType="duotone" title="updateInvCapacity">
+    <ParamField body="change" type="number" required>
+        The amount to change the inventory capacity by (can be positive or negative) its also incremental so 1000 will be 1000 + what you already        have
+    </ParamField>
+    
+    ```lua
+    character.updateInvCapacity(1) 
+    ```
+    </Accordion>
+    
+    <Accordion icon="user" iconType="duotone" title="setSkills">
+    <ParamField body="skillName" type="string" required>
+        The name of the skill to set, these skillNames will be in VORP Core config skills
+    </ParamField>
+    <ParamField body="value" type="number" required>
+        the Exp value to be set to the skillName you passed values are incremental so 1000 exp will be 1000 + what you already have
+    </ParamField>
+    
+    ```lua
+    character.setSkills("skillName", 10) -- skillname exp
+    ```
+    </Accordion>
+    
+    </Tab>
+    </Tabs>
+    
+    
+## Users
+    
+Get the user data to access getters and setters
+    
+    
+    <Accordion icon="user" iconType="duotone" title="getUser">
+    <ParamField body="source" type="number" required>
+        The player ID
+    </ParamField>
+    
+    ```lua
+    local user = Core.getUser(source) --[[@as User]]  
+    if not user then return end -- is player in session?
+    ```
+    
+    </Accordion>
+    
+    <Tabs>
+      <Tab title="getters">
+    
+    <Accordion icon="user" iconType="duotone" title="getUserByCharId">
+    <ParamField body="charid" type="number" required>
+        The character ID
+    </ParamField>
+    
+    ```lua
+    local user = Core.getUserByCharId(charid) --[[@as User]]
+    ```
+    </Accordion>
+    
+    <Accordion icon="user" iconType="duotone" title="getGroup">
+    <ParamField body="return" type="string">
+        The user group (not character group)
+    </ParamField>
+    
+    ```lua
+    local userGroup = user.getGroup
+    ```
+    </Accordion>
+    
+    <Accordion icon="user" iconType="duotone" title="source">
+    <ParamField body="return" type="integer">
+        The user's source (player ID)
+    </ParamField>
+    
+    ```lua
+    local userSource = user.source
+    ```
+    </Accordion>
+    </Tab>
+    
+    
+    <Tab title="setters">
+    <Accordion icon="user" iconType="duotone" title="SetGroup">
+    <ParamField body="group" type="string" required>
+        The group to set for the user
+    </ParamField>
+    
+    ```lua
+    user.SetGroup(group)
+    ```
+    
+    </Accordion>
+    
+    <Accordion icon="user" iconType="duotone" title="getIdentifier">
+    <ParamField body="return" type="number">
+        The steam ID of the user
+    </ParamField>
+    
+    ```lua
+    local steam = user.getIdentifier()
+    ``````
+    
+             </Accordion>
+             
+             <Accordion icon="user" iconType="duotone" title="getUserCharacters">
+             <ParamField body="return" type="table">
+                 All characters of the user
+             </ParamField>
+             
+             ```lua
+             local data = user.getUserCharacters()
+             ```
+        </Accordion> 
+        <Accordion icon="user" iconType="duotone" title="getPlayerwarnings">
+            <ParamField body="return" type="integer">
+                The warning status of the user
+            </ParamField>
+             
+             ```lua
+             local warnstatus = user.getPlayerwarnings()
+             ```
+        </Accordion>
+    </Tab>
 </Tabs>
-
-
+    
 ## Whitelist
-
+    
 <Note>Server</Note>
-
+    
 <Tabs>
-  <Tab title="getters">
-
-<Accordion icon="user" iconType="duotone" title="getEntry">
-<ParamField body="identifier" type="string" required>
-    The identifier of the whitelist entry
-</ParamField>
-
-```lua
-local data = Core.Whitelist.getEntry(identifier)
-print(json.encode(data),{ident = true})
-```
-</Accordion>
-
-  </Tab>
-  <Tab title="setters">
-
-<Accordion icon="user" iconType="duotone" title="whitelistUser">
-<ParamField body="identifier" type="string" required>
-    The identifier of the whitelist entry
-</ParamField>
-
-```lua
-Core.Whitelist.whitelistUser(identifier)
-```
-</Accordion>
-
-<Accordion icon="user" iconType="duotone" title="unWhitelistUser">
-<ParamField body="identifier" type="string" required>
-    The identifier of the whitelist entry
-</ParamField>
-
-```lua
-Core.Whitelist.unWhitelistUser(identifier)
-```
-</Accordion>
-
-  </Tab>
+    <Tab title="getters">
+        <Accordion icon="user" iconType="duotone" title="getEntry">
+            <ParamField body="identifier" type="string" required>
+                The identifier of the whitelist entry
+            </ParamField>
+            
+            ```lua
+            local data = Core.Whitelist.getEntry(identifier)
+            print(json.encode(data),{ident = true})
+            ```
+        </Accordion> 
+    </Tab>
+    <Tab title="setters">
+        <Accordion icon="user" iconType="duotone" title="whitelistUser">
+            <ParamField body="identifier" type="string" required>
+                The identifier of the whitelist entry
+            </ParamField>
+            
+            ```lua
+            Core.Whitelist.whitelistUser(identifier)
+            ```
+        </Accordion>
+        <Accordion icon="user" iconType="duotone" title="unWhitelistUser">
+            <ParamField body="identifier" type="string" required>
+                The identifier of the whitelist entry
+            </ParamField>
+            
+            ```lua
+            Core.Whitelist.unWhitelistUser(identifier)
+            ```
+        </Accordion>
+    </Tab>
 </Tabs>
-
+    
 ## Webhooks
-
+    
 <Note>Shared</Note>
-
+    
 <Accordion icon="user" iconType="duotone" title="AddWebhook">
-<ParamField body="title" type="string" required>
-    The title of the webhook
-</ParamField>
-<ParamField body="webhook" type="string" required>
-    The webhook link
-</ParamField>
-<ParamField body="description" type="string" required>
-    The description of the webhook
-</ParamField>
-<ParamField body="color" type="number" required>
-    The color of the webhook
-</ParamField>
-<ParamField body="name" type="string" required>
-    The name of the webhook
-</ParamField>
-<ParamField body="logo" type="string">
-    The logo of the webhook
-</ParamField>
-<ParamField body="footerlogo" type="string">
-    The footerlogo of the webhook
-</ParamField>
-<ParamField body="avatar" type="string">
-    The avatar of the webhook
-</ParamField>
-
-```lua
-Core.AddWebhook("title", "webhook", "description", 12345678, "name", "logo", "footerlogo", "avatar")
-```
+    <ParamField body="title" type="string" required>
+        The title of the webhook
+    </ParamField>
+    <ParamField body="webhook" type="string" required>
+        The webhook link
+    </ParamField>
+    <ParamField body="description" type="string" required>
+        The description of the webhook
+    </ParamField>
+    <ParamField body="color" type="number" required>
+        The color of the webhook
+    </ParamField>
+    <ParamField body="name" type="string" required>
+        The name of the webhook
+    </ParamField>
+    <ParamField body="logo" type="string">
+        The logo of the webhook
+    </ParamField>
+    <ParamField body="footerlogo" type="string">
+        The footerlogo of the webhook
+    </ParamField>
+    <ParamField body="avatar" type="string">
+        The avatar of the webhook
+    </ParamField>
+    
+    ```lua
+    Core.AddWebhook("title", "webhook", "description", 12345678, "name", "logo", "footerlogo", "avatar")
+    ```
 </Accordion>
 
 ## Instancing
@@ -1298,33 +1386,33 @@ Available through core export
 when using these functions you will benefit of the event listeners `OnPlayerDeath` `OnPlayerRevive` `OnPlayerRespawn`</Note>  
 
 <Accordion icon="user" iconType="duotone" title="Heal">  
-<ParamField body="source" type="number" required>
-    The player ID
-</ParamField>
-
-```lua
-Core.Player.Heal(source)
-```
+    <ParamField body="source" type="integer" required>
+        The player ID
+    </ParamField>
+    
+    ```lua
+    Core.Player.Heal(source)
+    ```
 </Accordion>
 
 <Accordion icon="user" iconType="duotone" title="Revive">
-<ParamField body="source" type="number" required>
-    The player ID
-</ParamField>
-
-```lua
-Core.Player.Revive(source)
-```
+    <ParamField body="source" type="integer" required>
+        The player ID
+    </ParamField>
+    
+    ```lua
+    Core.Player.Revive(source)
+    ```
 </Accordion>
 
 <Accordion icon="user" iconType="duotone" title="Respawn">
-<ParamField body="source" type="number" required>
-    The player ID
-</ParamField>
-
-``` lua
-Core.Player.Respawn(source)
-```
+    <ParamField body="source" type="integer" required> 
+        The player ID
+    </ParamField>
+    
+    ``` lua
+    Core.Player.Respawn(source)
+    ```
 </Accordion>
 
 ## Callbacks
@@ -1382,7 +1470,7 @@ Core.Callback.TriggerAsync(name, function(result)
     <ParamField body="callback" type="function" required>
     The callback function
     </ParamField>
-    <ParamField body="source" type="number" >
+    <ParamField body="source" type="integer" >
     The source of the callback
     </ParamField>
     <ParamField body="callback" type="function">
@@ -1414,7 +1502,7 @@ Core.Callback.Register(name, function(source,callback,...)
   <ParamField body="name" type="string" required>
     The name of the callback
     </ParamField>
-    <ParamField body="source" type="number" >
+    <ParamField body="source" type="integer" >
     The source of the callback
     </ParamField>
     <ParamField body="..." type="any">
@@ -1435,7 +1523,7 @@ print(result)
  <ParamField body="name" type="string" required>
     The name of the callback
     </ParamField>
-    <ParamField body="source" type="number" >
+    <ParamField body="source" type="integer" >
     The source of the callback
     </ParamField>
     <ParamField body="..." type="any">
