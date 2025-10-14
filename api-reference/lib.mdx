@@ -56,6 +56,10 @@ To import modules to your script you must add the following to the script fxmani
                this module contains methods that allows you to create points enter/exit with debug options
             </Accordion>
     
+            <Accordion icon="keyboard" iconType="duotone" title="polyzones (module)">
+               this module contains methods that allows you to create polygon, circle, or box detection zones with callbacks and debug tools
+            </Accordion>
+
             <Accordion icon="keyboard" iconType="duotone" title="events (module)">
                this module contains methods that allows you to register game events
             </Accordion>
@@ -1585,6 +1589,261 @@ when you restart your resource the points will be removed for easy development
                             points:Pause()   -- Pause entire system
                             points:Resume()  -- Resume entire system
                             points:Destroy() -- Clean up completely
+                        ```
+                    </Accordion>
+                </Tab>
+            </Tabs>
+        </Accordion>
+    </Tab>
+</Tabs>
+
+### PolyZones
+
+this module is used to create polygon, circle, or box shaped detection zones with height filtering, debug rendering, and enter/inside/exit callbacks
+all creations are instanced objects every zone instance is private to the script that imports it and will be removed automatically when the resource restarts
+
+<Tabs>
+    <Tab title="PolyZones">
+        <Accordion icon="code" iconType="duotone" title="PolyZone">
+            use these methods below to register and manage advanced zone shapes
+            <Tabs>
+                <Tab title="Getters">
+                    <Accordion icon="code" iconType="duotone" title="GetId">
+                        <ParamField body="return" type="string|integer"> 
+                            Returns the unique identifier assigned to the zone (auto-generated when not provided)
+                        </ParamField>
+                    </Accordion>
+
+                    <Accordion icon="code" iconType="duotone" title="GetType">
+                        <ParamField body="return" type="string"> 
+                            Returns the zone type `poly`, `circle`, or `box`
+                        </ParamField>
+                    </Accordion>
+
+                    <Accordion icon="code" iconType="duotone" title="IsRunning">
+                        <ParamField body="return" type="boolean"> 
+                            Returns true when the zone polling loop is currently running
+                        </ParamField>
+                    </Accordion>
+
+                    <Accordion icon="code" iconType="duotone" title="IsInside">
+                        <ParamField body="return" type="boolean"> 
+                            Returns true if the local player is currently inside the zone
+                        </ParamField>
+                    </Accordion>
+                </Tab>
+
+                <Tab title="Configuration">
+                    <Accordion icon="code" iconType="duotone" title="SetCallbacks">
+                        <ParamField body="cbEnter" type="function"> 
+                            Replaces the `onEnter` callback (receives zone instance and player coords)
+                        </ParamField>
+                        <ParamField body="cbExit" type="function"> 
+                            Replaces the `onExit` callback (receives zone instance and player coords)
+                        </ParamField>
+                        <ParamField body="cbInside" type="function"> 
+                            Replaces the `onInside` callback that runs every tick while inside
+                        </ParamField>
+                    </Accordion>
+
+                    <Accordion icon="code" iconType="duotone" title="UpdatePolygon">
+                        <ParamField body="points" type="array"> 
+                            Updates polygon points (`vector3` list) and recalculates bounds, available for polygon zones only
+                        </ParamField>
+                    </Accordion>
+
+                    <Accordion icon="code" iconType="duotone" title="UpdateCircle">
+                        <ParamField body="center" type="vector3"> 
+                            Updates circle center position
+                        </ParamField>
+                        <ParamField body="radius" type="number"> 
+                            Updates circle radius, available for circle zones only
+                        </ParamField>
+                    </Accordion>
+
+                    <Accordion icon="code" iconType="duotone" title="UpdateBox">
+                        <ParamField body="center" type="vector3"> 
+                            Updates box center position
+                        </ParamField>
+                        <ParamField body="length" type="number"> 
+                            Updates box length, available for box zones only
+                        </ParamField>
+                        <ParamField body="width" type="number"> 
+                            Updates box width, available for box zones only
+                        </ParamField>
+                        <ParamField body="heading" type="number"> 
+                            Optional new heading in degrees for the box zone
+                        </ParamField>
+                    </Accordion>
+
+                    <Accordion icon="code" iconType="duotone" title="SetHeight">
+                        <ParamField body="minZ" type="number"> 
+                            Sets the minimum Z (height) allowed before the zone considers the player outside
+                        </ParamField>
+                        <ParamField body="maxZ" type="number"> 
+                            Sets the maximum Z (height) allowed before the zone considers the player outside
+                        </ParamField>
+                    </Accordion>
+
+                    <Accordion icon="code" iconType="duotone" title="SetDebug">
+                        <ParamField body="enabled" type="boolean"> 
+                            Enables or disables debug drawing (auto-starts debug loop when the zone is running)
+                        </ParamField>
+                    </Accordion>
+
+                    <Accordion icon="code" iconType="duotone" title="SetTickRates">
+                        <ParamField body="outsideMs" type="number"> 
+                            Sets polling interval in milliseconds while the player is outside the zone (defaults to 200)
+                        </ParamField>
+                        <ParamField body="insideMs" type="number"> 
+                            Sets polling interval in milliseconds while the player stays inside (defaults to 1)
+                        </ParamField>
+                    </Accordion>
+                </Tab>
+
+                <Tab title="Lifecycle">
+                    <Accordion icon="code" iconType="duotone" title="Start">
+                        <ParamField body="return" type="nil"> 
+                            Starts the background thread that evaluates the zone, automatically launches debug rendering when enabled
+                        </ParamField>
+                    </Accordion>
+
+                    <Accordion icon="code" iconType="duotone" title="Pause">
+                        <ParamField body="return" type="nil"> 
+                            Temporarily stops the zone without clearing callbacks or shape data
+                        </ParamField>
+                    </Accordion>
+
+                    <Accordion icon="code" iconType="duotone" title="Resume">
+                        <ParamField body="return" type="nil"> 
+                            Restarts a paused zone and resumes detection
+                        </ParamField>
+                    </Accordion>
+
+                    <Accordion icon="code" iconType="duotone" title="Destroy">
+                        <ParamField body="return" type="nil"> 
+                            Disables the zone and clears its configuration (instance should be discarded afterwards)
+                        </ParamField>
+                    </Accordion>
+                </Tab>
+
+                <Tab title="Register">
+                    <Accordion icon="code" iconType="duotone" title="Register">
+
+                        <Icon icon="code" iconType="solid"/> register polygon, circle, or box zones with callbacks and optional auto-start
+
+                        <ParamField body="data" type="table" required> 
+                            Zone configuration table:
+                            - id: Optional string or integer unique identifier (`polyzone_<timestamp>` when omitted)
+                            - type: Zone type `poly`, `circle`, or `box` (defaults to `poly`, case-insensitive)
+                            - sleep: Interval in milliseconds while outside the zone (default 200)
+                            - sleepInside: Interval in milliseconds while inside the zone (default 1)
+                            - padding: Extra meters added to the bounding radius for early rejection (default 1.5)
+                            - debug: Enable debug drawing for the zone (boolean)
+                            - minZ / maxZ: Optional height bounds restricting detection
+                            - onEnter(zone, coords): Callback fired when the player enters the zone
+                            - onInside(zone, coords): Optional tick callback executed while the player stays inside
+                            - onExit(zone, coords): Callback fired when the player leaves the zone
+                            - polygon: provide `points` with at least 3 vector3 values and optional `center`
+                            - circle: provide `center` vector3 and `radius` number (or `size` table with same values)
+                            - box: provide `center` vector3, `length` and `width` numbers, optional `heading` (degrees) or `size` table `{ x, y }`
+                        </ParamField>
+
+                        <ParamField body="state" type="boolean"> 
+                            When true the zone starts immediately after registration (defaults to false, call `Start()` manually otherwise)
+                        </ParamField>
+
+                        <ParamField body="return" type="PolyZone"> 
+                            Returns the zone instance so you can control it with the methods above
+                        </ParamField>
+
+                        <Tabs>
+                            <Tab title="Polygon">
+                                ```lua
+                                    local PolyZones = Import('polyzones').PolyZones
+
+                                    local stables = PolyZones:Register({
+                                        id = 'valentine_stables',
+                                        type = 'poly',
+                                        points = {
+                                            vector3(-546.83, -600.65, 42.23),
+                                            vector3(-548.62, -607.16, 42.32),
+                                            vector3(-554.35, -605.86, 42.31),
+                                            vector3(-552.20, -599.25, 42.27),
+                                            vector3(-554.13, -594.14, 42.19),
+                                        },
+                                        minZ = 41.8,
+                                        maxZ = 45.0,
+                                        debug = true,
+                                        onEnter = function(zone, coords)
+                                            print(('Entered %s at %.2f %.2f'):format(zone:GetId(), coords.x, coords.y))
+                                        end,
+                                        onExit = function(zone)
+                                            print('Left zone', zone:GetId())
+                                        end,
+                                    }, true)
+                                ```
+                            </Tab>
+                            <Tab title="Circle">
+                                ```lua
+                                    local PolyZones = Import('polyzones').PolyZones
+
+                                    local campfire = PolyZones:Register({
+                                        id = 'campfire_radius',
+                                        type = 'circle',
+                                        center = vector3(-567.97, -594.54, 42.51),
+                                        radius = 2.5,
+                                        debug = true,
+                                        sleepInside = 250,
+                                        onInside = function(_, coords)
+                                            print(('Warming up at %.2f %.2f'):format(coords.x, coords.y))
+                                        end,
+                                        onExit = function()
+                                            print('Leaving the fire')
+                                        end,
+                                    }, true)
+                                ```
+                            </Tab>
+                            <Tab title="Box">
+                                ```lua
+                                    local PolyZones = Import('polyzones').PolyZones
+
+                                    local jailCell = PolyZones:Register({
+                                        id = 'jail_cell_a',
+                                        type = 'box',
+                                        center = vector3(-565.68, -605.77, 42.31),
+                                        length = 4.0,
+                                        width = 3.0,
+                                        heading = 90.0,
+                                        minZ = 41.5,
+                                        maxZ = 44.0,
+                                    }, true)
+
+                                    jailCell:SetDebug(true)
+                                    jailCell:SetTickRates(100, 10)
+                                ```
+                            </Tab>
+                        </Tabs>
+                    </Accordion>
+
+                    <Accordion icon="code" iconType="duotone" title="Destroy">
+                        <ParamField body="instance" type="PolyZone"> 
+                            Zone instance returned by `Register`
+                        </ParamField>
+                        <ParamField body="return" type="nil"> 
+                            Stops the zone, removes it from the manager, and cleans it up
+                        </ParamField>
+
+                        ```lua
+                            local PolyZones = Import('polyzones').PolyZones
+                            local zone = PolyZones:Register({
+                                id = 'temp_zone',
+                                type = 'circle',
+                                center = vector3(-100.0, 120.0, 40.0),
+                                radius = 3.0,
+                            }, true)
+
+                            PolyZones:Destroy(zone)
                         ```
                     </Accordion>
                 </Tab>
