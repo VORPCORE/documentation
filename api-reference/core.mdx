@@ -742,7 +742,18 @@ Get the character data to access getters and setters
     local group = character.group
     ```
     </Accordion>
+    <Accordion icon="user" iconType="duotone" title="multiJobs">
+        <ParamField body="return" type="table">
+            The multiJobs of the character
+        </ParamField>
     
+        ```lua
+        local multijobs = character.multiJobs
+        for _, job in pairs(multiJobs) do   
+            print(job.job, job.grade, job.label)
+        end
+        ```
+    </Accordion>
     <Accordion icon="user" iconType="duotone" title="job">
     <ParamField body="return" type="string">
         The job of the character
@@ -957,23 +968,61 @@ Get the character data to access getters and setters
     ```
     </Accordion>
     
-    </Tab>
+</Tab>
     <Tab title="setters">
     
-    
-      <Accordion icon="user" iconType="duotone" title="setJob">
-    <ParamField body="job" type="string" required>
-        The job name to set
-    </ParamField>
-    <ParamField body="flag" type="boolean">
-        If true, the job change event won't be triggered
-    </ParamField>
-    
-    ```lua
-    character.setJob("job", flag)
-    ```
-    </Accordion>
-    
+        <Accordion icon="user" iconType="duotone" title="setJob">
+             <ParamField body="job" type="string" required>
+                The job name to set
+            </ParamField>
+            <ParamField body="flag" type="boolean">
+                If true, the job change event won't be triggered
+            </ParamField>
+         
+            ```lua
+             character.setJob("job", flag)
+            ```
+        </Accordion>
+        <Accordion icon="user" iconType="duotone" title="setMultiJob">
+             multijobs can be added to users and they can switch between them using the switch command in vorp core
+             listen for job change events to know when the user switches jobs
+
+            <ParamField body="job" type="string" required>
+                The job name to set
+            </ParamField>
+
+            <ParamField body="grade" type="number" required>
+                The job grade to set
+            </ParamField>
+
+            <ParamField body="label" type="string" required>
+                The job label to set
+            </ParamField>
+            
+            ```lua
+            character.setMultiJob("job", 1, "label")
+            ```
+        </Accordion>
+        <Accordion icon="user" iconType="duotone" title="removeMultiJob">
+            <ParamField body="job" type="string" required>
+                The job name to remove
+            </ParamField>
+            
+            ```lua
+            character.removeMultiJob("job")
+            ```
+        </Accordion>
+        {/* getmultijobscount */}
+        <Accordion icon="user" iconType="duotone" title="getMultiJobsCount">
+            <ParamField body="return" type="number">
+                The number of multijobs the character has
+            </ParamField>
+            
+            ```lua
+            local multiJobCount = character.getMultiJobsCount()
+            ```
+        </Accordion>
+
     <Accordion icon="user" iconType="duotone" title="setJobGrade">
     <ParamField body="grade" type="number" required>
         The job grade to set
@@ -1190,7 +1239,7 @@ Get the character data to access getters and setters
     </Accordion>
     
     </Tab>
-    </Tabs>
+</Tabs>
     
     
 ## Users
@@ -1199,16 +1248,25 @@ Get the user data to access getters and setters
     
     
     <Accordion icon="user" iconType="duotone" title="getUser">
-    <ParamField body="source" type="number" required>
-        The player ID
-    </ParamField>
-    
-    ```lua
-    local user = Core.getUser(source) --[[@as User]]  
-    if not user then return end -- is player in session?
-    ```
-    
+        <ParamField body="source" type="number" required>
+            The player ID
+        </ParamField>
+        
+        ```lua
+        local user = Core.getUser(source) --[[@as User]]  
+        if not user then return end -- is player in session?
+        ```
     </Accordion>
+    <Accordion icon="user" iconType="duotone" title="setMaxJobsAllowed">
+        <ParamField body="maxJobs" type="number" required>
+            The maximum number of jobs allowed for the user
+        </ParamField>
+        
+        ```lua
+        user.setMaxJobsAllowed(maxJobs)
+        ```
+    </Accordion>
+
     
     <Tabs>
       <Tab title="getters">
@@ -1234,13 +1292,22 @@ Get the user data to access getters and setters
     </Accordion>
     
     <Accordion icon="user" iconType="duotone" title="source">
-    <ParamField body="return" type="integer">
-        The user's source (player ID)
-    </ParamField>
-    
-    ```lua
-    local userSource = user.source
-    ```
+        <ParamField body="return" type="integer">
+            The user's source (player ID)
+        </ParamField>
+        
+        ```lua
+        local userSource = user.source
+        ```
+    </Accordion>
+    <Accordion icon="user" iconType="duotone" title="maxJobsAllowed">
+        <ParamField body="return" type="number">
+            The maximum number of jobs allowed for the user
+        </ParamField>
+        
+        ```lua
+        local maxJobsAllowed = user.maxJobsAllowed
+        ```
     </Accordion>
     </Tab>
     
