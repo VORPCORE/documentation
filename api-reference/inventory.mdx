@@ -1334,6 +1334,21 @@ icon : 'code'
     ```
 </Accordion>
 
+### Setters
+
+<Accordion icon="keyboard" iconType= "duotone" title="deleteCustomInventory">
+ 
+   <Icon icon="code" iconType="solid"/> delete custom inventory from data base and cache
+
+   <ParamField body="invId" type="string" required>
+    inventory id
+   </ParamField>
+
+   ```lua
+   exports.vorp_inventory:deleteCustomInventory(invId)
+   ```
+</Accordion>
+
 <Accordion icon="keyboard" iconType= "duotone" title="registerInventory">
  
    <Icon icon="code" iconType="solid"/> register custom inventory
