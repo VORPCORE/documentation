@@ -943,32 +943,7 @@ icon : 'code'
       ```
     </Accordion>
 
-   ### Setters
-
-  <Accordion icon="keyboard" iconType= "duotone" title="removeCustomInventoryItemById">
- 
-   <Icon icon="code" iconType="solid"/> remove item from custom inventory by item id
-
-    <ParamField body="invId" type="string" required>
-      inventory id
-    </ParamField>
-
-    <ParamField body="item_id" type="number" required>
-      item id
-    </ParamField>
-
-    <ParamField body="callback" type="function">
-      callback function syncronous or asyncronous
-    </ParamField>
-
-    <ParamField body="return" type="boolean">
-      `returns` true if the item was successfully removed
-    </ParamField>
-
-    ```lua
-    exports.vorp_inventory:removeCustomInventoryItemById(invId, item_id, callback)
-    ```
-  </Accordion>
+   ### Setters 
 
   <Accordion icon="keyboard" iconType= "duotone" title="removeItemFromCustomInventory">
  
@@ -980,6 +955,14 @@ icon : 'code'
 
     <ParamField body="itemName" type="string" required>
       item name
+    </ParamField>
+
+    <ParamField body="amount" type="number" required>
+      amount of item
+    </ParamField>
+
+    <ParamField body="itemCraftedId" type="number" required>
+      item crafted id
     </ParamField>
 
     <ParamField body="callback" type="function">
