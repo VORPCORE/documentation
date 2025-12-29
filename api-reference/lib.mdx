@@ -3195,3 +3195,30 @@ Allows you to create a progress bar that will be displayed on screen for a speci
 ### Collector 
 
 Not yet implemented
+
+
+## Cache 
+
+Cache system to help reduce the amount of most used natives calls like PlayerPedId
+
+<Tabs>
+    <Tab title="CACHE">
+        <Accordion icon="code" iconType="duotone" title="Usage">
+            CACHE is a Global Client table that contains cached data for `Ped`,`Player`,`ServerID`,`Vehicle`,`Mount`,`Weapon`
+            these are updated every 5 milliseconds `Vehicle`, `Mount` reset to 0 when the player is not in a vehicle or mount
+
+            <ParamField body="return" type="any">
+                The cached data
+            </ParamField>
+
+            ```lua
+            local ped = CACHE.Ped -- current player ped id
+            local player = CACHE.Player -- current player id
+            local serverId = CACHE.ServerID -- current player server id
+            local vehicle = CACHE.Vehicle -- current vehicle or 0 if not in a vehicle
+            local mount = CACHE.Mount -- current mounted entity or 0 if not mounted
+            local weapon = CACHE.Weapon -- current held weapon
+            ```
+        </Accordion>
+    </Tab>
+</Tabs>
