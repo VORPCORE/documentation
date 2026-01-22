@@ -913,12 +913,16 @@ icon : 'code'
         callback function syncronous or asyncronous
       </ParamField>
 
+      <ParamField body="metadata" type="table">
+        if metadata is provided then it will return the amount of items with the same metadata
+      </ParamField>
+
       <ParamField body="return" type="number">
         `returns` the amount of items in the inventory
       </ParamField>
 
       ```lua
-      exports.vorp_inventory:getCustomInventoryItemCount(invid,itemName,callback)
+      exports.vorp_inventory:getCustomInventoryItemCount(invid,itemName,callback,metadata)
       ```
     </Accordion>
     
