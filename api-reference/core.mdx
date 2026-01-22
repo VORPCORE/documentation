@@ -171,9 +171,17 @@ notifications can also accept -1 as duration to always stay on screen and to cle
             <ParamField body="duration" type="number" required>
                 Duration in milliseconds
             </ParamField>
+
+            <ParamField body="quality" type="number" required>
+                enables the stars for quality like animal pelt stars
+            </ParamField>
+
+            <ParamField body="showQuality" type="boolean" required>
+                shows the quality of the notification
+            </ParamField>
             
             ```lua
-            Core.NotifyAvanced("title", "dict", "icon", "color", 4000)
+            Core.NotifyAvanced("title", "dict", "icon", "color", 4000, quality, showQuality)
             ````
         </Accordion>
         <Accordion icon="bell" iconType="duotone" title="NotifyCenter">
