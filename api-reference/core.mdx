@@ -76,30 +76,6 @@ notifications can also accept -1 as duration to always stay on screen and to cle
             Core.NotifyTip("title", 4000)
             ````
         </Accordion>
-        <Accordion icon="bell" iconType="duotone" title="NotifyLeft">
-            <ParamField body="title" type="string" required>
-                The title of the notification
-            </ParamField>
-            <ParamField body="subtitle" type="string" required>
-                The subtitle of the notification
-            </ParamField>
-            <ParamField body="dict" type="string" required>
-                The dictionary for the icon
-            </ParamField>
-            <ParamField body="icon" type="string" required>
-                The icon name
-            </ParamField>
-            <ParamField body="duration" type="number" required>
-                Duration in milliseconds
-            </ParamField>
-            <ParamField body="color" type="string" required>
-                Color of the notification
-            </ParamField>
-            
-            ```lua
-            Core.NotifyLeft("title", "subtitle", "dict", "icon", 4000, "color")
-            ````
-        </Accordion>
         <Accordion icon="bell" iconType="duotone" title="NotifyRightTip">
             <ParamField body="title" type="string" required>
                 The title of the notification
