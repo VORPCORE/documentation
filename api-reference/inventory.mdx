@@ -1529,21 +1529,21 @@ end)
 Listen to when an item is removed from player inventory
 ```lua OnItemRemoved
 AddEventHandler("vorp_inventory:Server:OnItemRemoved",function(data,source)
-    -- data.count , data.name , no metadata is passed here
+    -- data.count , data.name , data.metadata
 end)
 ```
 
 Listen to when an item is taken from custom inventory
 ```lua OnItemTakenFromCustomInventory
 AddEventHandler("vorp_inventory:Server:OnItemTakenFromCustomInventory", function(item, invId, source)
-    -- item.amount , item.name, item.id
+    -- item.amount , item.name, item.id, item.metadata
 end)
 ```
 
 Listen to when an item is moved to custom inventory
 ```lua OnItemMovedToCustomInventory
 AddEventHandler("vorp_inventory:Server:OnItemMovedToCustomInventory", function(item, invId, source)
-    -- item.amount , item.name, item.id
+    -- item.amount , item.name, item.id, item.metadata
 end)
 ```
 
