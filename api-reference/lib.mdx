@@ -3202,7 +3202,7 @@ Not yet implemented
 Cache system to help reduce the amount of most used natives calls like PlayerPedId
 
 <Tabs>
-    <Tab title="Usage">
+    <Tab title="Getters">
         <Accordion icon="code" iconType="duotone" title="CACHE">
             CACHE is a Global Client table that contains cached data for `Ped`,`Player`,`ServerID`,`Vehicle`,`Mount`,`Weapon`
             these are updated every 5 milliseconds `Vehicle`, `Mount` reset to 0 when the player is not in a vehicle or mount
@@ -3218,7 +3218,21 @@ Cache system to help reduce the amount of most used natives calls like PlayerPed
             local vehicle = CACHE.Vehicle -- current vehicle or 0 if not in a vehicle
             local mount = CACHE.Mount -- current mounted entity or 0 if not mounted
             local weapon = CACHE.Weapon -- current held weapon
+            local isDead = CACHE.IsDead -- current player is dead or not
             ```
+        </Accordion>
+    </Tab>
+       <Tab title="Setters">
+        <Accordion icon="code" iconType="duotone" title="CACHE">
+           these allow you to have more control over the cache system, by default all are false you must disable the ones you dont need
+
+            ```lua
+            -- at the top of your client file.
+            CACHE.SkipWeapon = true -- no need for weapon cache
+            CACHE.SkipVehicle = true -- no need for vehicle cache
+            CACHE.SkipMount = true -- no need for mount cache
+            CACHE.Wait = 500 -- by default is 500 , you can adjust to your needs
+             ```
         </Accordion>
     </Tab>
 </Tabs>
