@@ -821,9 +821,9 @@ icon : 'code'
      `returns` true if the metadata was successfully set
     </ParamField>
 
-    ```lua
 
-    -- for context buttons use this format
+    ```lua
+    -- FOR CONTEXT BUTTONS USE THIS FORMAT
     local metadata = {
       context = { -- key word for context buttons
         { -- array supporting multiple buttons
@@ -839,18 +839,39 @@ icon : 'code'
           }
       }
     }
-
-    exports.vorp_inventory:setItemMetadata(source, itemId, metadata, amount, callback)
-
+    
     -- listen in your scripts client side
     AddEventHandler("myscript:contextevent", function(args,itemId)
         
     end) 
-    -- server side
-    RegisterNetEvent("myscript:contextevent", function(args,itemId)
+
+    -- NOTE: for server side events you must whitelist the event using the exports bellow
+    exports.vorp_inventory:addAllowedContextMenuEvent("myscript:contextevent",GetCurrentResourceName())
+    -- or as a table
+    exports.vorp_inventory:addAllowedContextMenuEvent({
+      "myscript:contextevent",
+      "myscript:contextevent2"
+    },GetCurrentResourceName())
+    -- if you dont whitelist the event it will not be triggered this is to ensure only trusted events are triggered
+
+    -- to remove a whitelisted event
+    exports.vorp_inventory:removeAllowedContextMenuEvent("myscript:contextevent",GetCurrentResourceName())
+    -- or as a table
+    exports.vorp_inventory:removeAllowedContextMenuEvents({
+      "myscript:contextevent",
+      "myscript:contextevent2"
+    },GetCurrentResourceName())
+
+    -- server side of your script
+    AddEventHandler("myscript:contextevent", function(source,args,itemId)
 
     end)
-    ```
+  ```
+
+  ```lua
+    -- SET ITEM METADATA
+    exports.vorp_inventory:setItemMetadata(source, itemId, metadata, amount, callback)
+  ```
 
 
 </Accordion>
