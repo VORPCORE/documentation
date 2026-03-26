@@ -75,10 +75,6 @@ Menu elements are the elements that will be displayed in the menu
         <ParamField body="image" type="string">
             The image name from vorp_inventory items folder, for grid menu only
         </ParamField>
-
-        <ParamField body="skipeOpenEvent" type="boolean">
-            If `true` will not fire the open event by default it will fire the open event
-        </ParamField>
         
         ```lua
          local menuElements = {
@@ -567,9 +563,9 @@ Menu elements are the elements that will be displayed in the menu
                 ```lua
                  function(data, menu)
                     -- to hide the radar and to play the final sound of the menu closing
-                    menu.close(hideRadar, soundClose)
+                    menu.close(hideRadar, soundClose, fireEventClose)
                     -- also available here 
-                    Menu.CloseAll(hideRadar, soundClose)
+                    Menu.CloseAll(hideRadar, soundClose, fireEventClose)
                  end
                 ```
             </ParamField>
@@ -595,7 +591,7 @@ Menu elements are the elements that will be displayed in the menu
             </ParamField>
 
             <ParamField body="skipOpenEvent" type="boolean">
-                if `true` will skip the open event by default it will fire the open event
+                if `true` will skip the open event by default it will fire the open event, usefull when you open one menu after the other without firing the open event
             </ParamField>
             
             ```lua
@@ -617,6 +613,7 @@ Menu elements are the elements that will be displayed in the menu
                     cancelButton = { label = "Cancel", value = "cancel" },
                     isGrid = false,     
                     skipOpenEvent = false,
+                    
                 }
             ```
         </Accordion>
