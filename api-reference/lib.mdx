@@ -43,6 +43,10 @@ To import modules to your script you must add the following to the script fxmani
             <Accordion icon="keyboard" iconType="duotone" title="inputs (module)">
                this module contains methods that allows you to create input controls
             </Accordion>
+
+            <Accordion icon="keyboard" iconType="duotone" title="raycast (module)">
+               this module contains methods that allows you to perform gameplay raycasts from the camera or from an entity
+            </Accordion>
     
             <Accordion icon="keyboard" iconType="duotone" title="prompts (module)">
                this module contains methods that allows you to create prompts
@@ -91,6 +95,10 @@ To import modules to your script you must add the following to the script fxmani
 
             <Accordion icon="keyboard" iconType="duotone" title="functions (module)">
                this module contains methods that allows you to use like switch setInterval etc
+            </Accordion>
+
+            <Accordion icon="keyboard" iconType="duotone" title="logger (module)">
+               this module contains methods that allows you to create formatted logs with time, level, prefix and context data
             </Accordion>
 
         </Accordion>
@@ -753,6 +761,179 @@ when you restart your resource the inputs will be removed for easy development
                     </Accordion>
                 </Tab>
             </Tabs>
+        </Accordion>
+    </Tab>
+</Tabs>
+
+
+### Raycast
+
+this module is used to perform line-of-sight shape tests from the gameplay camera or from an entity
+it accepts `vector3` values or `{ x, y, z }` tables for coordinates and returns a structured result table with hit data
+when a flag is missing or invalid, the module falls back to `World`
+
+<Tabs>
+    <Tab title="Usage">
+        <Accordion icon="code" iconType="duotone" title="Import">
+
+            ```lua
+            local Raycast = Import('raycast').Raycast --[[@as RAYCAST]]
+            ```
+        </Accordion>
+
+        <Accordion icon="code" iconType="duotone" title="Flags">
+            Available flag names:
+
+            - `World`
+            - `Vehicles`
+            - `Peds`
+            - `Ragdolls`
+            - `Objects`
+            - `Pickups`
+            - `Glass`
+            - `Rivers`
+            - `Foliage`
+            - `All`
+        </Accordion>
+    </Tab>
+
+    <Tab title="Methods">
+        <Accordion icon="code" iconType="duotone" title="FromCamera">
+            Cast a ray from the gameplay camera forward
+
+            <ParamField body="distance" type="number">
+                Distance of the raycast, defaults to `10.0`
+            </ParamField>
+
+            <ParamField body="flags" type="string">
+                Flag name to use for the shape test, invalid or missing values fallback to `World`
+            </ParamField>
+
+            <ParamField body="ignoreEntity" type="integer">
+                Entity handle to ignore, defaults to `PlayerPedId()`
+            </ParamField>
+
+            <ParamField body="options.offset" type="vector3 | table">
+                Optional offset added to the camera coordinates
+            </ParamField>
+
+            <ParamField body="options.traceType" type="integer">
+                Shape test trace type, defaults to `7`
+            </ParamField>
+
+            <ParamField body="options.timeout" type="integer">
+                Max wait time in milliseconds for the result, defaults to `1000`
+            </ParamField>
+
+            <ParamField body="options.wait" type="integer">
+                Delay between polling attempts, defaults to `0`
+            </ParamField>
+
+            <ParamField body="return" type="RAYCAST_RESULT">
+                Returns a result table with `hit`, `coords`, `normal`, `entity`, `material`, `state`, `didHit` and `handle`
+            </ParamField>
+
+            ```lua
+            local Raycast = Import('raycast').Raycast --[[@as RAYCAST]]
+
+            local result = Raycast:FromCamera(15.0, 'World')
+
+            if result.hit then
+                print('Hit coords:', result.coords)
+                print('Hit entity:', result.entity)
+            end
+            ```
+        </Accordion>
+
+        <Accordion icon="code" iconType="duotone" title="FromEntity">
+            Cast a ray from an entity forward using its current forward vector
+
+            <ParamField body="entity" type="integer" required>
+                Entity handle to cast from, the entity must exist
+            </ParamField>
+
+            <ParamField body="distance" type="number">
+                Distance of the raycast, defaults to `10.0`
+            </ParamField>
+
+            <ParamField body="flags" type="string">
+                Flag name to use for the shape test, invalid or missing values fallback to `World`
+            </ParamField>
+
+            <ParamField body="ignoreEntity" type="integer">
+                Entity handle to ignore, defaults to the provided entity
+            </ParamField>
+
+            <ParamField body="options.offset" type="vector3 | table">
+                Optional offset added to the entity coordinates before casting
+            </ParamField>
+
+            <ParamField body="options.traceType" type="integer">
+                Shape test trace type, defaults to `7`
+            </ParamField>
+
+            <ParamField body="options.timeout" type="integer">
+                Max wait time in milliseconds for the result, defaults to `1000`
+            </ParamField>
+
+            <ParamField body="options.wait" type="integer">
+                Delay between polling attempts, defaults to `0`
+            </ParamField>
+
+            <ParamField body="return" type="RAYCAST_RESULT">
+                Returns a result table with `hit`, `coords`, `normal`, `entity`, `material`, `state`, `didHit` and `handle`
+            </ParamField>
+
+            ```lua
+            local Raycast = Import('raycast').Raycast --[[@as RAYCAST]]
+
+            local horse = GetMount(PlayerPedId())
+            if horse ~= 0 then
+                local result = Raycast:FromEntity(horse, 8.0, 'Peds', horse)
+
+                if result.hit then
+                    print('Entity raycast hit:', result.entity)
+                end
+            end
+            ```
+        </Accordion>
+    </Tab>
+
+    <Tab title="Result">
+        <Accordion icon="code" iconType="duotone" title="RAYCAST_RESULT">
+            Result fields returned by `FromCamera` and `FromEntity`
+
+            <ParamField body="hit" type="boolean">
+                True when the shape test hit something
+            </ParamField>
+
+            <ParamField body="state" type="integer">
+                Native shape test state
+            </ParamField>
+
+            <ParamField body="handle" type="integer">
+                Shape test handle returned by the native
+            </ParamField>
+
+            <ParamField body="didHit" type="integer">
+                Raw native hit result
+            </ParamField>
+
+            <ParamField body="coords" type="vector3">
+                Hit coordinates
+            </ParamField>
+
+            <ParamField body="normal" type="vector3">
+                Surface normal
+            </ParamField>
+
+            <ParamField body="entity" type="integer">
+                Hit entity handle, or `0` if no entity was hit
+            </ParamField>
+
+            <ParamField body="material" type="integer">
+                Material hash returned by `GetShapeTestResultIncludingMaterial`
+            </ParamField>
         </Accordion>
     </Tab>
 </Tabs>
@@ -3045,6 +3226,136 @@ shared between server and client environments
                 </Accordion>
             </Tab>
         </Tabs>
+    </Tab>
+</Tabs>
+
+
+### Logger
+
+this shared module is used to print formatted logs with timestamps, log levels, optional prefixes and structured context
+the base console already provides the resource name, so the logger output only adds time, level and your message
+by default `DEBUG` logs are disabled until you enable them with `SetDebugEnabled(true)` or force them with the `debug` option
+
+<Tabs>
+    <Tab title="Usage">
+        <Accordion icon="code" iconType="duotone" title="Import">
+
+            ```lua
+            local Logger = Import('logger').Logger --[[@as LOGGER]]
+            ```
+        </Accordion>
+
+        <Accordion icon="code" iconType="duotone" title="Output Format">
+
+            ```text
+            [12:34:56] [INFO] message
+            [12:34:56] [WARN] [BANK] message | charId=1 money=250
+            [12:34:56] [ERROR] something failed
+            ```
+        </Accordion>
+    </Tab>
+
+    <Tab title="Methods">
+        <Accordion icon="code" iconType="duotone" title="Log">
+            Base method used by all other log helpers
+
+            <ParamField body="level" type="string" required>
+                Supported values are `INFO`, `WARN`, `ERROR` and `DEBUG`
+            </ParamField>
+
+            <ParamField body="..." type="any">
+                Message parts, values are concatenated in order
+            </ParamField>
+
+            <ParamField body="context" type="table">
+                Optional context table appended as `key=value` pairs
+            </ParamField>
+
+            <ParamField body="options.prefix" type="string">
+                Optional prefix displayed before the message body
+            </ParamField>
+
+            <ParamField body="options.debug" type="boolean">
+                Forces a `DEBUG` log even when debug mode is disabled
+            </ParamField>
+
+            <ParamField body="options.colorize" type="boolean">
+                Set to `false` to disable console colors
+            </ParamField>
+
+            ```lua
+            local Logger = Import('logger').Logger --[[@as LOGGER]]
+
+            Logger:Log('INFO', 'player connected', {
+                charId = 12,
+                source = 4
+            }, {
+                prefix = 'CHARACTER'
+            })
+            ```
+        </Accordion>
+
+        <Accordion icon="code" iconType="duotone" title="Info / Warn / Error / Debug">
+            Shorthand helpers for the supported log levels
+
+            ```lua
+            local Logger = Import('logger').Logger --[[@as LOGGER]]
+
+            Logger:Info('inventory loaded')
+            Logger:Warn('low ammo', { weapon = 'WEAPON_REPEATER_CARBINE' })
+            Logger:Error('failed to save character', { charId = 5 })
+
+            Logger:SetDebugEnabled(true)
+            Logger:Debug('debug output enabled')
+            ```
+        </Accordion>
+
+        <Accordion icon="code" iconType="duotone" title="SetDebugEnabled">
+            Enables or disables debug output globally for this logger instance
+
+            <ParamField body="enabled" type="boolean" required>
+                Set to `true` to allow `DEBUG` logs, `false` to disable them
+            </ParamField>
+        </Accordion>
+
+        <Accordion icon="code" iconType="duotone" title="GetDebugEnabled">
+            Returns the current debug state
+
+            <ParamField body="return" type="boolean">
+                `true` if debug logs are enabled, otherwise `false`
+            </ParamField>
+        </Accordion>
+    </Tab>
+
+    <Tab title="Examples">
+        <Accordion icon="code" iconType="duotone" title="Client Example">
+
+            ```lua
+            local Logger = Import('logger').Logger --[[@as LOGGER]]
+
+            Logger:Info('client logger info output', {
+                side = 'client',
+                ped = PlayerPedId()
+            }, {
+                prefix = 'TEST'
+            })
+            ```
+        </Accordion>
+
+        <Accordion icon="code" iconType="duotone" title="Server Example">
+
+            ```lua
+            local Logger = Import('logger').Logger --[[@as LOGGER]]
+
+            Logger:SetDebugEnabled(true)
+            Logger:Debug('server logger debug output', {
+                side = 'server',
+                source = source
+            }, {
+                prefix = 'TEST'
+            })
+            ```
+        </Accordion>
     </Tab>
 </Tabs>
 
