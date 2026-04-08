@@ -32,6 +32,15 @@ AddEventHandler("vorp:initNewCharacter", function()
 end)
 ```
 
+Ability to wait for the first character scene to start in case you need to show a loading screen or something else before the scene starts
+<Note>Client Side</Note>
+```lua stopLoadingScene
+-- this is just optional
+-- you can use it to tell character to not start the scene yet like  imagine if you have a loading screen with a button to join, this event will make it to wait
+-- set to true to wait, set to false to continue the scene
+TriggerEvent("vorpcharacter:stopLoadingScene", boolean)
+```
+
 ## Exports
 
 Exports to be used in your scripts
