@@ -32,43 +32,56 @@ AddEventHandler("vorp:initNewCharacter", function()
 end)
 ```
 
-## Functions
+## Exports
 
-This function retrieves all components in the player's cache. It is useful for updating or modifying the player's appearance based on the components stored in the cache.
+Exports to be used in your scripts
 
 <Note>Client Side</Note>
-
 <Accordion icon="keyboard" iconType= "duotone" title="GetAllPlayerComponents">
-
-<ParamField body="return" type="table">
-    The components in the player's cache.
-</ParamField>
-
-```lua
-local result = exports.vorp_character:GetAllPlayerComponents()
-```
+    This export retrieves all components in the player's cache, useful for updating or modifying the player's appearance based on the components stored in the cache
+    <ParamField body="return" type="table">
+        The components in the player's cache.
+    </ParamField>
+    
+    ```lua
+    local result = exports.vorp_character:GetAllPlayerComponents()
+    ```
 </Accordion>
 
+<Note>Client Side</Note>
 <Accordion icon="keyboard" iconType= "duotone" title="GetPlayerComponent">
+    This export retrieves a specific component
 
-<ParamField body="category" type="string" required>
-    The category of the component to retrieve.
-</ParamField>
-<ParamField body="return" type="string">
-    The components in the player's cache.
-</ParamField>
+    <ParamField body="category" type="string" required>
+        The category of the component to retrieve.
+    </ParamField>
 
-```lua
-local result = exports.vorp_character:GetPlayerComponent(category)
-```
+    <ParamField body="return" type="string">
+        The components in the player's cache.
+    </ParamField>
+    
+    ```lua
+    local component = exports.vorp_character:GetPlayerComponent(category)
+    ```
 </Accordion>
 
-<Accordion icon="keyboard" iconType= "duotone" title="Reload Character">
-refreshes the player skin that is saved in the client cache and clothes
-```lua
-ExecuteCommand("rc")
-```
+<Note>Server Side</Note>
+<Accordion icon="keyboard" iconType= "duotone" title="OpenOutfitsMenu">
+    This export opens the outfits menu for the player
+
+    <ParamField body="source" type="int" required>
+        The source of the player.
+    </ParamField>
+    
+    <ParamField body="return" type="boolean">
+        True if the menu can be opened false otherwise.
+    </ParamField>
+    
+    ```lua
+    local result = exports.vorp_character:OpenOutfitsMenu(source)
+    ```
 </Accordion>
+
 
 ## StateBags
 
