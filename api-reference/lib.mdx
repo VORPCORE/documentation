@@ -918,7 +918,8 @@ when you restart your resource the prompts will be removed for easy development
                         </ParamField>
 
                         <ParamField body="callback" type="function" required> 
-                            Function called when any prompt is triggered - receives (prompt, instance)
+                            Function called when any prompt is triggered - receives `(prompt, index, instance, value)`.
+                            `value` is the current entry from the `locations` table, which avoids having to look it up again manually.
                         </ParamField>
 
                         <ParamField body="state" type="boolean"> 
@@ -951,9 +952,9 @@ when you restart your resource the prompts will be removed for easy development
                                 }
                             }
 
-                            local prompt = Game.Prompts:Register(data, function(prompt, index , self)
-                                -- first array, allows to use one location with multiple prompts
-                                if index == 1 then
+                            local prompt = Game.Prompts:Register(data, function(prompt, index, self, location)
+                                -- location is the current entry from data.locations[index]
+                                if index == 1 and location.label == 'group label' then
                                     if prompt.key == 'G' then
                                         print('G pressed')
                                     elseif prompt.key == 'E' then
