@@ -29,6 +29,68 @@ MenuData.CloseAll(showRadar, soundClose, fireEventClose)
 ```
 </Accordion>
 
+### RegisterControls
+
+<Accordion icon="code" iconType="duotone" title="RegisterControls">
+  Register custom keyboard, mouse, or wheel controls handled by vorp_menu's NUI layer.
+
+  This is useful when you want menu-like input handling outside of an opened menu.
+
+  <ParamField body="controls" type="table" required>
+    Array of controls to listen for.
+
+    Supported values:
+
+    - Any browser keyboard key string from `KeyboardEvent.key`, for example `e`, `ArrowUp`, `Enter`, or `Backspace`
+    - `scrollup`
+    - `scrolldown`
+    - `mousepress`
+  </ParamField>
+
+  <ParamField body="onPress" type="function" required>
+    Callback fired with the triggered control name.
+  </ParamField>
+
+  Notes:
+
+  - Keyboard keys and `mousepress` repeat every frame while held until release.
+  - `scrollup` and `scrolldown` fire once per wheel event.
+  - `mousepress` ignores middle click and returns `mousepress_left` or `mousepress_right` in the callback.
+  - If a menu is open, these menu keys are reserved and will not trigger custom callbacks: `ArrowUp`, `ArrowDown`, `ArrowLeft`, `ArrowRight`, `Enter`, `Escape`, `Backspace`.
+  - Calling `RegisterControls` again replaces previously registered controls in the UI layer.
+  - Call `Menu.UnregisterControls()` when you no longer need the listeners.
+
+```lua
+local Menu = exports.vorp_menu:GetMenuData()
+
+Menu.RegisterControls({ "e", "scrollup", "scrolldown", "mousepress" }, function(control)
+    if control == "e" then
+        print("E is being held")
+    elseif control == "scrollup" then
+        print("Scrolled up once")
+    elseif control == "scrolldown" then
+        print("Scrolled down once")
+    elseif control == "mousepress_left" then
+        print("Left mouse button pressed")
+    elseif control == "mousepress_right" then
+        print("Right mouse button pressed")
+    end
+end)
+```
+</Accordion>
+
+### UnregisterControls
+
+<Accordion icon="code" iconType="duotone" title="UnregisterControls">
+  Remove all controls previously registered with `RegisterControls`.
+
+```lua
+local Menu = exports.vorp_menu:GetMenuData()
+
+Menu.UnregisterControls()
+```
+</Accordion>
+
 ### Menu Elements
 
 Menu elements are the elements that will be displayed in the menu
