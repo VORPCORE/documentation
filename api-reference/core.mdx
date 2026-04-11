@@ -32,7 +32,7 @@ Allowing you to only give correct jobs and grades to the players and to prevent 
 
 <Note>Server Side</Note>
 <Tabs>
-   
+   <Tab title="RegisterJobs">
     <Accordion icon="user" iconType="duotone" title="RegisterJobs">
        Register jobs to the server, this will be stored in config/jobs.lua file in vorp core then can be registered automatically using the RegisterJobs function or manually by adding the jobs to the lua file.
         <ParamField body="jobsData" type="table" required>
@@ -66,6 +66,7 @@ Allowing you to only give correct jobs and grades to the players and to prevent 
         Core.RegisterJobs(jobsData, GetCurrentResourceName())
         ```
     </Accordion>
+    </Tab>
   
 </Tabs>
 
