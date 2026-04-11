@@ -63,7 +63,12 @@ Allowing you to only give correct jobs and grades to the players and to prevent 
                 }
             }
         }
-        Core.RegisterJobs(jobsData, GetCurrentResourceName())
+        
+        if Core.RegisterJobs then
+            Core.RegisterJobs(jobsData, GetCurrentResourceName())
+        else
+            print("Core.RegisterJobs is not available update vorp core to the latest version")
+        end
         ```
     </Accordion>
     </Tab>
