@@ -26,6 +26,48 @@ local Core = exports.vorp_core:GetCore()
 ```
 </Accordion>
 
+## Register Server Jobs 
+
+Allowing you to only give correct jobs and grades to the players and to prevent them from using incorrect jobs and grades.
+
+<Note>Server Side</Note>
+<Tabs>
+   
+    <Accordion icon="user" iconType="duotone" title="RegisterJobs">
+       Register jobs to the server, this will be stored in config/jobs.lua file in vorp core then can be registered automatically using the RegisterJobs function or manually by adding the jobs to the lua file.
+        <ParamField body="jobsData" type="table" required>
+            job data is a table with the following keys:
+            - `jobname`: `string` job name as the key and the job data as the value.
+            - `groups`: `array` optional, if you wish to set this job to only this group can give this job.
+            - `privateJob`: `boolean` if true, the job will be private no one can give this job.
+            - `grades`: `table` only add grades if you use grades
+            - `[grade]`: `table` grade number as the key and the grade data as the value.
+            - `label`: `string` the label of the grade
+            - `privateGrade`: `boolean` if true, the grade will be private no one can give this grade.
+        </ParamField>
+
+        <ParamField body="resourceName" type="string" required>
+            The resource name to register the jobs to for debug
+        </ParamField>
+
+        ```lua
+        local jobsData <const> = {
+            jobname = {
+                groups = {"admin"} -- optional, if you wish to set this job to only this group can give this job.
+                privateJob = true -- if true, the job will be private no one can give this job.
+                grades = { -- only add grades if you use grades
+                    [1] = {
+                        label = "Grade Label"
+                        privateGrade = true -- if true, the grade will be private no one can give this grade.
+                    }
+                }
+            }
+        }
+        Core.RegisterJobs(jobsData, GetCurrentResourceName())
+        ```
+    </Accordion>
+  
+</Tabs>
 
 ## Notifications
 
