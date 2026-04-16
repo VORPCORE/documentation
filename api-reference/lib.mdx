@@ -3559,7 +3559,7 @@ Valid density names are:
             </ParamField>
 
             <ParamField body="enable" type="boolean" required>
-                Must be `true` for the change to be applied.
+                Must be `true` for the change to be applied. Passing `false` does not reset the default value with the current implementation.
             </ParamField>
 
             ```lua
@@ -3572,7 +3572,7 @@ Valid density names are:
         <Accordion icon="code" iconType="duotone" title="SetTemporaryDensityMultipliers">
 
             <ParamField body="source" type="integer" required>
-                Target player source or -1 for all.
+                Target player source.
             </ParamField>
 
             <ParamField body="name" type="string" required>
@@ -3584,7 +3584,7 @@ Valid density names are:
             </ParamField>
 
             <ParamField body="enable" type="boolean" required>
-                Must be `true` for the temporary override to be applied.
+                Must be `true` for the temporary override to be applied. Passing `false` does not remove the temporary value with the current implementation.
             </ParamField>
 
             ```lua
@@ -3597,7 +3597,7 @@ Valid density names are:
         <Accordion icon="code" iconType="duotone" title="RemoveTemporayDensityMultipliers">
 
             <ParamField body="source" type="integer" required>
-                Target player source.
+                Target player source or -1 for all.
             </ParamField>
 
             <ParamField body="name" type="string" required>
