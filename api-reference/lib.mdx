@@ -3522,7 +3522,109 @@ Allows you to send a clipboard copy request from `vorp_lib` NUI.
 
 ### Density
 
- Not yet implemented
+Allows you to inspect or change the population density multipliers handled by `vorp_lib` at runtime.
+
+The module keeps a default value and can also apply a temporary override. When a temporary value exists, it is used first. When no temporary value exists, the default value is used.
+
+Valid density names are:
+
+```lua
+"AnimalDensity"
+"HumanDensity"
+"PedDensity"
+"VehicleDensity"
+"ScenarioAnimalDensity"
+"ScenarioHumanDensity"
+"ScenarioPedDensity"
+"ParkedVehicleDensity"
+"RandomVehicleDensity"
+```
+
+<Tabs>
+    <Tab title="Client Getter">
+
+        <Accordion icon="code" iconType="duotone" title="GetDensityMultipliers">
+
+            <ParamField body="name" type="string">
+                Density name. If omitted, the export returns the full multipliers table.
+            </ParamField>
+
+            <ParamField body="return" type="table">
+                Returns either one density entry or the full density table. A single entry contains the configured `value`, and can also contain `temp_value` when a temporary override is active.
+            </ParamField>
+
+            ```lua
+            local allMultipliers = exports.vorp_lib:GetDensityMultipliers()
+
+            local vehicleDensity = exports.vorp_lib:GetDensityMultipliers("VehicleDensity")
+            print(vehicleDensity.value, vehicleDensity.temp_value)
+            ```
+        </Accordion>
+    </Tab>
+
+    <Tab title="Server Setters">
+
+        <Accordion icon="code" iconType="duotone" title="SetDefaultDensityMultipliers">
+
+            <ParamField body="source" type="integer" required>
+                Target player source or -1 for all.
+            </ParamField>
+
+            <ParamField body="name" type="string" required>
+                One of the valid density names listed above.
+            </ParamField>
+
+            <ParamField body="value" type="number" required>
+                Density multiplier value. Use values between `0.0` and `1.0`.
+            </ParamField>
+
+            ```lua
+            local target <const> = source
+            exports.vorp_lib:SetDefaultDensityMultipliers(target, "VehicleDensity", 0.2)
+            ```
+        </Accordion>
+
+        <Accordion icon="code" iconType="duotone" title="SetTemporaryDensityMultipliers">
+
+            <ParamField body="source" type="integer" required>
+                Target player source or -1 for all.
+            </ParamField>
+
+            <ParamField body="name" type="string" required>
+                One of the valid density names listed above.
+            </ParamField>
+
+            <ParamField body="value" type="number" required>
+                Density multiplier value, Use values between `0.0` and `1.0`.
+            </ParamField>
+
+            <ParamField body="timer" type="integer">
+                Optional time in seconds before the temporary density override is removed automatically.
+            </ParamField>
+
+            ```lua
+            local target <const> = source
+            exports.vorp_lib:SetTemporaryDensityMultipliers(target, "VehicleDensity", 0.2)
+            ```
+        </Accordion>
+
+        <Accordion icon="code" iconType="duotone" title="RemoveTemporayDensityMultipliers">
+
+            <ParamField body="source" type="integer" required>
+                Target player source or -1 for all.
+            </ParamField>
+
+            <ParamField body="name" type="string" required>
+                One of the valid density names listed above.
+            </ParamField>
+
+            ```lua
+            local target <const> = source
+            exports.vorp_lib:RemoveTemporayDensityMultipliers(target, "ScenarioHumanDensity")
+            ```
+        </Accordion>
+    </Tab>
+</Tabs>
 
 ### Collector
 
