@@ -3550,14 +3550,14 @@ Valid density names are:
             </ParamField>
 
             <ParamField body="return" type="table">
-                Returns either one density entry or the full density table. A single entry contains `enable`, `value`, and optionally `temp_value`.
+                Returns either one density entry or the full density table. A single entry contains the configured `value`, and can also contain `temp_value` when a temporary override is active.
             </ParamField>
 
             ```lua
             local allMultipliers = exports.vorp_lib:GetDensityMultipliers()
 
             local vehicleDensity = exports.vorp_lib:GetDensityMultipliers("VehicleDensity")
-            print(vehicleDensity.enable, vehicleDensity.value, vehicleDensity.temp_value)
+            print(vehicleDensity.value, vehicleDensity.temp_value)
             ```
         </Accordion>
     </Tab>
@@ -3578,21 +3578,17 @@ Valid density names are:
                 Density multiplier value. The source code uses values between `0.0` and `1.0`.
             </ParamField>
 
-            <ParamField body="enable" type="boolean" required>
-                Must be `true` for the change to be applied. Passing `false` does not reset the default value with the current implementation.
-            </ParamField>
-
             ```lua
             local target <const> = source
-            exports.vorp_lib:SetDefaultDensityMultipliers(target, "VehicleDensity", 0.2, true)
-            exports.vorp_lib:SetDefaultDensityMultipliers(target, "PedDensity", 0.0, true)
+            exports.vorp_lib:SetDefaultDensityMultipliers(target, "VehicleDensity", 0.2)
+            exports.vorp_lib:SetDefaultDensityMultipliers(target, "PedDensity", 0.0)
             ```
         </Accordion>
 
         <Accordion icon="code" iconType="duotone" title="SetTemporaryDensityMultipliers">
 
             <ParamField body="source" type="integer" required>
-                Target player source.
+                Target player source or -1 for all.
             </ParamField>
 
             <ParamField body="name" type="string" required>
@@ -3603,21 +3599,17 @@ Valid density names are:
                 Temporary density multiplier value.
             </ParamField>
 
-            <ParamField body="enable" type="boolean" required>
-                Must be `true` for the temporary override to be applied. Passing `false` does not remove the temporary value with the current implementation.
-            </ParamField>
-
             ```lua
             local target <const> = source
-            exports.vorp_lib:SetTemporaryDensityMultipliers(target, "ScenarioHumanDensity", 0.0, true)
-            exports.vorp_lib:SetTemporaryDensityMultipliers(target, "RandomVehicleDensity", 0.1, true)
+            exports.vorp_lib:SetTemporaryDensityMultipliers(target, "ScenarioHumanDensity", 0.0)
+            exports.vorp_lib:SetTemporaryDensityMultipliers(target, "RandomVehicleDensity", 0.1)
             ```
         </Accordion>
 
         <Accordion icon="code" iconType="duotone" title="RemoveTemporayDensityMultipliers">
 
             <ParamField body="source" type="integer" required>
-                Target player source or -1 for all.
+                Target player source.
             </ParamField>
 
             <ParamField body="name" type="string" required>
