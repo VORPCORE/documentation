@@ -3599,10 +3599,15 @@ Valid density names are:
                 Temporary density multiplier value.
             </ParamField>
 
+            <ParamField body="timer" type="integer">
+                Optional time in seconds before the temporary density override is removed automatically.
+            </ParamField>
+
             ```lua
             local target <const> = source
             exports.vorp_lib:SetTemporaryDensityMultipliers(target, "ScenarioHumanDensity", 0.0)
             exports.vorp_lib:SetTemporaryDensityMultipliers(target, "RandomVehicleDensity", 0.1)
+            exports.vorp_lib:SetTemporaryDensityMultipliers(target, "VehicleDensity", 0.2, 10)
             ```
         </Accordion>
 
