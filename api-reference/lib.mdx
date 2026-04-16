@@ -3581,7 +3581,6 @@ Valid density names are:
             ```lua
             local target <const> = source
             exports.vorp_lib:SetDefaultDensityMultipliers(target, "VehicleDensity", 0.2)
-            exports.vorp_lib:SetDefaultDensityMultipliers(target, "PedDensity", 0.0)
             ```
         </Accordion>
 
@@ -3605,9 +3604,7 @@ Valid density names are:
 
             ```lua
             local target <const> = source
-            exports.vorp_lib:SetTemporaryDensityMultipliers(target, "ScenarioHumanDensity", 0.0)
-            exports.vorp_lib:SetTemporaryDensityMultipliers(target, "RandomVehicleDensity", 0.1)
-            exports.vorp_lib:SetTemporaryDensityMultipliers(target, "VehicleDensity", 0.2, 10)
+            exports.vorp_lib:SetTemporaryDensityMultipliers(target, "VehicleDensity", 0.2)
             ```
         </Accordion>
 
