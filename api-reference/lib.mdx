@@ -35,11 +35,11 @@ To import modules to your script you must add the following to the script fxmani
             <Accordion icon="keyboard" iconType="duotone" title="entities (module)">
                this module contains methods that allows you to create entities like peds, vehicles, objects, etc
             </Accordion>
-    
+
             <Accordion icon="keyboard" iconType="duotone" title="blips (module)">
                this module contains methods that allows you to create various types of blips styles and map related stuff
             </Accordion>
-    
+
             <Accordion icon="keyboard" iconType="duotone" title="inputs (module)">
                this module contains methods that allows you to create input controls
             </Accordion>
@@ -47,19 +47,19 @@ To import modules to your script you must add the following to the script fxmani
             <Accordion icon="keyboard" iconType="duotone" title="raycast (module)">
                this module contains methods that allows you to perform gameplay raycasts from the camera or from an entity
             </Accordion>
-    
+
             <Accordion icon="keyboard" iconType="duotone" title="prompts (module)">
                this module contains methods that allows you to create prompts
             </Accordion>
-    
+
             <Accordion icon="keyboard" iconType="duotone" title="commands (module) (client)">
                this module contains methods that allows you to register commands
             </Accordion>
-    
+
             <Accordion icon="keyboard" iconType="duotone" title="points (module)">
                this module contains methods that allows you to create points enter/exit with debug options
             </Accordion>
-    
+
             <Accordion icon="keyboard" iconType="duotone" title="polyzones (module)">
                this module contains methods that allows you to create polygon, circle, or box detection zones with callbacks and debug tools
             </Accordion>
@@ -67,7 +67,7 @@ To import modules to your script you must add the following to the script fxmani
             <Accordion icon="keyboard" iconType="duotone" title="events (module)">
                this module contains methods that allows you to register game events
             </Accordion>
-    
+
             <Accordion icon="keyboard" iconType="duotone" title="dataview (module)">
                this module contains methods that allows you to use dataview in lua
             </Accordion>
@@ -112,9 +112,9 @@ To import modules to your script you must add the following to the script fxmani
     <Tab title="LibImport">
         <Accordion icon="code" iconType="duotone" title="Import">
 
-            <ParamField body="module" type="string" required> 
+            <ParamField body="module" type="string" required>
                 Allows to import any modules from the lib, a list of modules available can be found [here](https://github.com/VORPCORE/vorp_lib/blob/main/modules.md)
-            </ParamField> 
+            </ParamField>
 
             ```lua
             local module = Import "modulename" -- no symbols
@@ -123,14 +123,14 @@ To import modules to your script you must add the following to the script fxmani
 
             local Lib = Import "prompts"
             local Prompts = Lib.Prompts -- [[@as PROMPTS]] -- for intellisense
-            
+
             ```
         </Accordion>
     </Tab>
     <Tab title="Internal Import">
         <Accordion icon="code" iconType="duotone" title="Import">
 
-            <ParamField body="module" type="string" required> 
+            <ParamField body="module" type="string" required>
                 Allows to import any files from the script you are currently in, must always start with `.` or `/` to get the desired path to the file
             </ParamField>
 
@@ -143,9 +143,9 @@ To import modules to your script you must add the following to the script fxmani
     <Tab title="External Import">
         <Accordion icon="code" iconType="duotone" title="Import">
 
-            <ParamField body="module" type="string" required> 
+            <ParamField body="module" type="string" required>
                 Allows to import any files from other scripts, must always start with `@` then use the special characters `/` or `.` to get the desired path to the file
-            </ParamField>   
+            </ParamField>
 
             ```lua
             local module = Import "@script_name/filename"
@@ -160,10 +160,10 @@ To import modules to your script you must add the following to the script fxmani
 <Tabs>
     <Tab title="Single Module Import">
         <Accordion icon="code" iconType="duotone" title="Single">
-            <ParamField body="module" type="string" required> 
+            <ParamField body="module" type="string" required>
                 The module name to import
             </ParamField>
-            
+
             ```lua
             local module = Import "module"
             ```
@@ -171,10 +171,10 @@ To import modules to your script you must add the following to the script fxmani
     </Tab>
     <Tab title="Multiple Module Import">
         <Accordion icon="code" iconType="duotone" title="Multiple">
-            <ParamField body="module" type="array" required> 
+            <ParamField body="module" type="array" required>
                 The module name to import
             </ParamField>
-            
+
             ```lua
             local module = Import ({"module", "module2", "module3"})
             local prompts = module.Prompts
@@ -183,10 +183,10 @@ To import modules to your script you must add the following to the script fxmani
     </Tab>
     <Tab title="Mixed Module Import">
         <Accordion icon="code" iconType="duotone" title="Mixed">
-            <ParamField body="module" type="array" required> 
+            <ParamField body="module" type="array" required>
                 The module names to import
             </ParamField>
-    
+
             ```lua
             local module = Import ({"module", "/internal/filename", "@script_name/external/filename"})
             local prompts = module.Prompts
@@ -217,52 +217,52 @@ it has a entity tracker if you wish to track the entities from other scripts (se
             This is the baseclass for (peds, vehicles, objects) subclasses you can use these methods bellow or use directly the natives
             <Tabs>
                <Tab title="Getters">
-          
+
                     <Accordion icon="code" iconType="duotone" title="GetHandle">
-                        <ParamField body="return" type="string"> 
+                        <ParamField body="return" type="string">
                             Get the handle of the entity, this is a unique identifier for the entity
                         </ParamField>
                     </Accordion>
-            
+
                     <Accordion icon="code" iconType="duotone" title="GetModel">
-                        <ParamField body="return" type="string"> 
+                        <ParamField body="return" type="string">
                             Get the model of the entity
                         </ParamField>
                     </Accordion>
-            
+
                     <Accordion icon="code" iconType="duotone" title="GetPosition">
-                        <ParamField body="return" type="vector3"> 
+                        <ParamField body="return" type="vector3">
                             Get the position of the entity
                         </ParamField>
                     </Accordion>
-            
+
                     <Accordion icon="code" iconType="duotone" title="GetHeading">
-                        <ParamField body="return" type="number"> 
+                        <ParamField body="return" type="number">
                             Get the heading of the entity
                         </ParamField>
                     </Accordion>
-            
+
                     <Accordion icon="code" iconType="duotone" title="GetRotation">
-                        <ParamField body="return" type="vector3"> 
+                        <ParamField body="return" type="vector3">
                             Get the rotation of the entity
                         </ParamField>
                     </Accordion>
-            
+
                     <Accordion icon="code" iconType="duotone" title="GetNetId">
-                        <ParamField body="return" type="number"> 
+                        <ParamField body="return" type="number">
                             Get the networked id of the entity if the entity created had `IsNetworked = true`
                         </ParamField>
                     </Accordion>
                 </Tab>
                 <Tab title="Setters">
                     <Accordion icon="code" iconType="duotone" title="SetPosition">
-                        <ParamField body="vector" type="vector" required> 
+                        <ParamField body="vector" type="vector" required>
                             can use `vector3` or `vector4` to just set heading by passing a table with w `{w = 0.0}`
                         </ParamField>
                     </Accordion>
-    
+
                     <Accordion icon="code" iconType="duotone" title="Delete">
-                        <ParamField body="return" type="nil"> 
+                        <ParamField body="return" type="nil">
                             Delete the entity
                         </ParamField>
                     </Accordion>
@@ -281,41 +281,41 @@ it has a entity tracker if you wish to track the entities from other scripts (se
 
              <Icon icon="code" iconType="solid"/> create a ped
 
-               <ParamField body="Model" type="integer" required> 
+               <ParamField body="Model" type="integer" required>
                    The model of the ped
                </ParamField>
 
-               <ParamField body="Pos" type="vector3" required> 
+               <ParamField body="Pos" type="vector3" required>
                    The position of the ped
                </ParamField>
 
-               <ParamField body="IsNetworked" type="boolean"> 
-                   if the ped is networked 
+               <ParamField body="IsNetworked" type="boolean">
+                   if the ped is networked
                </ParamField>
 
-               <ParamField body="ScriptHostPed" type="boolean"> 
-                   if the ped is a script host ped 
+               <ParamField body="ScriptHostPed" type="boolean">
+                   if the ped is a script host ped
                </ParamField>
 
-               <ParamField body="P7" type="boolean"> 
+               <ParamField body="P7" type="boolean">
                    unknown
                </ParamField>
 
-               <ParamField body="P8" type="boolean"> 
+               <ParamField body="P8" type="boolean">
                    unknown
                </ParamField>
 
-               <ParamField body="Options" type="table"> 
+               <ParamField body="Options" type="table">
                    these are optional parameters
 
                    `PlaceOnGround = boolean`, `OutfitPreset = integer`
                </ParamField>
 
-               <ParamField body="OnCreate" type="function"> 
+               <ParamField body="OnCreate" type="function">
                    The function to will be called when the ped is created
                </ParamField>
 
-               <ParamField body="OnDelete" type="function"> 
+               <ParamField body="OnDelete" type="function">
                    The function to will be called when the ped is deleted
                </ParamField>
 
@@ -323,7 +323,7 @@ it has a entity tracker if you wish to track the entities from other scripts (se
                      -- Example
                      -- Import the entities module
                      local Entity = Import 'entities' --[[@as ENTITY]]
-                     
+
                      local ped = Entity.Ped:Create({
                          Model = 'A_C_COW',
                          Pos = vector4(0, 0, 0, 0),
@@ -340,7 +340,7 @@ it has a entity tracker if you wish to track the entities from other scripts (se
                              print('Ped deleted use your own logic here, handle: ', handle, 'netid: ', netid)
                          end
                      })
-                     -- methods you can use   
+                     -- methods you can use
                     local handle = ped:GetHandle()
                     ped:Delete()
                  ```
@@ -348,53 +348,53 @@ it has a entity tracker if you wish to track the entities from other scripts (se
         </Accordion>
     </Tab>
 
-    <Tab title="VEHICLE SUBCLASS"> 
+    <Tab title="VEHICLE SUBCLASS">
         <Accordion icon="code" iconType="duotone" title="Vehicle">
             - This sub class is used to create vehicles (inherits from `Entity` base class ) these are instanced objects every creation will have its own instance
             - Below are the methods available for the vehicle class
 
             <Accordion icon="code" iconType="duotone" title="Create">
 
-                <ParamField body="Model" type="string" required> 
+                <ParamField body="Model" type="string" required>
                     The model of the vehicle
                 </ParamField>
 
-                <ParamField body="Pos" type="vector" required> 
+                <ParamField body="Pos" type="vector" required>
                     The position for the vehicle
                 </ParamField>
 
-                <ParamField body="IsNetworked" type="boolean"> 
-                    if the vehicle is networked 
+                <ParamField body="IsNetworked" type="boolean">
+                    if the vehicle is networked
                 </ParamField>
 
-                <ParamField body="ScriptHostVeh" type="boolean"> 
-                    if the vehicle is a script host vehicle 
+                <ParamField body="ScriptHostVeh" type="boolean">
+                    if the vehicle is a script host vehicle
                 </ParamField>
 
-                <ParamField body="DontAutoCreateDraftAnimals" type="boolean"> 
+                <ParamField body="DontAutoCreateDraftAnimals" type="boolean">
                     create draft animals if true
                 </ParamField>
 
-                <ParamField body="P8" type="boolean"> 
+                <ParamField body="P8" type="boolean">
                     unknown
                 </ParamField>
 
-                <ParamField body="Options" type="table"> 
+                <ParamField body="Options" type="table">
                    `PlaceOnGround`, `Seat = { Ped = ped, Index = -1}`
                 </ParamField>
 
-                <ParamField body="OnCreate" type="function"> 
+                <ParamField body="OnCreate" type="function">
                     The function to call when the vehicle is created
                 </ParamField>
 
-                <ParamField body="OnDelete" type="function"> 
+                <ParamField body="OnDelete" type="function">
                     The function to call when the vehicle is deleted
                 </ParamField>
 
                 ```lua
                 -- Example
                 -- Import the entities module
-                local Entity = Import 'entities' --[[@as ENTITY]] 
+                local Entity = Import 'entities' --[[@as ENTITY]]
 
                 local vehicle = Entity.Vehicle:Create({
                     Model = 'wagon01x',
@@ -420,55 +420,55 @@ it has a entity tracker if you wish to track the entities from other scripts (se
                 vehicle:Delete()
                 ```
             </Accordion>
-         
+
         </Accordion>
     </Tab>
     <Tab title="OBJECT SUBCLASS">
-        <Accordion icon="code" iconType="duotone" title="Object"> 
+        <Accordion icon="code" iconType="duotone" title="Object">
 
             - This sub class is used to create objects (inherits from `Entity` base class ) these are instanced objects every creation will have its own instance
             - Below are the methods available for the object class
 
             <Accordion icon="code" iconType="duotone" title="Create">
-               <ParamField body="Model" type="integer" required> 
+               <ParamField body="Model" type="integer" required>
                    The model of the object
                </ParamField>
-               <ParamField body="Pos" type="vector3" required> 
+               <ParamField body="Pos" type="vector3" required>
                    The position for the object
                </ParamField>
 
-               <ParamField body="IsNetworked" type="boolean"> 
-                   if the object is networked 
+               <ParamField body="IsNetworked" type="boolean">
+                   if the object is networked
                </ParamField>
 
-               <ParamField body="ScriptHostObj" type="boolean"> 
-                   if the object is a script host object 
+               <ParamField body="ScriptHostObj" type="boolean">
+                   if the object is a script host object
                </ParamField>
 
-               <ParamField body="Dynamic" type="boolean"> 
-                   if the object is dynamic 
+               <ParamField body="Dynamic" type="boolean">
+                   if the object is dynamic
                </ParamField>
 
-               <ParamField body="Options" type="table"> 
+               <ParamField body="Options" type="table">
                    `PlaceOnGround = boolean`, `Rot = vector3`,`Rot.Order = integer`, `Rot.P5 = boolean`
                </ParamField>
 
-               <ParamField body="OnCreate" type="function"> 
+               <ParamField body="OnCreate" type="function">
                    The function will be called when the object is created
                </ParamField>
 
-               <ParamField body="OnDelete" type="function"> 
+               <ParamField body="OnDelete" type="function">
                    The function will be called when the object is deleted
                </ParamField>
 
                ```lua
                -- Example
                -- Import the entities module
-               local Entity = Import 'entities' --[[@as ENTITY]] 
+               local Entity = Import 'entities' --[[@as ENTITY]]
 
                local object = Entity.Object:Create({
                    Model = 'prop_paper_bag_01',
-                   Pos = vector4(0, 0, 0, 0), 
+                   Pos = vector4(0, 0, 0, 0),
                    IsNetworked = true,
                    Options = { -- optional
                        PlaceOnGround = true,
@@ -480,11 +480,11 @@ it has a entity tracker if you wish to track the entities from other scripts (se
                    },
 
                    OnCreate = function(self)
-                       print('Object created use your own logic here, handle: ', self:GetHandle()) 
+                       print('Object created use your own logic here, handle: ', self:GetHandle())
                    end,
 
                    OnDelete = function(self)
-                       print('Object deleted use your own logic here, handle: ', self:GetHandle()) 
+                       print('Object deleted use your own logic here, handle: ', self:GetHandle())
                    end
                })
 
@@ -507,76 +507,76 @@ when you restart your resource the blips will be removed for easy development
             This is the baseclass for blips, you can use these methods below or use directly the natives
             <Tabs>
                <Tab title="Getters">
-          
+
                     <Accordion icon="code" iconType="duotone" title="GetHandle">
-                        <ParamField body="return" type="integer"> 
+                        <ParamField body="return" type="integer">
                             Get the `handle` of the blip
                         </ParamField>
                     </Accordion>
-            
+
                     <Accordion icon="code" iconType="duotone" title="GetBlipColor">
-                        <ParamField body="color" type="string|table" required> 
+                        <ParamField body="color" type="string|table" required>
                             Get the `color value's` for blip colors, can be a `single color string` or `table of color strings`
                         </ParamField>
 
-                        <ParamField body="return" type="integer"> 
+                        <ParamField body="return" type="integer">
                             Returns the `color value's` corresponding to the `color name's`
                         </ParamField>
 
                         ```lua
                             -- single string or multiple colors can be requested just for ease of use
-                            local blue, red, yellow = Map.Blips:GetBlipColor({ 'blue', 'red', 'yellow' }) 
+                            local blue, red, yellow = Map.Blips:GetBlipColor({ 'blue', 'red', 'yellow' })
                             blip:AddModifierColor(blue) -- or string  "blue"
                         ```
                     </Accordion>
 
                 </Tab>
                 <Tab title="Setters">
-                    
+
                     <Accordion icon="code" iconType="duotone" title="Remove">
-                        <ParamField body="return" type="nil"> 
+                        <ParamField body="return" type="nil">
                             Remove/Delete the blip
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="SetName">
-                        <ParamField body="name" type="string" required> 
+                        <ParamField body="name" type="string" required>
                             Set the name/label of the blip
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="SetCoords">
-                        <ParamField body="pos" type="vector3" required> 
+                        <ParamField body="pos" type="vector3" required>
                             Set the coordinates for the blip (pos.x, pos.y, pos.z)
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="SetStyle">
-                        <ParamField body="style" type="integer|string" required> 
+                        <ParamField body="style" type="integer|string" required>
                             Set the style for the blip, see [blip style](https://github.com/femga/rdr3_discoveries/tree/master/useful_info_from_rpfs/blip_styles)
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="SetSprite">
-                        <ParamField body="sprite" type="integer|string" required> 
+                        <ParamField body="sprite" type="integer|string" required>
                             Set the sprite icon for the blip. see [blip sprite](https://github.com/femga/rdr3_discoveries/tree/master/useful_info_from_rpfs/textures/blips)
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="AddModifier">
-                        <ParamField body="modifier" type="integer|string" required> 
-                            Add a modifier for the blip see [blip modifier](https://github.com/femga/rdr3_discoveries/tree/master/useful_info_from_rpfs/blip_modifiers) 
+                        <ParamField body="modifier" type="integer|string" required>
+                            Add a modifier for the blip see [blip modifier](https://github.com/femga/rdr3_discoveries/tree/master/useful_info_from_rpfs/blip_modifiers)
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="RemoveModifier">
-                        <ParamField body="modifier" type="integer|string" required> 
-                            Remove a modifier from the blip see [blip modifier](https://github.com/femga/rdr3_discoveries/tree/master/useful_info_from_rpfs/blip_modifiers) 
+                        <ParamField body="modifier" type="integer|string" required>
+                            Remove a modifier from the blip see [blip modifier](https://github.com/femga/rdr3_discoveries/tree/master/useful_info_from_rpfs/blip_modifiers)
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="AddModifierColor">
-                        <ParamField body="color" type="string|integer" required> 
+                        <ParamField body="color" type="string|integer" required>
                             Add a color modifier for the blip, use the `GetBlipColor` method to get the color value's if needed
                         </ParamField>
                     </Accordion>
@@ -586,49 +586,49 @@ when you restart your resource the blips will be removed for easy development
                     <Accordion icon="code" iconType="duotone" title="Create">
                         <Icon icon="code" iconType="solid"/> create a blip
 
-                        <ParamField body="BlipType" type="string" required> 
+                        <ParamField body="BlipType" type="string" required>
                             The type of blip to create: `entity`, `coords`, `area`, `radius` each will have specific params
                         </ParamField>
 
-                        <ParamField body="Blip" type="integer|string" required> 
+                        <ParamField body="Blip" type="integer|string" required>
                             The blip sprite/hash to use, see [blip sprite hash](https://github.com/femga/rdr3_discoveries/tree/master/useful_info_from_rpfs/blip_styles)
                         </ParamField>
 
-                        <ParamField body="Entity" type="integer"> 
+                        <ParamField body="Entity" type="integer">
                             Required for 'entity' type - the entity handle to attach the blip to
                         </ParamField>
 
-                        <ParamField body="Pos" type="vector3"> 
+                        <ParamField body="Pos" type="vector3">
                             Required for 'coords', 'area', and 'radius' types - the position for the blip
                         </ParamField>
 
-                        <ParamField body="Scale" type="vector3"> 
+                        <ParamField body="Scale" type="vector3">
                             Required for 'area' type - the scale dimensions (x, y, z)
                         </ParamField>
 
-                        <ParamField body="Radius" type="number"> 
+                        <ParamField body="Radius" type="number">
                             Required for 'radius' type - the radius size (defaults to 0.5)
                         </ParamField>
 
-                        <ParamField body="P7" type="integer"> 
+                        <ParamField body="P7" type="integer">
                             Optional parameter for 'area' type (defaults to 0)
                         </ParamField>
 
-                        <ParamField body="Options" type="table"> 
+                        <ParamField body="Options" type="table">
                             Optional parameters for blip appearance:
-                            
+
                             `sprite = integer|string`, `name = string`, `style = integer|string`, `modifier = integer|string`, `color = string`
                         </ParamField>
 
-                        <ParamField body="OnCreate" type="function"> 
+                        <ParamField body="OnCreate" type="function">
                             The function that will be called when the blip is created
                         </ParamField>
 
                         ```lua
                             -- Example
                             -- Import the blips module
-                            local Map = Import 'blips' --[[@as BLIPS]] 
-                            
+                            local Map = Import 'blips' --[[@as BLIPS]]
+
                             local blip = Map.Blips:Create('radius', { -- type can be entity, coords, area, radius
                                 Entity = ped, -- if type is entity, you need to provide a handle
                                 Pos = vector3(2865.88, 475.38, 66.09), -- position
@@ -640,7 +640,7 @@ when you restart your resource the blips will be removed for easy development
                                     sprite = 1,                        --string or integer if type is entity or coords
                                     name = 'Test',
                                     modifier = 'BLIP_MODIFIER_MP_COLOR_1', -- int or string
-                                    color = 'blue', -- internal color name 
+                                    color = 'blue', -- internal color name
                                 },
                                 OnCreate = function(self)
                                     print('Created', self:GetHandle())
@@ -672,42 +672,42 @@ when you restart your resource the inputs will be removed for easy development
             use these methods below to manage input controls
             <Tabs>
                 <Tab title="Setters">
-                    
+
                     <Accordion icon="code" iconType="duotone" title="Destroy">
-                        <ParamField body="return" type="nil"> 
+                        <ParamField body="return" type="nil">
                             Destroy the input instance and stop all processing
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="RemoveKey">
-                        <ParamField body="key" type="string" required> 
+                        <ParamField body="key" type="string" required>
                             Remove a specific key from multiple inputs or if single input , destroys the input
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="Pause">
-                        <ParamField body="return" type="nil"> 
+                        <ParamField body="return" type="nil">
                             Pause the input processing without destroying the instance
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="Resume">
-                        <ParamField body="return" type="nil"> 
+                        <ParamField body="return" type="nil">
                             Resume the input processing after being paused
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="Update">
-                        <ParamField body="data" type="table" required> 
+                        <ParamField body="data" type="table" required>
                             Update custom parameters for the input if needed
                         </ParamField>
-                        <ParamField body="key" type="string|integer" required> 
+                        <ParamField body="key" type="string|integer" required>
                             Required if using multiple inputs - specifies which input to update
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="Start">
-                        <ParamField body="return" type="nil"> 
+                        <ParamField body="return" type="nil">
                             Start the input processing if is not running, useful when you set state to false and start this when player is near something or character is selected
                         </ParamField>
                     </Accordion>
@@ -718,27 +718,27 @@ when you restart your resource the inputs will be removed for easy development
 
                         <Icon icon="code" iconType="solid"/> register an input or multiple inputs
 
-                        <ParamField body="inputType" type="string" required> 
+                        <ParamField body="inputType" type="string" required>
                             The type of input: `Press`, `Hold`, `Release`
                         </ParamField>
 
-                        <ParamField body="key" type="string|integer" required> 
-                            The key to listen for (e.g., `E`, `W`) these are predefined keys, you can use any hash or string [controls](https://github.com/femga/rdr3_discoveries/tree/master/Controls) 
+                        <ParamField body="key" type="string|integer" required>
+                            The key to listen for (e.g., `E`, `W`) these are predefined keys, you can use any hash or string [controls](https://github.com/femga/rdr3_discoveries/tree/master/Controls)
                         </ParamField>
 
-                        <ParamField body="callback" type="function" required> 
+                        <ParamField body="callback" type="function" required>
                             Function called when input is triggered - receives (instance, customParams)
                         </ParamField>
 
-                        <ParamField body="state" type="boolean"> 
+                        <ParamField body="state" type="boolean">
                             If true, input will start automatically after registration, useful when you set state to false and start this when player is near something or character is selected
                         </ParamField>
 
                         ```lua
                             -- Example
                             -- Import the inputs module
-                            local controls = Import 'inputs' --[[@as INPUTS]] 
-                            
+                            local controls = Import 'inputs' --[[@as INPUTS]]
+
                             -- Multiple input support
                             local inputs = {
                                 { inputType = "Press",   key = "E" },
@@ -952,115 +952,115 @@ when you restart your resource the prompts will be removed for easy development
             <Tabs>
                 <Tab title="Getters">
                     <Accordion icon="code" iconType="duotone" title="GetHandle">
-                        <ParamField body="key" type="string|integer" required> 
+                        <ParamField body="key" type="string|integer" required>
                             The key identifier of the specific prompt, its whatever you set in the register
                         </ParamField>
-                        <ParamField body="return" type="integer"> 
+                        <ParamField body="return" type="integer">
                             Get the handle of a specific prompt by key
                         </ParamField>
                     </Accordion>
-            
+
                     <Accordion icon="code" iconType="duotone" title="GetPromptGroup">
-                        <ParamField body="key" type="string|integer" required> 
+                        <ParamField body="key" type="string|integer" required>
                             The key identifier of the specific prompt, its whatever you set in the register
                         </ParamField>
-                        <ParamField body="return" type="integer"> 
+                        <ParamField body="return" type="integer">
                             Get the group ID of a specific prompt
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="GetGroupLabel">
-                        <ParamField body="key" type="string|integer" required> 
+                        <ParamField body="key" type="string|integer" required>
                             The key identifier of the specific prompt, its whatever you set in the register
                         </ParamField>
-                        <ParamField body="return" type="string"> 
+                        <ParamField body="return" type="string">
                             Get the group label of a specific prompt
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="IsRunning">
-                        <ParamField body="return" type="boolean"> 
+                        <ParamField body="return" type="boolean">
                             Check if the prompt you registered is currently running
                         </ParamField>
                     </Accordion>
                 </Tab>
-                
+
                 <Tab title="Setters">
                     <Accordion icon="code" iconType="duotone" title="SetLabel">
-                        <ParamField body="label" type="string" required> 
+                        <ParamField body="label" type="string" required>
                             New label text for the prompt
                         </ParamField>
-                        <ParamField body="key" type="string|integer" required> 
+                        <ParamField body="key" type="string|integer" required>
                             The key identifier of the prompt to update, its whatever you set in the register
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="SetGroupLabel">
-                        <ParamField body="label" type="string" required> 
+                        <ParamField body="label" type="string" required>
                             New label text for the entire prompt group
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="SetEnabled">
-                        <ParamField body="enabled" type="boolean" required> 
+                        <ParamField body="enabled" type="boolean" required>
                             Whether the prompt should be enabled or disabled
                         </ParamField>
-                        <ParamField body="key" type="string|integer" required> 
+                        <ParamField body="key" type="string|integer" required>
                             The key identifier of the prompt to update, its whatever you set in the register
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="SetVisible">
-                        <ParamField body="visible" type="boolean" required> 
+                        <ParamField body="visible" type="boolean" required>
                             Whether the prompt should be visible or hidden
                         </ParamField>
-                        <ParamField body="key" type="string|integer" required> 
+                        <ParamField body="key" type="string|integer" required>
                             The key identifier of the prompt to update, its whatever you set in the register
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="SetMashMode">
-                        <ParamField body="mashCount" type="integer" required> 
+                        <ParamField body="mashCount" type="integer" required>
                             Number of times the key must be mashed
                         </ParamField>
-                        <ParamField body="key" type="string|integer" required> 
+                        <ParamField body="key" type="string|integer" required>
                             The key identifier of the prompt to update, its whatever you set in the register
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="SetMashIndefinitelyMode">
-                        <ParamField body="key" type="string|integer" required> 
+                        <ParamField body="key" type="string|integer" required>
                             The key identifier of the prompt to set to indefinite mash mode, its whatever you set in the register
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="Start">
-                        <ParamField body="return" type="nil"> 
+                        <ParamField body="return" type="nil">
                             Start the prompt system if is not running, useful when you set state to false and start this when player is near something or character is selected
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="Pause">
-                        <ParamField body="return" type="nil"> 
+                        <ParamField body="return" type="nil">
                             Pause the prompt system without destroying it
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="Resume">
-                        <ParamField body="return" type="nil"> 
+                        <ParamField body="return" type="nil">
                             Resume the prompt system after being paused
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="Remove">
-                        <ParamField body="key" type="string" required> 
+                        <ParamField body="key" type="string" required>
                             The key identifier of the specific prompt to remove if multiple, if single will destroy
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="Destroy">
-                        <ParamField body="return" type="nil"> 
-                            Destroy the entire prompt system 
+                        <ParamField body="return" type="nil">
+                            Destroy the entire prompt system
                         </ParamField>
                     </Accordion>
                 </Tab>
@@ -1070,48 +1070,48 @@ when you restart your resource the prompts will be removed for easy development
 
                         <Icon icon="code" iconType="solid"/> register prompts
 
-                        <ParamField body="coords" type="vector3" required> 
+                        <ParamField body="coords" type="vector3" required>
                             The center coordinates where prompts will be active
                         </ParamField>
 
-                        <ParamField body="distance" type="number"> 
+                        <ParamField body="distance" type="number">
                             Activation radius from coords (defaults to 2.0)
                         </ParamField>
 
-                        <ParamField body="label" type="string" required> 
+                        <ParamField body="label" type="string" required>
                             The group label shown at the top of the prompt group
                         </ParamField>
 
-                        <ParamField body="sleep" type="integer"> 
+                        <ParamField body="sleep" type="integer">
                             Sleep time when not in range (defaults to 700ms)
                         </ParamField>
 
-                        <ParamField body="marker" type="table"> 
+                        <ParamField body="marker" type="table">
                             Optional marker configuration: `type`, `color = {r,g,b,a}`, `distance`, `scale = {x,y,z}` can be used for debug as well
                         </ParamField>
 
-                        <ParamField body="prompts" type="array" required> 
+                        <ParamField body="prompts" type="array" required>
                             Array of prompt objects with: `type`, `key`, `label`, `mode`, and mode-specific parameters
-                            
+
                             Types: `Press`, `Hold`, `Release`, `Standard`, `Pressed`, `Released`, `Mash`
-                            
+
                             Modes: `Hold` (holdTime), `Timed` (timedMode), `Mash` (mashCount), `Standard` (releaseMode), `Standardized` (eventHash)
                         </ParamField>
 
-                        <ParamField body="callback" type="function" required> 
+                        <ParamField body="callback" type="function" required>
                             Function called when any prompt is triggered - receives `(prompt, index, instance, value)`.
                             `value` is the current entry from the `locations` table, which avoids having to look it up again manually.
                         </ParamField>
 
-                        <ParamField body="state" type="boolean"> 
+                        <ParamField body="state" type="boolean">
                             If true, prompts will start automatically after registration (defaults to false) useful when you set state to false and start this when player is near something or character is selected
                         </ParamField>
 
                         ```lua
                             -- Example
                             -- Import the prompts module
-                            local Game = Import 'prompts' --[[@as PROMPTS]] 
-                            
+                            local Game = Import 'prompts' --[[@as PROMPTS]]
+
                             local data = {
                                 locations = {
                                     { -- index 1
@@ -1165,60 +1165,60 @@ when you restart your resource the commands will be removed for easy development
             use these methods below to manage command controls
             <Tabs>
                 <Tab title="Setters">
-                    
+
                     <Accordion icon="code" iconType="duotone" title="Remove">
-                        <ParamField body="return" type="nil"> 
+                        <ParamField body="return" type="nil">
                             Removes the command and its suggestion from chat
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="AddSuggestion">
-                        <ParamField body="return" type="nil"> 
-                            Adds command suggestion to chat 
+                        <ParamField body="return" type="nil">
+                            Adds command suggestion to chat
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="RemoveSuggestion">
-                        <ParamField body="return" type="nil"> 
+                        <ParamField body="return" type="nil">
                             Removes the command suggestion from chat
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="Pause">
-                        <ParamField body="return" type="nil"> 
+                        <ParamField body="return" type="nil">
                             Pause the command without removing it (temporarily disables the command)
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="Resume">
-                        <ParamField body="return" type="nil"> 
+                        <ParamField body="return" type="nil">
                             Resume the command after being paused
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="Destroy">
-                        <ParamField body="return" type="nil"> 
+                        <ParamField body="return" type="nil">
                             Completely destroy the command instance and clean up
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="Start">
-                        <ParamField body="addSuggestion" type="boolean"> 
+                        <ParamField body="addSuggestion" type="boolean">
                             Whether to add chat suggestion when registering the command, use this only on runtime, by default when player selects character suggestion is added automatically
                         </ParamField>
-                        <ParamField body="return" type="nil"> 
+                        <ParamField body="return" type="nil">
                             Start/activate the command
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="OnExecute">
-                        <ParamField body="callback" type="function" required> 
+                        <ParamField body="callback" type="function" required>
                             its called when the command is executed
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="OnError">
-                        <ParamField body="callback" type="function"> 
+                        <ParamField body="callback" type="function">
                             its called when the command has errors
                         </ParamField>
                     </Accordion>
@@ -1230,41 +1230,41 @@ when you restart your resource the commands will be removed for easy development
 
                         <Icon icon="code" iconType="solid"/> register a command
 
-                        <ParamField body="name" type="string" required> 
+                        <ParamField body="name" type="string" required>
                             The command name (without the / prefix)
                         </ParamField>
 
-                        <ParamField body="Suggestion" type="table"> 
+                        <ParamField body="Suggestion" type="table">
                             Chat suggestion configuration with Description and Arguments array
                         </ParamField>
 
-                        <ParamField body="Permissions" type="table"> 
+                        <ParamField body="Permissions" type="table">
                             Permission configuration with Ace group settings
                         </ParamField>
 
-                        <ParamField body="OnExecute" type="function" required> 
+                        <ParamField body="OnExecute" type="function" required>
                             Function called when command executes - receives (args, rawCommand, instance)
                         </ParamField>
 
-                        <ParamField body="OnError" type="function"> 
+                        <ParamField body="OnError" type="function">
                             Function called on command errors - receives error type string
                         </ParamField>
 
-                        <ParamField body="state" type="boolean"> 
+                        <ParamField body="state" type="boolean">
                             If true, command starts automatically after registration, useful when you set state to false and start this when player is near something or character is selected
                         </ParamField>
 
                         ```lua
                             -- Example
                             -- Import the commands module
-                            local Commands = Import 'commands' --[[@as COMMANDS]] 
-                            
+                            local Commands = Import 'commands' --[[@as COMMANDS]]
+
                             local command = Commands.Command:Register("mycommand", {
                                 Suggestion = { -- optional
                                     Description = "My custom command description",
                                     Arguments = {
                                         -- if type is number or integer, it will be converted to a number
-                                        -- if type is message, it will give it as a message 
+                                        -- if type is message, it will give it as a message
                                         { name = "playerId", help = "Target player ID", type = "integer", required = true },
                                         { name = "amount", help = "Amount value", type = "number", required = true },
                                         { name = "message", help = "Optional message", type = "message"}
@@ -1278,7 +1278,7 @@ when you restart your resource the commands will be removed for easy development
                                 OnExecute = function(args, rawCommand, instance)
                                     print("Command executed with args:", json.encode(args))
                                     print("Player ID:", args[1]) -- integer type
-                                    print("Amount:", args[2])     -- number type  
+                                    print("Amount:", args[2])     -- number type
                                     print("Message:", args[3])    -- message type (remaining args combined)
                                 end,
 
@@ -1299,7 +1299,7 @@ when you restart your resource the commands will be removed for easy development
 
                             -- Argument types:
                             -- "integer" - converts to number (whole numbers)
-                            -- "number" - converts to number (decimals allowed)  
+                            -- "number" - converts to number (decimals allowed)
                             -- "message" - combines remaining arguments into string
                             -- (no type) - keeps as string
 
@@ -1319,63 +1319,63 @@ when you restart your resource the commands will be removed for easy development
             use these methods below to manage server command controls
             <Tabs>
                 <Tab title="Setters">
-                    
+
                     <Accordion icon="code" iconType="duotone" title="Remove">
-                        <ParamField body="return" type="nil"> 
+                        <ParamField body="return" type="nil">
                             Remove the command, its suggestion from all clients, and ACE permissions
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="AddSuggestion">
-                        <ParamField body="target" type="integer" required> 
+                        <ParamField body="target" type="integer" required>
                             The player source ID to send suggestion to
                         </ParamField>
-                        <ParamField body="return" type="nil"> 
+                        <ParamField body="return" type="nil">
                             Add command suggestion to specific player's chat
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="RemoveSuggestion">
-                        <ParamField body="target" type="integer" required> 
+                        <ParamField body="target" type="integer" required>
                             The player source ID to remove suggestion from
                         </ParamField>
-                        <ParamField body="return" type="nil"> 
+                        <ParamField body="return" type="nil">
                             Remove command suggestion from specific player's chat
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="Pause">
-                        <ParamField body="return" type="nil"> 
+                        <ParamField body="return" type="nil">
                             Pause the command without removing it (temporarily disable)
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="Resume">
-                        <ParamField body="return" type="nil"> 
+                        <ParamField body="return" type="nil">
                             Resume the command after being paused
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="Destroy">
-                        <ParamField body="return" type="nil"> 
+                        <ParamField body="return" type="nil">
                             Completely destroy the command instance and clean up
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="Start">
-                        <ParamField body="return" type="nil"> 
+                        <ParamField body="return" type="nil">
                             Start/activate the command and register ACE permissions if configured
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="OnExecute">
-                        <ParamField body="callback" type="function" required> 
+                        <ParamField body="callback" type="function" required>
                             Set or update the callback function called when command executes
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="OnError">
-                        <ParamField body="callback" type="function" required> 
+                        <ParamField body="callback" type="function" required>
                             Set or update the callback function called when command has errors
                         </ParamField>
                     </Accordion>
@@ -1387,11 +1387,11 @@ when you restart your resource the commands will be removed for easy development
 
                         <Icon icon="code" iconType="solid"/> register a server command
 
-                        <ParamField body="name" type="string" required> 
+                        <ParamField body="name" type="string" required>
                             The command name (without the / prefix)
                         </ParamField>
 
-                        <ParamField body="Suggestion" type="table"> 
+                        <ParamField body="Suggestion" type="table">
                             Chat suggestion configuration with Description and Arguments array
                             - Description: The description of the command
                             - Arguments: The arguments of the command
@@ -1412,7 +1412,7 @@ when you restart your resource the commands will be removed for easy development
                             ```
                         </ParamField>
 
-                        <ParamField body="Permissions" type="table"> 
+                        <ParamField body="Permissions" type="table">
                             Advanced permission configuration with Ace, Jobs, Groups, and CharIds
                             - Ace: ACE permission (overrides others) leave false if you dont want to use ace permissions
                             - Groups: Group permissions with users (DB users table) and characters (DB characters table) sections
@@ -1449,23 +1449,23 @@ when you restart your resource the commands will be removed for easy development
                             ```
                         </ParamField>
 
-                        <ParamField body="OnExecute" type="function" required> 
+                        <ParamField body="OnExecute" type="function" required>
                             Function called when command executes - receives (source, args, rawCommand, instance)
                         </ParamField>
 
-                        <ParamField body="OnError" type="function"> 
+                        <ParamField body="OnError" type="function">
                             Function called on command errors - receives error type string
                         </ParamField>
 
-                        <ParamField body="state" type="boolean"> 
+                        <ParamField body="state" type="boolean">
                             If true, command starts automatically after registration (defaults to false)
                         </ParamField>
 
                         ```lua
                             -- Example
                             -- Import the server commands module
-                            local LIB = Import 'commands' --[[@as COMMANDS]] 
-                            
+                            local LIB = Import 'commands' --[[@as COMMANDS]]
+
                             local command = LIB.Command:Register("commandName", {
                                 Suggestion = { -- optional
                                     Description = "Admin command with complex permissions",
@@ -1478,7 +1478,7 @@ when you restart your resource the commands will be removed for easy development
 
                                 Permissions = { -- optional
                                     Ace = "group.admin", -- ACE permission (overrides others) leave false if you dont want to use ace permissions
-                                    
+
                                     Jobs = { -- optional
                                         Police = { -- jobname
                                             [0] = false, -- Rank 0 not allowed
@@ -1486,7 +1486,7 @@ when you restart your resource the commands will be removed for easy development
                                         },
                                         Sheriff = true -- All ranks allowed
                                     },
-                                    
+
                                     Groups = { -- optional
                                         users = {
                                             admin = true,
@@ -1496,7 +1496,7 @@ when you restart your resource the commands will be removed for easy development
                                             gang_leader = true
                                         }
                                     },
-                                    
+
                                     CharIds = { -- optional
                                         [123] = true, -- Specific character ID
                                         [456] = true
@@ -1508,7 +1508,7 @@ when you restart your resource the commands will be removed for easy development
                                     print("Player ID:", args[1]) -- player type (validated)
                                     print("Amount:", args[2])    -- number type
                                     print("Message:", args[3])   -- message type
-                                    
+
                                 end,
 
                                 OnError = function(errorType)
@@ -1545,7 +1545,7 @@ when you restart your resource the commands will be removed for easy development
                             -- Error types (additional server-side):
                             -- "missing_user" - User not found or console command
                             -- "missing_job" - Player doesn't have required job
-                            -- "missing_grade" - Player doesn't have required job rank  
+                            -- "missing_grade" - Player doesn't have required job rank
                             -- "missing_group" - Player doesn't have required group
                             -- "missing_character" - Character not authorized
                             -- "missing_state" - State validation failed
@@ -1553,15 +1553,15 @@ when you restart your resource the commands will be removed for easy development
                             -- Permission priority:
                             -- 1. ACE permissions (highest) all others will be ignored
                             -- 2. Job permissions
-                            -- 3. Group permissions  
-                            -- 4. Character ID permissions 
+                            -- 3. Group permissions
+                            -- 4. Character ID permissions
                         ```
                     </Accordion>
                 </Tab>
             </Tabs>
         </Accordion>
     </Tab>
- 
+
 </Tabs>
 
 ### Points
@@ -1577,97 +1577,97 @@ when you restart your resource the points will be removed for easy development
             <Tabs>
                 <Tab title="Getters">
                     <Accordion icon="code" iconType="duotone" title="IsPointActive">
-                        <ParamField body="id" type="string|integer" required> 
+                        <ParamField body="id" type="string|integer" required>
                             The unique identifier of the point to check
                         </ParamField>
-                        <ParamField body="return" type="boolean"> 
+                        <ParamField body="return" type="boolean">
                             Returns true if the point is active and not deactivated
                         </ParamField>
                     </Accordion>
-            
+
                     <Accordion icon="code" iconType="duotone" title="IsPointInside">
-                        <ParamField body="id" type="string|integer" required> 
+                        <ParamField body="id" type="string|integer" required>
                             The unique identifier of the point to check
                         </ParamField>
-                        <ParamField body="return" type="boolean"> 
+                        <ParamField body="return" type="boolean">
                             Returns true if the player is currently inside the point radius
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="IsPointOutside">
-                        <ParamField body="id" type="string|integer" required> 
+                        <ParamField body="id" type="string|integer" required>
                             The unique identifier of the point to check
                         </ParamField>
-                        <ParamField body="return" type="boolean"> 
+                        <ParamField body="return" type="boolean">
                             Returns true if the player is currently outside the point radius
                         </ParamField>
                     </Accordion>
 
                 </Tab>
-                
+
                 <Tab title="Setters">
                     <Accordion icon="code" iconType="duotone" title="UpdatePoint">
-                        <ParamField body="id" type="string|integer" required> 
+                        <ParamField body="id" type="string|integer" required>
                             The unique identifier of the point to update
                         </ParamField>
-                        <ParamField body="data" type="table" required> 
+                        <ParamField body="data" type="table" required>
                             New point data to replace the existing point configuration
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="RemovePoint">
-                        <ParamField body="id" type="string|integer" required> 
+                        <ParamField body="id" type="string|integer" required>
                             The unique identifier of the point to remove
                         </ParamField>
-                        <ParamField body="return" type="nil"> 
+                        <ParamField body="return" type="nil">
                             Removes the specified point from the instance
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="PausePoint">
-                        <ParamField body="id" type="string|integer" required> 
+                        <ParamField body="id" type="string|integer" required>
                             The unique identifier of the point to pause
                         </ParamField>
-                        <ParamField body="return" type="nil"> 
+                        <ParamField body="return" type="nil">
                             Deactivates the specified point without removing it
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="ResumePoint">
-                        <ParamField body="id" type="string|integer" required> 
+                        <ParamField body="id" type="string|integer" required>
                             The unique identifier of the point to resume
                         </ParamField>
-                        <ParamField body="return" type="nil"> 
+                        <ParamField body="return" type="nil">
                             Reactivates a previously paused point
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="Start">
-                        <ParamField body="return" type="nil"> 
+                        <ParamField body="return" type="nil">
                             Start the point system if not already running, begins monitoring player position
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="Pause">
-                        <ParamField body="return" type="nil"> 
+                        <ParamField body="return" type="nil">
                             Pause the entire point system without destroying it
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="Resume">
-                        <ParamField body="return" type="nil"> 
+                        <ParamField body="return" type="nil">
                             Resume the point system after being paused
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="Destroy">
-                        <ParamField body="return" type="nil"> 
+                        <ParamField body="return" type="nil">
                             Destroy the entire point instance and clean up all points
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="DebugPoints">
-                        <ParamField body="return" type="nil"> 
+                        <ParamField body="return" type="nil">
                             Enable visual debug markers for points that have debug enabled
                         </ParamField>
                     </Accordion>
@@ -1678,11 +1678,11 @@ when you restart your resource the points will be removed for easy development
 
                         <Icon icon="code" iconType="solid"/> register coordinate-based points for enter/exit detection
 
-                        <ParamField body="Arguments" type="array" required> 
+                        <ParamField body="Arguments" type="array" required>
                             Array of point configurations, each point must have unique id, center coordinates, and radius
                             - id: Unique identifier for the point (string/integer)
                             - center: Point center coordinates (vector3)
-                            - radius: Detection radius around center (number)  
+                            - radius: Detection radius around center (number)
                             - wait: Check interval in milliseconds (optional, defaults to 500)
                             - debug: Enable visual debug marker (optional, boolean)
                             - deActivate: If true, point starts inactive and must be manually activated (optional, boolean)
@@ -1702,23 +1702,23 @@ when you restart your resource the points will be removed for easy development
                             ```
                         </ParamField>
 
-                        <ParamField body="OnEnter" type="function" required> 
+                        <ParamField body="OnEnter" type="function" required>
                             Function called when player enters any point - receives (point, distance)
                         </ParamField>
 
-                        <ParamField body="OnExit" type="function" required> 
+                        <ParamField body="OnExit" type="function" required>
                             Function called when player exits any point - receives (point, distance)
                         </ParamField>
 
-                        <ParamField body="state" type="boolean"> 
+                        <ParamField body="state" type="boolean">
                             If true, point system starts automatically after registration other wise use the Start method to start the point system
                         </ParamField>
 
                         ```lua
                             -- Example
                             -- Import the points module
-                            local GamePoints = Import 'points' --[[@as POINTS]] 
-                            
+                            local GamePoints = Import 'points' --[[@as POINTS]]
+
                             local points = GamePoints.Points:Register({
                                 Arguments = {
                                     {
@@ -1761,12 +1761,12 @@ when you restart your resource the points will be removed for easy development
                             points:PausePoint('shop_door')        -- Pause specific point
                             points:ResumePoint('shop_door')       -- Resume specific point
                             points:RemovePoint('bank_entrance')   -- Remove specific point
-                            
+
                             -- Check point status
                             local isActive = points:IsPointActive('shop_door')
                             local isInside = points:IsPointInside('shop_door')
                             local isOutside = points:IsPointOutside('shop_door')
-                            
+
                             -- System control
                             points:Pause()   -- Pause entire system
                             points:Resume()  -- Resume entire system
@@ -1791,25 +1791,25 @@ all creations are instanced objects every zone instance is private to the script
             <Tabs>
                 <Tab title="Getters">
                     <Accordion icon="code" iconType="duotone" title="GetId">
-                        <ParamField body="return" type="string|integer"> 
+                        <ParamField body="return" type="string|integer">
                             Returns the unique identifier assigned to the zone (auto-generated when not provided)
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="GetType">
-                        <ParamField body="return" type="string"> 
+                        <ParamField body="return" type="string">
                             Returns the zone type `poly`, `circle`, or `box`
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="IsRunning">
-                        <ParamField body="return" type="boolean"> 
+                        <ParamField body="return" type="boolean">
                             Returns true when the zone polling loop is currently running
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="IsInside">
-                        <ParamField body="return" type="boolean"> 
+                        <ParamField body="return" type="boolean">
                             Returns true if the local player is currently inside the zone
                         </ParamField>
                     </Accordion>
@@ -1817,67 +1817,67 @@ all creations are instanced objects every zone instance is private to the script
 
                 <Tab title="Configuration">
                     <Accordion icon="code" iconType="duotone" title="SetCallbacks">
-                        <ParamField body="cbEnter" type="function"> 
+                        <ParamField body="cbEnter" type="function">
                             Replaces the `onEnter` callback (receives zone instance and player coords)
                         </ParamField>
-                        <ParamField body="cbExit" type="function"> 
+                        <ParamField body="cbExit" type="function">
                             Replaces the `onExit` callback (receives zone instance and player coords)
                         </ParamField>
-                        <ParamField body="cbInside" type="function"> 
+                        <ParamField body="cbInside" type="function">
                             Replaces the `onInside` callback that runs every tick while inside
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="UpdatePolygon">
-                        <ParamField body="points" type="array"> 
+                        <ParamField body="points" type="array">
                             Updates polygon points (`vector3` list) and recalculates bounds, available for polygon zones only
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="UpdateCircle">
-                        <ParamField body="center" type="vector3"> 
+                        <ParamField body="center" type="vector3">
                             Updates circle center position
                         </ParamField>
-                        <ParamField body="radius" type="number"> 
+                        <ParamField body="radius" type="number">
                             Updates circle radius, available for circle zones only
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="UpdateBox">
-                        <ParamField body="center" type="vector3"> 
+                        <ParamField body="center" type="vector3">
                             Updates box center position
                         </ParamField>
-                        <ParamField body="length" type="number"> 
+                        <ParamField body="length" type="number">
                             Updates box length, available for box zones only
                         </ParamField>
-                        <ParamField body="width" type="number"> 
+                        <ParamField body="width" type="number">
                             Updates box width, available for box zones only
                         </ParamField>
-                        <ParamField body="heading" type="number"> 
+                        <ParamField body="heading" type="number">
                             Optional new heading in degrees for the box zone
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="SetHeight">
-                        <ParamField body="minZ" type="number"> 
+                        <ParamField body="minZ" type="number">
                             Sets the minimum Z (height) allowed before the zone considers the player outside
                         </ParamField>
-                        <ParamField body="maxZ" type="number"> 
+                        <ParamField body="maxZ" type="number">
                             Sets the maximum Z (height) allowed before the zone considers the player outside
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="SetDebug">
-                        <ParamField body="enabled" type="boolean"> 
+                        <ParamField body="enabled" type="boolean">
                             Enables or disables debug drawing (auto-starts debug loop when the zone is running)
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="SetTickRates">
-                        <ParamField body="outsideMs" type="number"> 
+                        <ParamField body="outsideMs" type="number">
                             Sets polling interval in milliseconds while the player is outside the zone (defaults to 200)
                         </ParamField>
-                        <ParamField body="insideMs" type="number"> 
+                        <ParamField body="insideMs" type="number">
                             Sets polling interval in milliseconds while the player stays inside (defaults to 1)
                         </ParamField>
                     </Accordion>
@@ -1885,25 +1885,25 @@ all creations are instanced objects every zone instance is private to the script
 
                 <Tab title="Lifecycle">
                     <Accordion icon="code" iconType="duotone" title="Start">
-                        <ParamField body="return" type="nil"> 
+                        <ParamField body="return" type="nil">
                             Starts the background thread that evaluates the zone, automatically launches debug rendering when enabled
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="Pause">
-                        <ParamField body="return" type="nil"> 
+                        <ParamField body="return" type="nil">
                             Temporarily stops the zone without clearing callbacks or shape data
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="Resume">
-                        <ParamField body="return" type="nil"> 
+                        <ParamField body="return" type="nil">
                             Restarts a paused zone and resumes detection
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="Destroy">
-                        <ParamField body="return" type="nil"> 
+                        <ParamField body="return" type="nil">
                             Disables the zone and clears its configuration (instance should be discarded afterwards)
                         </ParamField>
                     </Accordion>
@@ -1914,7 +1914,7 @@ all creations are instanced objects every zone instance is private to the script
 
                         <Icon icon="code" iconType="solid"/> register polygon, circle, or box zones with callbacks and optional auto-start
 
-                        <ParamField body="data" type="table" required> 
+                        <ParamField body="data" type="table" required>
                             Zone configuration table:
                             - id: Optional string or integer unique identifier (`polyzone_<timestamp>` when omitted)
                             - type: Zone type `poly`, `circle`, or `box` (defaults to `poly`, case-insensitive)
@@ -1931,11 +1931,11 @@ all creations are instanced objects every zone instance is private to the script
                             - box: provide `center` vector3, `length` and `width` numbers, optional `heading` (degrees) or `size` table `{ x, y }`
                         </ParamField>
 
-                        <ParamField body="state" type="boolean"> 
+                        <ParamField body="state" type="boolean">
                             When true the zone starts immediately after registration (defaults to false, call `Start()` manually otherwise)
                         </ParamField>
 
-                        <ParamField body="return" type="PolyZone"> 
+                        <ParamField body="return" type="PolyZone">
                             Returns the zone instance so you can control it with the methods above
                         </ParamField>
 
@@ -2009,10 +2009,10 @@ all creations are instanced objects every zone instance is private to the script
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="Destroy">
-                        <ParamField body="instance" type="PolyZone"> 
+                        <ParamField body="instance" type="PolyZone">
                             Zone instance returned by `Register`
                         </ParamField>
-                        <ParamField body="return" type="nil"> 
+                        <ParamField body="return" type="nil">
                             Stops the zone, removes it from the manager, and cleans it up
                         </ParamField>
 
@@ -2047,47 +2047,47 @@ when you restart your resource the event listeners will be removed for easy deve
             <Tabs>
                 <Tab title="Setters">
                     <Accordion icon="code" iconType="duotone" title="Start">
-                        <ParamField body="return" type="nil"> 
+                        <ParamField body="return" type="nil">
                             Start the event listener and begin monitoring for the registered event
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="Pause">
-                        <ParamField body="return" type="nil"> 
+                        <ParamField body="return" type="nil">
                             Pause the event listener without destroying the instance
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="Resume">
-                        <ParamField body="return" type="nil"> 
+                        <ParamField body="return" type="nil">
                             Resume the event listener after being paused
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="Destroy">
-                        <ParamField body="return" type="nil"> 
+                        <ParamField body="return" type="nil">
                             Destroy the event listener instance and clean up
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="DevMode">
-                        <ParamField body="enabled" type="boolean" required> 
+                        <ParamField body="enabled" type="boolean" required>
                             Enable or disable developer mode for debugging events
                         </ParamField>
-                        <ParamField body="eventsToIgnore" type="string|array"> 
+                        <ParamField body="eventsToIgnore" type="string|array">
                             Optional events to ignore when in dev mode (can be event name string, hash)
                         </ParamField>
-                        <ParamField body="return" type="nil"> 
+                        <ParamField body="return" type="nil">
                             When enabled, logs all events in the group. Use eventsToIgnore to filter out noise.
                         </ParamField>
 
                         ```lua
                             -- Enable dev mode and ignore specific events
                             event:DevMode(true, {"EVENT_PED_CREATED", "EVENT_PED_DESTROYED"})
-                            
+
                             -- Enable dev mode for all events
                             event:DevMode(true)
-                            
+
                             -- Disable dev mode
                             event:DevMode(false)
                         ```
@@ -2100,30 +2100,30 @@ when you restart your resource the event listeners will be removed for easy deve
 
                         <Icon icon="code" iconType="solid"/> register a game event listener
 
-                        <ParamField body="eventName" type="string|integer" required> 
+                        <ParamField body="eventName" type="string|integer" required>
                             The game event name (string) or hash (integer) to listen for
                         </ParamField>
 
-                        <ParamField body="group" type="integer" required> 
+                        <ParamField body="group" type="integer" required>
                             The event group to monitor: `0` for SCRIPT_EVENT_QUEUE_AI or `1` for SCRIPT_EVENT_QUEUE_NETWORK
-                            
+
                             - **SCRIPT_EVENT_QUEUE_AI (0)**: For AI and NPC related events
                             - **SCRIPT_EVENT_QUEUE_NETWORK (1)**: For network and player related events
                         </ParamField>
 
-                        <ParamField body="callback" type="function" required> 
+                        <ParamField body="callback" type="function" required>
                             Function called when the event triggers - receives parsed event data or nothing if event has no data
                         </ParamField>
 
-                        <ParamField body="state" type="boolean"> 
+                        <ParamField body="state" type="boolean">
                             If true, event listener starts automatically after registration, otherwise use Start method
                         </ParamField>
 
                         ```lua
                             -- Example
                             -- Import the events module
-                            local Game = Import 'events' --[[@as EVENTS]] 
-                            
+                            local Game = Import 'events' --[[@as EVENTS]]
+
                             -- Register event with automatic data parsing
                             local event = Game.Events:Register('EVENT_PED_CREATED', 0, function(data)
                                 print("Ped created with data:", json.encode(data, {indent = true}))
@@ -2132,10 +2132,10 @@ when you restart your resource the event listeners will be removed for easy deve
                             -- Developer mode for debugging, dont fire this events when in dev mode
                             event:DevMode(true, {"EVENT_PED_CREATED","EVENT_VEHICLE_CREATED"}) -- Enable dev mode, ignore these events
                             -- dev mode enables all events to be triggered
-                            
+
                             -- Clean up
                             event:Destroy()
-                            
+
                         ```
                     </Accordion>
                 </Tab>
@@ -2144,7 +2144,7 @@ when you restart your resource the event listeners will be removed for easy deve
     </Tab>
 </Tabs>
 
-### DataView    
+### DataView
 
 this module provides JavaScript-like DataView functionality for handling binary data in Lua with support for various data types and endianness
 this module is based on gottfriedleibniz's DataView implementation providing efficient binary data manipulation
@@ -2156,28 +2156,28 @@ this module is based on gottfriedleibniz's DataView implementation providing eff
             <Tabs>
                 <Tab title="Getters">
                     <Accordion icon="code" iconType="duotone" title="Buffer">
-                        <ParamField body="return" type="string"> 
+                        <ParamField body="return" type="string">
                             Get the underlying binary buffer as a string
                         </ParamField>
                     </Accordion>
-            
+
                     <Accordion icon="code" iconType="duotone" title="ByteLength">
-                        <ParamField body="return" type="integer"> 
+                        <ParamField body="return" type="integer">
                             Get the length of the buffer in bytes
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="ByteOffset">
-                        <ParamField body="return" type="integer"> 
+                        <ParamField body="return" type="integer">
                             Get the current offset position within the buffer
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="Data Type Getters">
                         Available getter methods for reading different data types:
-                        
+
                         - `GetInt8(offset, endian)` - Read 8-bit signed integer
-                        - `GetUint8(offset, endian)` - Read 8-bit unsigned integer  
+                        - `GetUint8(offset, endian)` - Read 8-bit unsigned integer
                         - `GetInt16(offset, endian)` - Read 16-bit signed integer
                         - `GetUint16(offset, endian)` - Read 16-bit unsigned integer
                         - `GetInt32(offset, endian)` - Read 32-bit signed integer
@@ -2190,13 +2190,13 @@ this module is based on gottfriedleibniz's DataView implementation providing eff
                         - `GetLuaInt(offset, endian)` - Read Lua integer
                         - `GetLuaNum(offset, endian)` - Read Lua number
 
-                        <ParamField body="offset" type="integer" required> 
+                        <ParamField body="offset" type="integer" required>
                             Byte offset from buffer start to read from
                         </ParamField>
-                        <ParamField body="endian" type="boolean"> 
+                        <ParamField body="endian" type="boolean">
                             Endianness: true for big-endian, false/nil for little-endian
                         </ParamField>
-                        <ParamField body="return" type="number|string|nil"> 
+                        <ParamField body="return" type="number|string|nil">
                             The read value, or nil if offset is out of bounds
                         </ParamField>
                     </Accordion>
@@ -2206,13 +2206,13 @@ this module is based on gottfriedleibniz's DataView implementation providing eff
                         - `GetFixedInt(offset, length, endian)` - Read fixed-size signed integer
                         - `GetFixedUint(offset, length, endian)` - Read fixed-size unsigned integer
 
-                        <ParamField body="offset" type="integer" required> 
+                        <ParamField body="offset" type="integer" required>
                             Byte offset from buffer start
                         </ParamField>
-                        <ParamField body="length" type="integer" required> 
+                        <ParamField body="length" type="integer" required>
                             Number of bytes to read
                         </ParamField>
-                        <ParamField body="endian" type="boolean"> 
+                        <ParamField body="endian" type="boolean">
                             Endianness: true for big-endian, false/nil for little-endian
                         </ParamField>
                     </Accordion>
@@ -2220,17 +2220,17 @@ this module is based on gottfriedleibniz's DataView implementation providing eff
 
                 <Tab title="Setters">
                     <Accordion icon="code" iconType="duotone" title="SubView">
-                        <ParamField body="offset" type="integer" required> 
+                        <ParamField body="offset" type="integer" required>
                             Byte offset to create the sub-view from
                         </ParamField>
-                        <ParamField body="return" type="DataView"> 
+                        <ParamField body="return" type="DataView">
                             Create a new DataView that shares the same buffer but with different offset
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="Data Type Setters">
                         Available setter methods for writing different data types:
-                        
+
                         - `SetInt8(offset, value, endian)` - Write 8-bit signed integer
                         - `SetUint8(offset, value, endian)` - Write 8-bit unsigned integer
                         - `SetInt16(offset, value, endian)` - Write 16-bit signed integer
@@ -2245,35 +2245,35 @@ this module is based on gottfriedleibniz's DataView implementation providing eff
                         - `SetLuaInt(offset, value, endian)` - Write Lua integer
                         - `SetLuaNum(offset, value, endian)` - Write Lua number
 
-                        <ParamField body="offset" type="integer" required> 
+                        <ParamField body="offset" type="integer" required>
                             Byte offset from buffer start to write to
                         </ParamField>
-                        <ParamField body="value" type="number|string" required> 
+                        <ParamField body="value" type="number|string" required>
                             The value to write
                         </ParamField>
-                        <ParamField body="endian" type="boolean"> 
+                        <ParamField body="endian" type="boolean">
                             Endianness: true for big-endian, false/nil for little-endian
                         </ParamField>
-                        <ParamField body="return" type="DataView"> 
+                        <ParamField body="return" type="DataView">
                             Returns self for method chaining
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="Fixed Size Setters">
                         - `SetFixedString(offset, length, value, endian)` - Write fixed-length string
-                        - `SetFixedInt(offset, length, value, endian)` - Write fixed-size signed integer  
+                        - `SetFixedInt(offset, length, value, endian)` - Write fixed-size signed integer
                         - `SetFixedUint(offset, length, value, endian)` - Write fixed-size unsigned integer
 
-                        <ParamField body="offset" type="integer" required> 
+                        <ParamField body="offset" type="integer" required>
                             Byte offset from buffer start
                         </ParamField>
-                        <ParamField body="length" type="integer" required> 
+                        <ParamField body="length" type="integer" required>
                             Number of bytes for the data type
                         </ParamField>
-                        <ParamField body="value" type="number|string" required> 
+                        <ParamField body="value" type="number|string" required>
                             The value to write
                         </ParamField>
-                        <ParamField body="endian" type="boolean"> 
+                        <ParamField body="endian" type="boolean">
                             Endianness: true for big-endian, false/nil for little-endian
                         </ParamField>
                     </Accordion>
@@ -2283,30 +2283,30 @@ this module is based on gottfriedleibniz's DataView implementation providing eff
                     <Accordion icon="code" iconType="duotone" title="ArrayBuffer">
                         <Icon icon="code" iconType="solid"/> create a new binary buffer
 
-                        <ParamField body="length" type="integer" required> 
+                        <ParamField body="length" type="integer" required>
                             Size of the buffer to allocate in bytes
                         </ParamField>
-                        <ParamField body="return" type="DataView"> 
+                        <ParamField body="return" type="DataView">
                             Returns a new DataView instance with allocated buffer
                         </ParamField>
 
                         ```lua
                             -- Import the dataview module
-                            local Data = Import 'dataview' --[[@as DATAVIEW]] 
-                            
+                            local Data = Import 'dataview' --[[@as DATAVIEW]]
+
                             -- Create a 64-byte buffer
                             local buffer = Data.DataView.ArrayBuffer(64)
-                            
+
                             -- Write different data types
                             buffer:SetInt32(0, 42)           -- Write integer at offset 0
                             buffer:SetFloat32(4, 3.14159)    -- Write float at offset 4
                             buffer:SetString(8, "Hello")     -- Write string at offset 8
-                            
+
                             -- Read the data back
                             local intValue = buffer:GetInt32(0)       -- 42
                             local floatValue = buffer:GetFloat32(4)   -- 3.14159
                             local stringValue = buffer:GetString(8)   -- "Hello"
-                            
+
                             print("Buffer length:", buffer:ByteLength()) -- 64
                             print("Values:", intValue, floatValue, stringValue)
                         ```
@@ -2315,10 +2315,10 @@ this module is based on gottfriedleibniz's DataView implementation providing eff
                     <Accordion icon="code" iconType="duotone" title="Wrap">
                         <Icon icon="code" iconType="solid"/> wrap existing binary data
 
-                        <ParamField body="binaryData" type="string" required> 
+                        <ParamField body="binaryData" type="string" required>
                             Existing binary data string to wrap
                         </ParamField>
-                        <ParamField body="return" type="DataView"> 
+                        <ParamField body="return" type="DataView">
                             Returns a DataView instance wrapping the existing data
                         </ParamField>
 
@@ -2326,7 +2326,7 @@ this module is based on gottfriedleibniz's DataView implementation providing eff
                             -- Wrap existing binary data
                             local existingData = string.pack("i4f", 100, 2.718)
                             local wrappedView = Data.DataView.Wrap(existingData)
-                            
+
                             -- Read from wrapped data
                             local intVal = wrappedView:GetInt32(0)    -- 100
                             local floatVal = wrappedView:GetFloat32(4) -- 2.718
@@ -2336,16 +2336,16 @@ this module is based on gottfriedleibniz's DataView implementation providing eff
                     <Accordion icon="code" iconType="duotone" title="DataStream">
                         <Icon icon="code" iconType="solid"/> create sequential data reader
 
-                        <ParamField body="dataView" type="DataView" required> 
+                        <ParamField body="dataView" type="DataView" required>
                             DataView instance to create stream from
                         </ParamField>
-                        <ParamField body="return" type="DataStream"> 
+                        <ParamField body="return" type="DataStream">
                             Returns a DataStream for sequential reading
                         </ParamField>
 
                         Available DataStream methods (automatically advance offset):
                         - `Int8(endian, align)`, `Uint8(endian, align)`
-                        - `Int16(endian, align)`, `Uint16(endian, align)`  
+                        - `Int16(endian, align)`, `Uint16(endian, align)`
                         - `Int32(endian, align)`, `Uint32(endian, align)`
                         - `Int64(endian, align)`, `Uint64(endian, align)`
                         - `Float32(endian, align)`, `Float64(endian, align)`
@@ -2357,15 +2357,15 @@ this module is based on gottfriedleibniz's DataView implementation providing eff
                             buffer:SetInt32(0, 123)
                             buffer:SetFloat32(4, 4.56)
                             buffer:SetInt16(8, 789)
-                            
+
                             -- Create stream for sequential reading
                             local stream = Data.DataView.DataStream.New(buffer)
-                            
+
                             -- Read sequentially (offset advances automatically)
                             local int1 = stream:Int32()    -- 123, offset now at 4
-                            local float1 = stream:Float32() -- 4.56, offset now at 8  
+                            local float1 = stream:Float32() -- 4.56, offset now at 8
                             local int2 = stream:Int16()    -- 789, offset now at 10
-                            
+
                             print("Sequential read:", int1, float1, int2)
                         ```
                     </Accordion>
@@ -2388,37 +2388,37 @@ all functions handle the loading process with proper validation and error handli
             <Tabs>
                 <Tab title="Models & Textures">
                     <Accordion icon="code" iconType="duotone" title="LoadModel">
-                        <ParamField body="model" type="string|integer" required> 
+                        <ParamField body="model" type="string|integer" required>
                             Model name (string) or hash (integer) to load
                         </ParamField>
-                        <ParamField body="timeout" type="integer"> 
+                        <ParamField body="timeout" type="integer">
                             Optional timeout in milliseconds to automatically unload the model and free memory
                         </ParamField>
-                        <ParamField body="return" type="nil"> 
+                        <ParamField body="return" type="nil">
                             Loads and validates the model, throws error if invalid or fails to load within 5 seconds
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="LoadTextureDict">
-                        <ParamField body="dict" type="string" required> 
+                        <ParamField body="dict" type="string" required>
                             Texture dictionary name to load
                         </ParamField>
-                        <ParamField body="timeout" type="integer"> 
+                        <ParamField body="timeout" type="integer">
                             Optional timeout in milliseconds to automatically unload the texture dictionary
                         </ParamField>
-                        <ParamField body="return" type="nil"> 
+                        <ParamField body="return" type="nil">
                             Loads texture dictionary with validation and error handling
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="LoadParticleFx">
-                        <ParamField body="dict" type="string" required> 
+                        <ParamField body="dict" type="string" required>
                             Particle effect dictionary name to load
                         </ParamField>
-                        <ParamField body="timeout" type="integer"> 
+                        <ParamField body="timeout" type="integer">
                             Optional timeout in milliseconds to automatically remove the particle effect asset
                         </ParamField>
-                        <ParamField body="return" type="nil"> 
+                        <ParamField body="return" type="nil">
                             Loads particle effect dictionary for use with particle systems
                         </ParamField>
                     </Accordion>
@@ -2426,55 +2426,55 @@ all functions handle the loading process with proper validation and error handli
 
                 <Tab title="Animations & Weapons">
                     <Accordion icon="code" iconType="duotone" title="LoadAnimDict">
-                        <ParamField body="dict" type="string" required> 
+                        <ParamField body="dict" type="string" required>
                             Animation dictionary name to load
                         </ParamField>
-                        <ParamField body="timeout" type="integer"> 
+                        <ParamField body="timeout" type="integer">
                             Optional timeout in milliseconds to automatically remove the animation dictionary
                         </ParamField>
-                        <ParamField body="return" type="nil"> 
+                        <ParamField body="return" type="nil">
                             Loads animation dictionary with existence validation
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="LoadWeaponAsset">
-                        <ParamField body="weapon" type="string|integer" required> 
+                        <ParamField body="weapon" type="string|integer" required>
                             Weapon name (string) or hash (integer) to load
                         </ParamField>
-                        <ParamField body="p1" type="integer" required> 
+                        <ParamField body="p1" type="integer" required>
                             Unknown parameter (usually 31)
                         </ParamField>
-                        <ParamField body="p2" type="boolean" required> 
+                        <ParamField body="p2" type="boolean" required>
                             Unknown parameter (usually false)
                         </ParamField>
-                        <ParamField body="timeout" type="integer"> 
+                        <ParamField body="timeout" type="integer">
                             Optional timeout in milliseconds to automatically remove the weapon asset
                         </ParamField>
-                        <ParamField body="return" type="nil"> 
+                        <ParamField body="return" type="nil">
                             Loads weapon asset with validation
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="LoadMoveNetworkDef">
-                        <ParamField body="netDef" type="string" required> 
+                        <ParamField body="netDef" type="string" required>
                             Move network definition name to load
                         </ParamField>
-                        <ParamField body="timeout" type="integer"> 
+                        <ParamField body="timeout" type="integer">
                             Optional timeout in milliseconds to automatically remove the network definition
                         </ParamField>
-                        <ParamField body="return" type="nil"> 
+                        <ParamField body="return" type="nil">
                             Loads move network definition for advanced movement systems
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="LoadClipSet">
-                        <ParamField body="clipSet" type="string" required> 
+                        <ParamField body="clipSet" type="string" required>
                             Clip set name to load
                         </ParamField>
-                        <ParamField body="timeout" type="integer"> 
+                        <ParamField body="timeout" type="integer">
                             Optional timeout in milliseconds to automatically remove the clip set
                         </ParamField>
-                        <ParamField body="return" type="nil"> 
+                        <ParamField body="return" type="nil">
                             Loads animation clip set for character movement styles
                         </ParamField>
                     </Accordion>
@@ -2482,46 +2482,46 @@ all functions handle the loading process with proper validation and error handli
 
                 <Tab title="World & Collision">
                     <Accordion icon="code" iconType="duotone" title="RequestCollisionAtCoord">
-                        <ParamField body="coords" type="vector3" required> 
+                        <ParamField body="coords" type="vector3" required>
                             Coordinates where collision should be loaded
                         </ParamField>
-                        <ParamField body="return" type="nil"> 
+                        <ParamField body="return" type="nil">
                             Loads collision data for terrain at specified coordinates
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="RequestCollisionForModel">
-                        <ParamField body="model" type="string|integer" required> 
+                        <ParamField body="model" type="string|integer" required>
                             Model name or hash to load collision for
                         </ParamField>
-                        <ParamField body="return" type="nil"> 
+                        <ParamField body="return" type="nil">
                             Loads collision data for a specific model
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="RequestIpl">
-                        <ParamField body="ipl" type="string|integer" required> 
+                        <ParamField body="ipl" type="string|integer" required>
                             IPL (Interior Proxy List) name or hash to load
                         </ParamField>
-                        <ParamField body="return" type="nil"> 
+                        <ParamField body="return" type="nil">
                             Loads IPL for interior or map sections, warns if already loaded
                         </ParamField>
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="LoadScene">
-                        <ParamField body="pos" type="vector3" required> 
+                        <ParamField body="pos" type="vector3" required>
                             Position to load scene around
                         </ParamField>
-                        <ParamField body="offset" type="vector3" required> 
+                        <ParamField body="offset" type="vector3" required>
                             Offset from position
                         </ParamField>
-                        <ParamField body="radius" type="number" required> 
+                        <ParamField body="radius" type="number" required>
                             Radius to load scene within
                         </ParamField>
-                        <ParamField body="p7" type="integer" required> 
+                        <ParamField body="p7" type="integer" required>
                             Unknown parameter (usually 0)
                         </ParamField>
-                        <ParamField body="return" type="nil"> 
+                        <ParamField body="return" type="nil">
                             Loads world area around entity - use carefully as it can cause crashes with too many MLOs
                         </ParamField>
                     </Accordion>
@@ -2534,7 +2534,7 @@ all functions handle the loading process with proper validation and error handli
                         ```lua
                             -- Import the streaming module
                             local Assets = Import 'streaming' --[[@as STREAMING]]
-                            
+
                             -- Use any function
                             Assets.Streaming.LoadModel('A_C_BEAR_01')
                             Assets.Streaming.LoadAnimDict('amb@world_human_drinking@coffee@male@idle_a')
@@ -2560,31 +2560,31 @@ was inspired by JavaScript classes
             <Tabs>
                 <Tab title="Class Creation">
                     <Accordion icon="code" iconType="duotone" title="Create">
-                        <ParamField body="base" type="table|class"> 
+                        <ParamField body="base" type="table|class">
                             Base class to inherit from, or table of initial methods/properties
                         </ParamField>
-                        <ParamField body="className" type="string"> 
+                        <ParamField body="className" type="string">
                             Optional name for the class (used in error messages)
                         </ParamField>
-                        <ParamField body="return" type="class"> 
+                        <ParamField body="return" type="class">
                             Returns a new class that can create instances with :New()
                         </ParamField>
 
                         ```lua
                             -- Import the class module
                             local Lib = Import 'class' --[[@as CLASS]]
-                            
+
                             -- Create a basic class
                             local MyClass = Lib.Class:Create({
                                 constructor = function(self, name)
                                     self.name = name
                                 end,
-                                
+
                                 getName = function(self)
                                     return self.name
                                 end
                             }, "MyClass")
-                            
+
                             -- Create instance
                             local instance = MyClass:New("Test")
                             print(instance:getName()) -- "Test"
@@ -2609,10 +2609,10 @@ was inspired by JavaScript classes
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="New">
-                        <ParamField body="..." type="any"> 
+                        <ParamField body="..." type="any">
                             Arguments to pass to the constructor
                         </ParamField>
-                        <ParamField body="return" type="instance"> 
+                        <ParamField body="return" type="instance">
                             Returns a new instance of the class
                         </ParamField>
 
@@ -2624,8 +2624,8 @@ was inspired by JavaScript classes
                                 name = "John",
                                 age = 30
                             })
-                            
-                            -- Argument-based constructor  
+
+                            -- Argument-based constructor
                             local instance2 = MyClass:New("John", 30)
                         ```
                     </Accordion>
@@ -2642,28 +2642,28 @@ was inspired by JavaScript classes
                                     self.id = id
                                     self.created = os.time()
                                 end,
-                                
+
                                 getId = function(self)
                                     return self.id
                                 end,
-                                
+
                                 getInfo = function(self)
                                     return "Entity " .. self.id
                                 end
                             }, "Entity")
-                            
+
                             -- Inherited class
                             local Ped = Lib.Class:Create(Entity, "Ped")
-                            
+
                             function Ped:constructor(id, model)
                                 self:super(id) -- Call parent constructor
                                 self.model = model
                             end
-                            
+
                             function Ped:getInfo()
                                 return "Ped " .. self.id .. " (" .. self.model .. ")"
                             end
-                            
+
                             -- Usage
                             local ped = Ped:New(123, "A_M_M_FARMER_01")
                             print(ped:getInfo()) -- "Ped 123 (A_M_M_FARMER_01)"
@@ -2672,10 +2672,10 @@ was inspired by JavaScript classes
                     </Accordion>
 
                     <Accordion icon="code" iconType="duotone" title="super">
-                        <ParamField body="..." type="any"> 
+                        <ParamField body="..." type="any">
                             Arguments to pass to parent constructor
                         </ParamField>
-                        <ParamField body="return" type="nil"> 
+                        <ParamField body="return" type="nil">
                             Calls the parent class constructor
                         </ParamField>
 
@@ -2699,19 +2699,19 @@ was inspired by JavaScript classes
                         ```lua
                             local Person = Lib.Class:Create({
                                 constructor = function(self, name, age)
-                                    self.name = name 
-                                    self.age = age    
+                                    self.name = name
+                                    self.age = age
                                 end,
                                 -- can be used to organize your code as well just like JS classes
                                 get = {
                                     name = function(self)
                                         return self.name:upper() -- Always return uppercase
                                     end,
-                                    
+
                                     age = function(self)
                                         return self.age
                                     end,
-                                    
+
                                     isAdult = function(self)
                                         return self.age >= 18
                                     end
@@ -2724,7 +2724,7 @@ was inspired by JavaScript classes
                                         end
                                         self.name = value
                                     end,
-                                    
+
                                     age = function(self, value)
                                         if type(value) ~= "number" or value < 0 then
                                             error("Age must be a positive number")
@@ -2733,13 +2733,13 @@ was inspired by JavaScript classes
                                     end
                                 }
                             })
-                            
+
                             local person = Person:New("john", 25)
-                            
+
                             -- Using getters
                             print(person.name)    -- "JOHN" (automatic uppercase)
                             print(person.isAdult) -- true
-                            
+
                             -- Using setters
                             person.name = "jane"  -- Validates and stores
                             person.age = 30       -- Validates and stores
@@ -2758,13 +2758,13 @@ was inspired by JavaScript classes
                                     self._balance = initialBalance       -- Private
                                     self.accountType = "Checking"        -- Public
                                 end,
-                                
+
                                 -- Public method that accesses private members
                                 getBalance = function(self)
                                     self:_validateAccess() -- Private method call
                                     return self._balance
                                 end,
-                                
+
                                 deposit = function(self, amount)
                                     if amount > 0 then
                                         self._balance = self._balance + amount
@@ -2772,24 +2772,24 @@ was inspired by JavaScript classes
                                     end
                                     return false
                                 end,
-                                
+
                                 -- Private method
                                 _validateAccess = function(self)
                                     print("Validating access to account " .. self._accountNumber)
                                 end,
-                                
-                                -- Private method  
+
+                                -- Private method
                                 _calculateInterest = function(self)
                                     return self._balance * 0.01
                                 end
                             }, "BankAccount")
-                            
+
                             local account = BankAccount:New("12345", 1000)
-                            
+
                             -- ✅ Public access
                             print(account:getBalance()) -- 1000
                             account:deposit(500)
-                            
+
                             -- ❌ Private access will error
                             -- print(account._balance)      -- ERROR
                             -- account:_validateAccess()    -- ERROR
@@ -2805,31 +2805,31 @@ was inspired by JavaScript classes
                                     self._engine = "V8"     -- Private to Vehicle
                                     self.model = model      -- Public
                                 end,
-                                
+
                                 getEngineInfo = function(self)
                                     return "Engine: " .. self._engine -- ✅ Same class access
                                 end,
-                                
+
                                 _startEngine = function(self)
                                     print("Starting " .. self._engine .. " engine")
                                 end
                             })
-                            
+
                             local Car = Lib.Class:Create(Vehicle, "Car")
-                            
+
                             function Car:constructor(model, doors)
                                 self:super(model)
                                 self.doors = doors
                                 -- self._engine = "Modified"  -- ❌ Would error - can't access parent private
                             end
-                            
+
                             function Car:tryAccessPrivate()
                                 -- ❌ Cannot access parent's private members
                                 -- local engine = self._engine     -- ERROR
                                 -- self:_startEngine()             -- ERROR
                                 print("Cannot access parent private members")
                             end
-                            
+
                             local car = Car:New("Mustang", 2)
                             print(car:getEngineInfo()) -- ✅ "Engine: V8" (via public method)
                             car:tryAccessPrivate()     -- Shows privacy enforcement
@@ -2844,7 +2844,7 @@ was inspired by JavaScript classes
                         ```lua
                             -- Import the class module
                             local Lib = Import 'class' --[[@as CLASS]]
-                            
+
                             -- Base Entity class
                             local Entity = Lib.Class:Create({
                                 constructor = function(self, data)
@@ -2853,37 +2853,37 @@ was inspired by JavaScript classes
                                     self.name = data.name or "Entity" -- Public name
                                     self._created = os.time()         -- Private creation time
                                 end,
-                                
+
                                 -- Public methods
                                 getId = function(self)
                                     return self._id
                                 end,
-                                
+
                                 getPosition = function(self)
                                     return self._position
                                 end,
-                                
+
                                 setPosition = function(self, pos)
                                     self._position = pos
                                     self:_onPositionChanged() -- Private method call
                                 end,
-                                
+
                                 getAge = function(self)
                                     return os.time() - self._created
                                 end,
-                                
+
                                 -- Private methods
                                 _onPositionChanged = function(self)
                                     print("Entity " .. self._id .. " moved to " .. tostring(self._position))
                                 end,
-                                
+
                                 -- Automatic getters/setters
                                 get = {
                                     displayName = function(self)
                                         return self.name .. " (#" .. self._id .. ")"
                                     end
                                 },
-                                
+
                                 set = {
                                     name = function(self, value)
                                         if type(value) ~= "string" or #value == 0 then
@@ -2893,17 +2893,17 @@ was inspired by JavaScript classes
                                     end
                                 }
                             }, "Entity")
-                            
+
                             -- Ped class inheriting from Entity
                             local Ped = Lib.Class:Create(Entity, "Ped")
-                            
+
                             function Ped:constructor(data)
                                 self:super(data) -- Call parent constructor
                                 self._model = data.model or "A_M_M_FARMER_01"  -- Private model
                                 self._health = data.health or 100              -- Private health
                                 self.faction = data.faction or "Civilian"      -- Public faction
                             end
-                            
+
                             function Ped:spawn()
                                 local pos = self:getPosition()
                                 local handle = CreatePed(joaat(self._model), pos.x, pos.y, pos.z, 0.0, true, false, false, false)
@@ -2911,14 +2911,14 @@ was inspired by JavaScript classes
                                 print("Spawned " .. self.displayName .. " at " .. tostring(pos))
                                 return handle
                             end
-                            
+
                             function Ped:damage(amount)
                                 self._health = math.max(0, self._health - amount)
                                 if self._health <= 0 then
                                     self:_onDeath()
                                 end
                             end
-                            
+
                             -- Private method
                             function Ped:_onDeath()
                                 print(self.displayName .. " has died")
@@ -2926,7 +2926,7 @@ was inspired by JavaScript classes
                                     DeletePed(self._handle)
                                 end
                             end
-                            
+
                             -- Getters for private properties
                             Ped.get.health = function(self)
                                 return self._health
@@ -2935,7 +2935,7 @@ was inspired by JavaScript classes
                             Ped.get.model = function(self)
                                 return self._model
                             end
-                            
+
                             -- Usage
                             local ped = Ped:New({
                                 id = 123,
@@ -2945,21 +2945,21 @@ was inspired by JavaScript classes
                                 health = 150,
                                 faction = "Van der Linde Gang"
                             })
-                            
+
                             -- Public interface
                             print(ped.displayName)           -- "John Marston (#123)"
                             print("Health:", ped.health)     -- 150 (via getter)
                             print("Age:", ped:getAge(), "seconds old")
-                            
+
                             ped:setPosition(vector3(150, 250, 350))
                             ped:spawn()
                             ped:damage(50)
                             print("Health after damage:", ped.health) -- 100
-                            
+
                             -- Validation works
                             ped.name = "Arthur Morgan" -- ✅ Valid
                             -- ped.name = ""           -- ❌ Would error
-                            
+
                             -- Privacy enforced
                             -- print(ped._health)      -- ❌ Would error
                             -- ped:_onDeath()          -- ❌ Would error
@@ -2971,35 +2971,35 @@ was inspired by JavaScript classes
 
                         ```lua
                             local Lib = Import 'class' --[[@as CLASS]]
-                            
+
                             -- Create class with traditional Lua methods
                             local Timer = Lib.Class:Create({},"Timer")
-                            
+
                             function Timer:constructor(name, duration)
                                 self.name = name or "Timer"
                                 self._startTime = nil
                                 self._duration = duration or 5000
                                 self._isRunning = false
                             end
-                            
+
                             function Timer:start()
                                 self._startTime = GetGameTimer()
                                 self._isRunning = true
                                 print(self.name .. " started for " .. self._duration .. "ms")
                             end
-                            
+
                             function Timer:stop()
                                 self._isRunning = false
                                 print(self.name .. " stopped")
                             end
-                            
+
                             function Timer:isExpired()
                                 if not self._isRunning or not self._startTime then
                                     return false
                                 end
                                 return (GetGameTimer() - self._startTime) >= self._duration
                             end
-                            
+
                             function Timer:getTimeLeft()
                                 if not self._isRunning or not self._startTime then
                                     return 0
@@ -3007,11 +3007,11 @@ was inspired by JavaScript classes
                                 local elapsed = GetGameTimer() - self._startTime
                                 return math.max(0, self._duration - elapsed)
                             end
-                            
+
                             -- Usage
                             local timer = Timer:New("Countdown", 10000)
                             timer:start()
-                            
+
                             -- Check in a loop or thread
                             CreateThread(function()
                                 while not timer:isExpired() do
@@ -3040,8 +3040,8 @@ shared between server and client environments
     <Tab title="Switch">
         <Accordion icon="code" iconType="duotone" title="Switch">
             use these utilities for advanced control flow and timing operations
-            
-            <ParamField body="value" type="any"> 
+
+            <ParamField body="value" type="any">
                 The value to match against cases
             </ParamField>
 
@@ -3050,42 +3050,42 @@ shared between server and client environments
             ```lua
                  -- Import the functions module
                  local Lib = Import 'functions' --[[@as FUNCTIONS]]
-                 
+
                  -- Basic switch usage
                  local result = Lib.Switch(playerLevel)
-                    :case(1, function(value) 
-                        return "Beginner" 
+                    :case(1, function(value)
+                        return "Beginner"
                     end)
-                     :case(2, function(value) 
-                        return "Intermediate" 
+                     :case(2, function(value)
+                        return "Intermediate"
                     end)
-                     :case(3, function(value) 
-                        return "Advanced" 
+                     :case(3, function(value)
+                        return "Advanced"
                     end)
-                     :default(function(value) 
-                        return "Unknown Level: " .. value 
+                     :default(function(value)
+                        return "Unknown Level: " .. value
                     end)
                     :execute()
-                 
+
                 print(result)
             ```
         </Accordion>
     </Tab>
     <Tab title="Interval">
         <Accordion icon="code" iconType="duotone" title="SetInterval">
-            <ParamField body="callback" type="function" required> 
+            <ParamField body="callback" type="function" required>
                 Function to execute repeatedly
             </ParamField>
-            <ParamField body="delay" type="integer" required> 
+            <ParamField body="delay" type="integer" required>
                 Delay between executions in milliseconds
             </ParamField>
-            <ParamField body="customArgs" type="table"> 
+            <ParamField body="customArgs" type="table">
                 Arguments to pass to the callback function
             </ParamField>
-            <ParamField body="start" type="boolean"> 
+            <ParamField body="start" type="boolean">
                 Whether to start the interval immediately
             </ParamField>
-            <ParamField body="return" type="Interval" required> 
+            <ParamField body="return" type="Interval" required>
                 Returns an Interval instance for control
             </ParamField>
 
@@ -3094,7 +3094,7 @@ shared between server and client environments
             ```lua
                 -- Import the functions module
                 local Lib = Import 'functions' --[[@as FUNCTIONS]]
-                
+
                 -- Create an interval that runs every 5 seconds
                 local healthCheck = Lib.SetInterval(function(self, playerId)
                     local player = GetPlayerPed(playerId)
@@ -3111,7 +3111,7 @@ shared between server and client environments
         <Tabs>
             <Tab title="Getters">
                 <Accordion icon="code" iconType="duotone" title="GetState">
-                    <ParamField body="return" type="boolean"> 
+                    <ParamField body="return" type="boolean">
                         Returns true if interval is running, false if paused
                     </ParamField>
 
@@ -3126,19 +3126,19 @@ shared between server and client environments
 
             <Tab title="Setters">
                 <Accordion icon="code" iconType="duotone" title="Pause">
-                    <ParamField body="return" type="nil"> 
+                    <ParamField body="return" type="nil">
                         Pauses the interval execution
                     </ParamField>
                 </Accordion>
 
                 <Accordion icon="code" iconType="duotone" title="Resume">
-                    <ParamField body="..." type="any"> 
-                        New arguments to pass to the callback 
+                    <ParamField body="..." type="any">
+                        New arguments to pass to the callback
                     </ParamField>
                 </Accordion>
 
                 <Accordion icon="code" iconType="duotone" title="Update">
-                    <ParamField body="..." type="any"> 
+                    <ParamField body="..." type="any">
                         New arguments to pass to the callback
                     </ParamField>
 
@@ -3148,7 +3148,7 @@ shared between server and client environments
                 </Accordion>
 
                 <Accordion icon="code" iconType="duotone" title="Destroy">
-                    <ParamField body="return" type="nil"> 
+                    <ParamField body="return" type="nil">
                         Stops and cleans up the interval completely
                     </ParamField>
 
@@ -3159,16 +3159,16 @@ shared between server and client environments
 
     <Tab title="Timeout">
         <Accordion icon="code" iconType="duotone" title="SetTimeout">
-            <ParamField body="callback" type="function" required> 
+            <ParamField body="callback" type="function" required>
                 Function to execute after delay
             </ParamField>
-            <ParamField body="delay" type="integer" required> 
+            <ParamField body="delay" type="integer" required>
                 Delay before execution in milliseconds
             </ParamField>
-            <ParamField body="customArgs" type="table"> 
+            <ParamField body="customArgs" type="table">
                 Arguments to pass to the callback function
             </ParamField>
-            <ParamField body="return" type="Timeout" required> 
+            <ParamField body="return" type="Timeout" required>
                 Returns a Timeout instance for control
             </ParamField>
 
@@ -3177,7 +3177,7 @@ shared between server and client environments
             ```lua
                 -- Import the functions module
                 local Lib = Import 'functions' --[[@as FUNCTIONS]]
-                
+
                 -- Create a timeout that executes after 10 seconds
                 local delayedAction = Lib.SetTimeout(function(message, playerId)
                     print("Delayed message: " .. message)
@@ -3188,28 +3188,28 @@ shared between server and client environments
         <Tabs>
             <Tab title="Getters">
                 <Accordion icon="code" iconType="duotone" title="GetState">
-                    <ParamField body="return" type="boolean"> 
+                    <ParamField body="return" type="boolean">
                         Returns true if timeout is active, false if paused/executed
                     </ParamField>
-                
+
                 </Accordion>
             </Tab>
 
             <Tab title="Setters">
                 <Accordion icon="code" iconType="duotone" title="Pause">
-                    <ParamField body="return" type="nil"> 
+                    <ParamField body="return" type="nil">
                         Pauses the timeout, preventing execution
                     </ParamField>
                 </Accordion>
 
                 <Accordion icon="code" iconType="duotone" title="Resume">
-                    <ParamField body="..." type="any"> 
+                    <ParamField body="..." type="any">
                         New arguments to pass to the callback accepts update arguments too like the update method
                     </ParamField>
                 </Accordion>
 
                 <Accordion icon="code" iconType="duotone" title="Update">
-                    <ParamField body="..." type="any"> 
+                    <ParamField body="..." type="any">
                         New arguments to pass to the callback
                     </ParamField>
 
@@ -3221,7 +3221,7 @@ shared between server and client environments
                 </Accordion>
 
                 <Accordion icon="code" iconType="duotone" title="Destroy">
-                    <ParamField body="return" type="nil"> 
+                    <ParamField body="return" type="nil">
                         Cancels and cleans up the timeout completely
                     </ParamField>
                 </Accordion>
@@ -3371,39 +3371,39 @@ This Selector allows you to select players with a NUI selector that will return 
     <Tab title="Usage">
 
         <Accordion icon="code" iconType="duotone" title="Select">
-            <ParamField body="allow_self" type="boolean"> 
+            <ParamField body="allow_self" type="boolean">
                 Allow self selection
             </ParamField>
 
-            <ParamField body="amount_of_players" type="integer"> 
+            <ParamField body="amount_of_players" type="integer">
                 Amount of players to select
             </ParamField>
 
-            <ParamField body="distance" type="number"> 
+            <ParamField body="distance" type="number">
                 Distance to select players
             </ParamField>
 
-            <ParamField body="allow_in_vehicle" type="boolean"> 
+            <ParamField body="allow_in_vehicle" type="boolean">
                 Allow selection of players in vehicles
             </ParamField>
 
-            <ParamField body="allow_on_horse" type="boolean"> 
+            <ParamField body="allow_on_horse" type="boolean">
                 Allow selection of players on horses
             </ParamField>
 
-           
-            <ParamField body="playerid" type="integer"> 
+
+            <ParamField body="playerid" type="integer">
                 The player id that was selected
             </ParamField>
-         
+
 
             ```lua
             local result <const> = exports.vorp_lib:Select({
-                allow_self = true, 
+                allow_self = true,
                 amount_of_players = 4,
-                distance = 8.0,  
+                distance = 8.0,
                 allow_in_vehicle = true,
-                allow_on_horse = true 
+                allow_on_horse = true
             })
             ```
         </Accordion>
@@ -3419,35 +3419,35 @@ Allows you to create a progress bar that will be displayed on screen for a speci
 
         <Accordion icon="code" iconType="duotone" title="Start">
 
-            <ParamField body="text" type="string" required> 
+            <ParamField body="text" type="string" required>
                 Text to display in the progress bar
             </ParamField>
 
-            <ParamField body="colors" type="table" required> 
+            <ParamField body="colors" type="table" required>
                 Table with the colors for the progress bar `startColor` and `endColor` are the colors for the text and `backgroundColor` and `fillColor` are the colors for the background and the fill of the progress bar image
             </ParamField>
 
-            <ParamField body="duration" type="integer" required> 
+            <ParamField body="duration" type="integer" required>
                 Duration in `milliseconds` for the progress bar
             </ParamField>
 
-            <ParamField body="type" type="string" required> 
+            <ParamField body="type" type="string" required>
                 Type of progress bar only `linear` is avaliable for now
             </ParamField>
 
-            <ParamField body="position" type="table" required> 
+            <ParamField body="position" type="table" required>
                 Table with the position for the progress bar on screen `top` and `left` are the position in `%` for the progress bar
             </ParamField>
 
-            <ParamField body="image" type="string"> 
+            <ParamField body="image" type="string">
                 Image for the progress bar only `png` is avaliable for now
             </ParamField>
 
-            <ParamField body="callback" type="function"> 
+            <ParamField body="callback" type="function">
                 Callback function if you want to use it as async
             </ParamField>
 
-            <ParamField body="return" type="boolean"> 
+            <ParamField body="return" type="boolean">
                 the result of the progress bar `true` or `false` if `false` the progress bar was cancelled
             </ParamField>
 
@@ -3500,16 +3500,36 @@ Allows you to create a progress bar that will be displayed on screen for a speci
     </Tab>
 </Tabs>
 
+### Copy
+
+Allows you to send a clipboard copy request from `vorp_lib` NUI.
+
+<Tabs>
+    <Tab title="Usage">
+
+        <Accordion icon="code" iconType="duotone" title="copyToClipBoard">
+
+            <ParamField body="text" type="string" required>
+                Text to copy to the clipboard
+            </ParamField>
+
+            ```lua
+            exports.vorp_lib:copyToClipBoard("Hello from vorp_lib")
+            ```
+        </Accordion>
+    </Tab>
+</Tabs>
+
 ### Density
 
  Not yet implemented
 
-### Collector 
+### Collector
 
 Not yet implemented
 
 
-## Cache 
+## Cache
 
 Cache system to help reduce the amount of most used natives calls like PlayerPedId
 
