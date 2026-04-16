@@ -3500,6 +3500,26 @@ Allows you to create a progress bar that will be displayed on screen for a speci
     </Tab>
 </Tabs>
 
+### Copy
+
+Allows you to send a clipboard copy request from `vorp_lib` NUI.
+
+<Tabs>
+    <Tab title="Usage">
+
+        <Accordion icon="code" iconType="duotone" title="copyToClipBoard">
+
+            <ParamField body="text" type="string" required>
+                Text to copy to the clipboard
+            </ParamField>
+
+            ```lua
+            exports.vorp_lib:copyToClipBoard("Hello from vorp_lib")
+            ```
+        </Accordion>
+    </Tab>
+</Tabs>
+
 ### Density
 
 Allows you to inspect or change the population density multipliers handled by `vorp_lib` at runtime.
