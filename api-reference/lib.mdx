@@ -3567,7 +3567,7 @@ Valid density names are:
         <Accordion icon="code" iconType="duotone" title="SetDefaultDensityMultipliers">
 
             <ParamField body="source" type="integer" required>
-                Target player source.
+                Target player source or -1 for all.
             </ParamField>
 
             <ParamField body="name" type="string" required>
@@ -3575,7 +3575,7 @@ Valid density names are:
             </ParamField>
 
             <ParamField body="value" type="number" required>
-                Density multiplier value. The source code uses values between `0.0` and `1.0`.
+                Density multiplier value. Use values between `0.0` and `1.0`.
             </ParamField>
 
             ```lua
@@ -3595,7 +3595,7 @@ Valid density names are:
             </ParamField>
 
             <ParamField body="value" type="number" required>
-                Temporary density multiplier value.
+                Density multiplier value, Use values between `0.0` and `1.0`.
             </ParamField>
 
             <ParamField body="timer" type="integer">
@@ -3611,7 +3611,7 @@ Valid density names are:
         <Accordion icon="code" iconType="duotone" title="RemoveTemporayDensityMultipliers">
 
             <ParamField body="source" type="integer" required>
-                Target player source.
+                Target player source or -1 for all.
             </ParamField>
 
             <ParamField body="name" type="string" required>
