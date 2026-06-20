@@ -512,6 +512,130 @@ icon : 'code'
     ```
 </Accordion>
 
+<Accordion icon="keyboard" iconType= "duotone" title="addWeaponComponent">
+ 
+   <Icon icon="code" iconType="solid"/> add a component to a weapon
+
+    <ParamField body="source" type="int" required>
+     The player id
+    </ParamField>
+
+    <ParamField body="weaponId" type="number" required>
+     weapon id
+    </ParamField>
+
+    <ParamField body="component" type="string | number" required>
+     component name or hash
+    </ParamField>
+
+    <ParamField body="category" type="string | number" required>
+     slot category
+    </ParamField>
+
+    <ParamField body="callback" type="function">
+     callback function syncronous or asyncronous
+    </ParamField>
+
+    <ParamField body="return" type="boolean">
+     `returns` true if the component was successfully added
+    </ParamField>
+
+    ```lua
+    exports.vorp_inventory:addWeaponComponent(source, weaponId, component, category, callback)
+    ```
+</Accordion>
+
+<Accordion icon="keyboard" iconType= "duotone" title="addWeaponComponents">
+ 
+   <Icon icon="code" iconType="solid"/> add multiple components to a weapon
+
+    <ParamField body="source" type="int" required>
+     The player id
+    </ParamField>
+
+    <ParamField body="weaponId" type="number" required>
+     weapon id
+    </ParamField>
+
+    <ParamField body="components" type="table" required>
+     a table where the key is the component name or hash and the value is the slot category `{ [component] = category }`
+    </ParamField>
+
+    <ParamField body="callback" type="function">
+     callback function syncronous or asyncronous
+    </ParamField>
+
+    <ParamField body="return" type="boolean">
+     `returns` true if the components were successfully added
+    </ParamField>
+
+    ```lua
+    exports.vorp_inventory:addWeaponComponents(source, weaponId, components, callback)
+    ```
+</Accordion>
+
+<Accordion icon="keyboard" iconType= "duotone" title="subWeaponComponent">
+ 
+   <Icon icon="code" iconType="solid"/> remove a component from a weapon
+
+    <ParamField body="source" type="int" required>
+     The player id
+    </ParamField>
+
+    <ParamField body="weaponId" type="number" required>
+     weapon id
+    </ParamField>
+
+    <ParamField body="component" type="string | number" required>
+     component name or hash
+    </ParamField>
+
+    <ParamField body="category" type="string | number" required>
+     slot category
+    </ParamField>
+
+    <ParamField body="callback" type="function">
+     callback function syncronous or asyncronous
+    </ParamField>
+
+    <ParamField body="return" type="boolean">
+     `returns` true if the component was successfully removed
+    </ParamField>
+
+    ```lua
+    exports.vorp_inventory:subWeaponComponent(source, weaponId, component, category, callback)
+    ```
+</Accordion>
+
+<Accordion icon="keyboard" iconType= "duotone" title="subWeaponComponents">
+ 
+   <Icon icon="code" iconType="solid"/> remove multiple components from a weapon
+
+    <ParamField body="source" type="int" required>
+     The player id
+    </ParamField>
+
+    <ParamField body="weaponId" type="number" required>
+     weapon id
+    </ParamField>
+
+    <ParamField body="components" type="table" required>
+     a table where the key is the component name or hash and the value is the slot category `{ [component] = category }`
+    </ParamField>
+
+    <ParamField body="callback" type="function">
+     callback function syncronous or asyncronous
+    </ParamField>
+
+    <ParamField body="return" type="boolean">
+     `returns` true if the components were successfully removed
+    </ParamField>
+
+    ```lua
+    exports.vorp_inventory:subWeaponComponents(source, weaponId, components, callback)
+    ```
+</Accordion>
+
 </Tab>
   <Tab title="Items">
     ### Getters
@@ -1593,6 +1717,29 @@ TriggerClientEvent("vorp_inventory:blockInventory", player_id, true or false)
 ```
 ```lua OnInvBlock client
   TriggerEvent("vorp_inventory:blockInventory", true or false)
+```
+
+<Note>Client Side only</Note>
+
+Listen to when a weapon is equipped
+```lua onWeaponEquipped
+AddEventHandler("vorp_inventory:onWeaponEquipped", function(components, weaponId, name, isDual, defaultAttachments)
+    -- components: table of the equipped components, weaponId: weapon id, name: weapon name, isDual: boolean, defaultAttachments: table
+end)
+```
+
+Listen to when a component is added to a weapon
+```lua componentAdded
+AddEventHandler("vorp_inventory:componentAdded", function(weaponId, component, category)
+    -- weaponId: weapon id, component: component name, category: slot category
+end)
+```
+
+Listen to when a component is removed from a weapon
+```lua componentRemoved
+AddEventHandler("vorp_inventory:componentRemoved", function(weaponId, component, category)
+    -- weaponId: weapon id, component: component name, category: slot category
+end)
 ```
 
 ## Statebags
