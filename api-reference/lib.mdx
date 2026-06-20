@@ -3674,4 +3674,33 @@ Cache system to help reduce the amount of most used natives calls like PlayerPed
              ```
         </Accordion>
     </Tab>
+       <Tab title="Callbacks">
+        <Accordion icon="code" iconType="duotone" title="OnPedChange">
+            register a callback that is called when the player ped changes, the new ped id is passed to the callback
+
+            <ParamField body="callback" type="function" required>
+                The function called with the new ped id when the player ped changes
+            </ParamField>
+
+            ```lua
+            CACHE.OnPedChange(function(pedId)
+                print('ped changed', pedId)
+            end)
+            ```
+        </Accordion>
+
+        <Accordion icon="code" iconType="duotone" title="OnPlayerDeath">
+            register a callback that is called when the player dies, relies on the `IsDead` check so `CACHE.SkipIsDead` must stay false
+
+            <ParamField body="callback" type="function" required>
+                The function called when the player dies
+            </ParamField>
+
+            ```lua
+            CACHE.OnPlayerDeath(function()
+                print('player died')
+            end)
+            ```
+        </Accordion>
+    </Tab>
 </Tabs>
