@@ -3641,6 +3641,8 @@ Cache system to help reduce the amount of most used natives calls like PlayerPed
             CACHE is a Global Client table that contains cached data for `Ped`,`Player`,`ServerID`,`Vehicle`,`Mount`,`Weapon`
             these are updated every 5 milliseconds `Vehicle`, `Mount` reset to 0 when the player is not in a vehicle or mount
 
+            `LastVehicle`, `LastMount`, `LastWeapon` keep the previous value when it changes, they are not reset to 0
+
             <ParamField body="return" type="any">
                 The cached data
             </ParamField>
@@ -3653,6 +3655,9 @@ Cache system to help reduce the amount of most used natives calls like PlayerPed
             local mount = CACHE.Mount -- current mounted entity or 0 if not mounted
             local weapon = CACHE.Weapon -- current held weapon
             local isDead = CACHE.IsDead -- current player is dead or not
+            local lastVehicle = CACHE.LastVehicle -- last vehicle the player was in
+            local lastMount = CACHE.LastMount -- last mount the player was on
+            local lastWeapon = CACHE.LastWeapon -- last weapon the player held
             ```
         </Accordion>
     </Tab>
