@@ -55,6 +55,9 @@ After creating an application from the [Discord Developer Portal](https://discor
 ### How can I solve 32 player problem?
 Since this problem is caused by CFX, there is no way to solve it outside of CFX. (Bucket/Instance scripts are not very recommended)
 
+### How can I check a third-party resource before installing it?
+Download resources only from their original authors. Leaked or re-uploaded copies of paid scripts are a common way RedM and FiveM servers get backdoored. Before you add a resource, search its files for `PerformHttpRequest` used together with `load(`, long encoded strings, and code hidden after a long run of spaces. The open-source [FiveM Backdoor Scanner](https://github.com/rpScripts/fivem-backdoor-scanner) runs these checks on Lua resources for you. A clean result is not a guarantee, and escrow-encrypted files cannot be checked.
+
 #### For general RedM problem [RedM FAQ](https://github.com/Z-eus/RedM-FAQ)
 
 #### For Support and more [VORP Core Official Discord Server](https://discord.gg/JjNYMnDKMf)
